@@ -33,15 +33,11 @@ function petShop(typeOfPets, costOfPets){
        console.log( typeOfPets([i]), costOfPets([i]))
 }
 function typeOfPets(pet1, pet2, pet3, pet4) {
-function costOfPet(cost1, cost2, cost3, cost4)
- {
     console.log(pet1,pet2,pet3,pet4)
-    console.log(cost1, cost2, cost3, cost4)
+}
+    function costOfPet(cost1, cost2, cost3, cost4){
  
+    console.log(cost1, cost2, cost3, cost4)
+}
 typeOfPets('Dog', 'Cat', 'Fish', 'Turtle')
 costOfPet (5,6,88,56,35)
-}
-}
-
-
-sdafosidfhdsl;kjef;lg
