@@ -1,20 +1,28 @@
 console.log(`..:::Welcome to Sally's Fruit Mart:::..`),
 
 let = itemScanner = {
+ 
+ 
   fruitBarCodeScanned: "", // refers to the  parameters of the scanId "id"function
   fruitNameScanned: "", // refers to the  parameters of the scanId "name"function
   priceOfFruit: "", // refers to the  parameters of the scanId "price"function
   amountOfFruit: "", //  // refers to the  parameters of the scanId "amount"function
+ 
   fruitBarCodeInBasket: [],
   fruitNamesInBasket: [],
+  
   fruitoutofBasket: [],
   fruitsInCart: [],
+  
   allitemsScanned: [],
+  allPricesScanned: [],
+  totalCostOfItem : (this.priceOfFruit + this.priceOfFruit),
+
   totalFruitPrice : (this.amountOfFruit * this.priceOfFruit),//give me the total cost of the specific item
+   
   
-  
-  //         NEED HELP BELOW
-  totalOfAllSales : (this.totalFruitPrice + this.totalFruitPrice ), // not working
+  totalSalesCost : (this.totalFruitPrice + this.totalFruitPrice),
+
 
   
   
@@ -24,7 +32,7 @@ let = itemScanner = {
      
     console.log(`Fruit BarCode: ${this.fruitBarCodeScanned}`);
     console.log(`Fruit Name: ${this.fruitNameScanned}`);
-    console.log(` You Have ${itemScanner.amountOfFruit}, ${this.fruitNameScanned} `)
+    console.log(` You Have ${itemScanner.amountOfFruit}, ${this.fruitNameScanned} that costs ${totalCostOfItem} `)
 
   },
   
@@ -65,7 +73,7 @@ scanId("18624", "Peaches", "in", 4, 4);
 
 console.log (` <..::THANK YOU FOR SHOPPING AT SALLY'S::..> `);
 console.log(` ${""} `); // adding a space
-console.log(` That Cost a total cost  of your groceries is ${itemScanner.totalFruitPrice} dollars`) 
+console.log(` That Cost a total cost  of your groceries is ${itemScanner.totalSalesCost} dollars`) 
 console.log(` ${""} `);
 
 
