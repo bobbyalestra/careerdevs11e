@@ -19,10 +19,8 @@ let diabetesDisplay ={
     },
 
     addCurrentBG:  function (displayText){
-        this.display.push({displayText : displayText,
-            completed : false
-    });
-    this.displayInfo();
+        this.display.push(displayText)
+    //this.displayInfo();
      },
      deleteInfo: function (position){
          this.display.splice(position);
@@ -36,7 +34,7 @@ let diabetesDisplay ={
 
         addCurrentBG: function(){
             let addCurrentBGText = document.getElementById('addCurrentBGtTextInput')
-            diabetesDisplay.addCurrentBG(addCurrentBGText.value);
+           // diabetesDisplay.addCurrentBG(addCurrentBGText).value;
             addCurrentBGTextInput.value= " ";
             view.displayInfo();
         },
@@ -48,23 +46,50 @@ let diabetesDisplay ={
      }
 
      let view = {
+         displayInfo: function(){
+             let foodUl = document.querySelector('ul');
+             foodUl.innerHTML= '';
+             for (let i = 0; i <diabetesDisplay.display.length; i++){
+                 let foodLi = document.createElement('li');
+                 let food = diabetesDisplay.display[i];
+                
+                 foodLi.id = i;
+                 foodLi.textContent = food.displayText
+                foodUl.appendChild(foodLi)
+                }
+         },
 
      }
 
 
 
 
+
+
+
+
      ////////
 
-     const addForm = document.forms['add-foodItem']
+     const diabetesFoodList = document.querySelector('#food-list ul');
 
-     addForm.addEventListener('click' , function(food){
-        food.preventDefault();
+     diabetesFoodList.addEventListener('click', function(e){
+     if(e.target.className == 'delete'){
+         const li =e.target.parentElement;
+         diabetesFoodList.removeChild(li);
+     }
+     })
+
+
+
+     const addForm = document.forms['add-food']
+
+     addForm.addEventListener('submit', function(e){
+       e.preventDefault();
         const value = addForm.querySelector('input[type="text"]').value;
         const li = document.createElement('li');
         const foodName = document.createElement('span');
         foodName.textContent = value;
-        const deletBtn = document.createElement('span');
+        const deleteBtn = document.createElement('span');
         deleteBtn.textContent = 'delete';
 
         foodName.classList.add('name');
@@ -72,6 +97,16 @@ let diabetesDisplay ={
 
         li.appendChild(foodName);
         li.appendChild(deleteBtn);
-        display.appendChild(li);
+        diabetesFoodList.appendChild(li);
 
+     })
+
+     const hideBox = document.querySelector('#hide');
+    
+     hideBox.addEventListener('change', function(e){
+         if(hideBox.checked){
+             diabetesFoodList.style.display= 'none'
+         }else{
+            diabetesFoodList.style.display= 'initial'
+         }
      })

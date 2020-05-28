@@ -2,33 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="styles.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Arons Diabetes Calculator</title>
 </head>
 <body>
+    <form id ="add-food">
+        <input type="checkbox" id="hide" />
+        <label for="hide">Hide The Food</label>
+            <input type="text" placeholder="Add a book..." />
+            <button>Add</button>
+        </form>
+
     
+
     
 
-    <label for 'TimeOfDay'>Choose Meal Time </label>
-    <select id='mealTime'>
-        <option value = "breakfast">Breakfast</option>
-        <option value = "breakfastSnack">Breakfast Snack</option>
-        <option value = "lunch">Lunch Time</option>
-        <option value = "lunchSnack">Lunch Time Snack</option>
-        <option value = "dinner">Dinner</option>
-        <option value = "dinnerSnack">Dinner Time Snack</option>
-        <option value = "other">Other</option>
-    </select>
-    <form id='add-foodName'>
-        <input type='text' placeholder="Enter Total Carbs">
 
-    </form>
-
-    <div id='add-foodName'>
+  
+    <div id="food-list">
+        <h2 class="title">Books to Read</h2>
         <ul>
-
+       
         </ul>
-    </div>
+        <label for 'TimeOfDay'>Choose Meal Time </label>
+        <select id='mealTime'>
+            <option value = "breakfast">Breakfast</option>
+            <option value = "breakfastSnack">Breakfast Snack</option>
+            <option value = "lunch">Lunch Time</option>
+            <option value = "lunchSnack">Lunch Time Snack</option>
+            <option value = "dinner">Dinner</option>
+            <option value = "dinnerSnack">Dinner Time Snack</option>
+            <option value = "other">Other</option>
+        </select>
+      
+    
+    <!-- <div id='add-foodItem'>
+        <ul>
+          <li> 
+              <span class='name'> Name of Book</span>
+              <span class="delete">delete</span>
+          </li>
+        </ul>
+    </div> -->
 
     <h1><div id='addCurrentBGTextInput'>
         <button onclick = 'handlers.addCurrentBG()'>Add Foods Eaten</button>
