@@ -27,7 +27,10 @@ let diabetesDisplay ={
      deleteInfo: function (position){
          this.display.splice(position);
          this.displayInfo();
-     },
+     }
+    }
+    
+     
     
      let handlers = {
 
@@ -36,9 +39,14 @@ let diabetesDisplay ={
             diabetesDisplay.addCurrentBG(addCurrentBGText.value);
             addCurrentBGTextInput.value= " ";
             view.displayInfo();
+        },
+        deleteInfo: function (position) {
+            diabetesDisplay.deleteInfo(position);
+            view.displayInfo();
+
         }
-        deleteInfo: function (position) 
-     },
+     }
 
+     let view = {
 
-}
+     }
