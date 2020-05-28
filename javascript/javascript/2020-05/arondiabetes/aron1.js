@@ -50,3 +50,28 @@ let diabetesDisplay ={
      let view = {
 
      }
+
+
+
+
+     ////////
+
+     const addForm = document.forms['add-foodItem']
+
+     addForm.addEventListener('click' , function(food){
+        food.preventDefault();
+        const value = addForm.querySelector('input[type="text"]').value;
+        const li = document.createElement('li');
+        const foodName = document.createElement('span');
+        foodName.textContent = value;
+        const deletBtn = document.createElement('span');
+        deleteBtn.textContent = 'delete';
+
+        foodName.classList.add('name');
+        deleteBtn.classList.add('delete');
+
+        li.appendChild(foodName);
+        li.appendChild(deleteBtn);
+        display.appendChild(li);
+
+     })

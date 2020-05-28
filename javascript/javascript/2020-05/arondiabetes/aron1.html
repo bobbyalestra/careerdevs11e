@@ -7,6 +7,8 @@
 </head>
 <body>
     
+    
+
     <label for 'TimeOfDay'>Choose Meal Time </label>
     <select id='mealTime'>
         <option value = "breakfast">Breakfast</option>
@@ -17,14 +19,18 @@
         <option value = "dinnerSnack">Dinner Time Snack</option>
         <option value = "other">Other</option>
     </select>
-    <form id='carbIntakeTotal'>
+    <form id='add-foodName'>
         <input type='text' placeholder="Enter Total Carbs">
-        
+
     </form>
 
+    <div id='add-foodName'>
+        <ul>
 
+        </ul>
+    </div>
 
-    <h1><div>
+    <h1><div id='addCurrentBGTextInput'>
         <button onclick = 'handlers.addCurrentBG()'>Add Foods Eaten</button>
         <input type ='text' id = 'addCurrentBGTextInput' placeholder='Enter Food Eaten'>
     </div></h1>
