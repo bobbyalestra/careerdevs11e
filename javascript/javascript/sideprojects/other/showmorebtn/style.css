@@ -1,0 +1,59 @@
+
+
+
+
+body{
+    background-color: khaki;
+    font-size: 48px;
+    font-family: 'Courier New', Courier, monospace;
+    color:blue;
+}
+
+#content{
+
+    width: 400px;
+    background-color: #eee;
+    padding: 20px;
+    padding-top:0px;
+    font-family: fantasy;
+    font-size: 18px;
+    color: 444;
+    margin: 0 auto;
+
+
+    /* these conditions are for hiding the contents and allowing you to click the show more to expand the box */
+    max-height: 100px;
+    overflow: hidden;
+    
+-webkit-transition: max-height 0.7s;
+-moz-transition: max-height 0.7s; 
+transition: max-height 0.7s;
+
+
+}
+
+#content.open{
+    max-height: 1000px;
+
+
+    -webkit-transition: max-height 0.7s;
+-moz-transition: max-height 0.7s; 
+transition: max-height 0.7s;
+
+}
+
+#show-more{
+ background-color: crimson;
+ font-family: fantasy;
+ display:block;
+ width:140px;
+ font-size: 24px;
+ text-transform:uppercase;
+ padding: 10px;
+ text-align: center;
+ margin: 20px auto;
+
+    
+
+
+}
