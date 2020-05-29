@@ -123,3 +123,9 @@ let diabetesDisplay ={
      }
      });
      });
+
+     function carbCorrect(){
+         let currentBG = document.querySelector('input');
+         currentBG 
+
+     }
