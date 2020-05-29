@@ -110,3 +110,16 @@ let diabetesDisplay ={
             diabetesFoodList.style.display= 'initial'
          }
      })
+     const searchBar = document.forms['search-foods'].querySelector('input');
+     searchBar.addEventListener('keyup', (e) => {
+       const term = e.target.value.toLowerCase();
+       const foods = diabetesFoodList.getElementsByTagName('li');
+       Array.from(foods).forEach((food) => {
+         const title = food.firstElementChild.textContent;
+         if(title.toLowerCase().indexOf(e.target.value) != -1){
+           food.style.display = 'block';
+      } else {
+           food.style.display = 'none';
+     }
+     });
+     });

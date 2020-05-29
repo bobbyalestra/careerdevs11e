@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arons Diabetes Calculator</title>
        <style>
@@ -42,6 +41,28 @@
         #add-food{
     width: 400px;
     margin: 0 auto;
+    
+}
+#add-food button{
+    border: 1px solid red;
+    background: salmon;
+    padding: 10px 20px;
+    font-size: 16px;
+    display: inline-block;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    width: 100px;
+    /* float: left; */
+    margin: 20px 0;
+    border-left: 0;
+    color: white;
+}
+
+#add-food:after{
+    content: '';
+    display: block;
+    clear: both;
 }
 
 #add-food input{
@@ -56,7 +77,22 @@
     float: left;
     clear: both;
 }
+#add-food #hide{
+  width: 30px;
+}
 
+#add-food label{
+  line-height: 52px;
+}
+#add-carbs button {
+    background-color: limegreen;
+    color: snow;
+    size: 50px;
+}
+
+.title {
+    position: center;
+}
 
 
 
@@ -65,9 +101,6 @@
 
 </head>
 <body>
-    
-
-
     <div id="page-banner">
         <h1 class="title">Diabetes App</h1>
   <p>Aron Diabetes</p>
@@ -75,39 +108,59 @@
     <input type="text" placeholder="Search Foods..." />
   </form>
     </div>
-<p></p>
+    <p></p>
+    <label for 'TimeOfDay'>Choose Meal Time </label>
+    <p></p>
+    <select id='mealTime'>
+        <option value = "breakfast">Breakfast</option>
+        <option value = "breakfastSnack">Breakfast Snack</option>
+        <option value = "lunch">Lunch Time</option>
+        <option value = "lunchSnack">Lunch Time Snack</option>
+        <option value = "dinner">Dinner</option>
+        <option value = "dinnerSnack">Dinner Time Snack</option>
+        <option value = "other">Other</option>
+    </select>
 
-    <h2>
+    
+    <h2 class="title">Foods</h2>
+    <div id="food-list">
+        <form id ="add-carbs">
+            <input type="text" placeholder="Add Total Carbs..." />
+            <button>Submit</button>
+            </form>
+    </div>
+  
+<p></p>
+</h1>
+
+    <h1>
+       
             <form id ="add-food">
-        <input type="checkbox" id="hide" />
-        <label for="hide">Hide The Food</label>
             <input type="text" placeholder="Add a Food Item..." />
             <button>Add</button>
-        </form>
-        </h2>
-    
 
-    
+            <input type="checkbox" id="hide" />
+        <label for="hide">Hide The Food</label>
 
-
-        <h2 class="title">Foods</h2>
-    <div id="food-list">
         
-        <ul>
-       
-        </ul>
+        </form>
+        <h2 class="title">Foods</h2>
+        <div id="food-list">
+            
+            <ul>
+           
+            </ul>
+            </div>
+         
         </div>
-        <label for 'TimeOfDay'>Choose Meal Time </label>
-        <select id='mealTime'>
-            <option value = "breakfast">Breakfast</option>
-            <option value = "breakfastSnack">Breakfast Snack</option>
-            <option value = "lunch">Lunch Time</option>
-            <option value = "lunchSnack">Lunch Time Snack</option>
-            <option value = "dinner">Dinner</option>
-            <option value = "dinnerSnack">Dinner Time Snack</option>
-            <option value = "other">Other</option>
-        </select>
-      
+     
+     
+        </h1>
+    
+
+
+
+   
     
     <!-- <div id='add-foodItem'>
         <ul>
