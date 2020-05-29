@@ -1,3 +1,6 @@
+// around line 130 is where im having a problem i think
+
+
 let diabetesDisplay ={
     display : [],
 
@@ -124,8 +127,34 @@ let diabetesDisplay ={
      });
      });
 
-     function carbCorrect(){
-         let currentBG = document.querySelector('input');
-         currentBG 
 
-     }
+   ///////////// below is where im having trouble 
+     
+       
+function carbCover(time){
+    let currentBG = document.getElementById('number').value;
+     
+    time = document.getElementById('timeOfDay')
+
+    let carbCover = document.getElementById('carbCorrectionCalc'); 
+
+     
+        
+
+    document.getElementById('breakfast') = 50
+    document.getElementById('breakfast snack') = 70
+    document.getElementById('lunch') = 60
+    document.getElementById('lunchSnack') = 60
+    document.getElementById('dinner') = 65
+    document.getElementById('dinnerSnack') = 65
+    document.getElementById('other') = 60
+
+    carbCorrection = (currentBG / time )
+    console.log('carbCorrection')
+    alert(carbCorrection);
+  
+// function carbCover(totalCarbs, insulinCarbRatio){
+//       let carbCover = document.carbCover.carb; 
+
+// }
+}

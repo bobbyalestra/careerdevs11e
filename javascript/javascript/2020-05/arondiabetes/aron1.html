@@ -1,3 +1,6 @@
+<!-- line 137 is where i think im having an issue -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,6 +107,7 @@
 }
 #add-food #hide{
   width: 30px;
+
 }
 
 #add-food label{
@@ -133,10 +137,13 @@
     <input type="text" placeholder="Search Foods..." />
   </form>
     </div>
+
+    <!-- this is about where i think the problem is -->
     <p></p>
-    <label for 'TimeOfDay'>Choose Meal Time </label>
+    <form name='carbCorrectionCalc'>
+    <label id= 'timeOfDay'>Choose Meal Time </label>
     <p></p>
-    <select name="number" onchange="carbCorrection()">
+    <select id="number" onchange="timeOfDay">
         <option value = "breakfast">Breakfast</option>
         <option value = "breakfastSnack">Breakfast Snack</option>
         <option value = "lunch">Lunch Time</option>
@@ -145,7 +152,7 @@
         <option value = "dinnerSnack">Dinner Time Snack</option>
         <option value = "other">Other</option>
     </select>
-
+    </form>
     
     <h2 class="title"></h2>
     <div id="food-list">
@@ -170,11 +177,14 @@
 
         
         </form>
-        <form name="carbCorrectionCalc" action="">
+        <form id="carbCorrectionCalc" action="">
 
         <h2 class="title">Food Items Eaten</h2>
         <div id="food-list">
-            
+            <form id ="add-food">
+                <input type="text" placeholder="Add a Food Item..." />
+                <button>Add</button>
+    
             <ul>
            
             </ul>
