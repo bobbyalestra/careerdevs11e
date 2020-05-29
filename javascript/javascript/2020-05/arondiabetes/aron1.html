@@ -136,7 +136,7 @@
     <p></p>
     <label for 'TimeOfDay'>Choose Meal Time </label>
     <p></p>
-    <select id='mealTime'>
+    <select name="number" onchange="carbCorrection()">
         <option value = "breakfast">Breakfast</option>
         <option value = "breakfastSnack">Breakfast Snack</option>
         <option value = "lunch">Lunch Time</option>
@@ -149,6 +149,7 @@
     
     <h2 class="title"></h2>
     <div id="food-list">
+        
         <form id ="add-carbs">
             <input type="text" placeholder="Add Total Carbs..." />
             <button>Submit</button>
@@ -169,6 +170,8 @@
 
         
         </form>
+        <form name="carbCorrectionCalc" action="">
+
         <h2 class="title">Food Items Eaten</h2>
         <div id="food-list">
             
