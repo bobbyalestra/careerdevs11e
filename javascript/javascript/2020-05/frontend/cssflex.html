@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+​
     <style>
         .flex-container {
             display: flex;
@@ -13,32 +13,30 @@
             /* background-color: lightgreen; */
             justify-content: center;
             /* align-items: flex-end; */
-            align-items: stretch; 
+            align-items: stretch;
             margin-bottom: 1px;
         }
-
+​
         .flex-container > div {
-            /* background-color: rgb(252, 204, 211); */
+            /* background-color: rgb(252, 204, 211) */
             width: 100px;
             margin: 10px;
             text-align: center;
             line-height: 20px;
             height: 20px;
             font-size: 10px;
-
         }
-
-        .hero-container  {
+​
+        .hero-container {
             display: flex;
             flex-wrap: wrap;
             height: 300px;
             /* background-color: lightgreen; */
             justify-content: center;
-            /* align-items: flex-end; */
+            /* align-items: flex-end*;/
             align-items: center;
-
         }
-
+​
         .hero-container > div {
             /* background-color: rgb(252, 204, 211); */
             width: 100%;
@@ -47,31 +45,28 @@
             line-height: 275px;
             height: 275px;
             font-size: 15px;
-
         }
-
+​
         .cards {
             display: flex;
             margin: 0px 5px 0px 5px;
             justify-content: space-between;
         }
-
+​
         .card {
             flex: 0 1 32%;
             margin: 10px 10px 0px 10px; 
             border-radius: 3px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-
             text-align: center;
             height: 100px;
             background: rgb(240, 240, 240);
-
         }
-
+​
     </style>
 </head>
 <body>
-
+​
     <div class="flex-container">
         <div style="flex-grow: 1"><img src="http://picsum.photos/id/1012/100/25.jpg"></div>
         <div style="flex-grow: 1"></div>
@@ -86,34 +81,34 @@
         <div>7</div>
         <div>8</div> -->
     </div>
-
+​
     <div class="hero-container">
         <div><img src="http://picsum.photos/id/1012/800/250.jpg" style="width:100%"></div>
-
+​
     </div>
-
+​
     <div class="flex-cards">
         <section class="cards">
-
+​
             <article class="card">
                 <p>Card 1</p>
             </article>
-
+​
             <article class="card">
                 <p>Card 2</p>
             </article>
-
+​
             <article class="card">
                 <p>Card 3</p>
             </article>
-
+​
         </section>
     </div>
     <div>
-        <p>#end</p>
+        <p> #end </p>
     </div>
-
-
+​
+​
     <!-- <img src="http://picsum.photos/id/1012/400/200.jpg"> -->
 </body>
 </html>

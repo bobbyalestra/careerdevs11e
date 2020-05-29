@@ -206,8 +206,8 @@ let todoList ={
   scanId("1500", "Wedneday", "in", 435, 150);
   scanId("1600", "Thursday", "in",  512, 150);
   scanId("1900", "Friday", "in", 416, 150);
-  scanId("1600", "Saturday", "in",  512, 150);
-  scanId("1900", "Sunday", "in", 416, 150);
+  scanId("1600", "Saturday", "in",  512, 150
+  );
   
   console.log (` <..::THERE IS NOTHING IN THE WORLD MOMMY AND DADDY WOULDNT DO FOR YOU!::..> `);
   console.log(` ${""} `); // adding a space
