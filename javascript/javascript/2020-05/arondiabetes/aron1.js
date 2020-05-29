@@ -65,14 +65,6 @@ let diabetesDisplay ={
      }
 
 
-
-
-
-
-
-
-     ////////
-
      const diabetesFoodList = document.querySelector('#food-list ul');
 
      diabetesFoodList.addEventListener('click', function(e){
@@ -129,32 +121,28 @@ let diabetesDisplay ={
 
 
    ///////////// below is where im having trouble 
-     
+   
        
-function carbCover(time){
-    let currentBG = document.getElementById('number').value;
-     
-    time = document.getElementById('timeOfDay')
+function carbCover(){
+    let currentBG = document.getElementById('number');
+    let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
+    let totalCarbs = document.getElementById("totalCarbsInput").value
 
-    let carbCover = document.getElementById('carbCorrectionCalc'); 
+    carbCovering = (totalCarbs / carbValue )
+    
+    console.log(carbCovering)
 
-     
-        
 
-    document.getElementById('breakfast') = 50
-    document.getElementById('breakfast snack') = 70
-    document.getElementById('lunch') = 60
-    document.getElementById('lunchSnack') = 60
-    document.getElementById('dinner') = 65
-    document.getElementById('dinnerSnack') = 65
-    document.getElementById('other') = 60
+carbCover();
 
-    carbCorrection = (currentBG / time )
-    console.log('carbCorrection')
-    alert(carbCorrection);
-  
-// function carbCover(totalCarbs, insulinCarbRatio){
-//       let carbCover = document.carbCover.carb; 
-
-// }
 }
+
+function carbCorrection (){
+    let currentBG = document.getElementById('number');
+    let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
+    let totalCarbs = document.getElementById("totalCarbsInput").value
+      let carbCorrecting=  ((totalBG - 130) /320) 
+      console.log(carbCorrecting)
+}
+  
+

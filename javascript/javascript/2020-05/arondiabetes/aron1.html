@@ -140,27 +140,11 @@
 
     <!-- this is about where i think the problem is -->
     <p></p>
-    <form name='carbCorrectionCalc'>
-    <label id= 'timeOfDay'>Choose Meal Time </label>
-    <p></p>
-    <select id="number" onchange="timeOfDay">
-        <option value = "breakfast">Breakfast</option>
-        <option value = "breakfastSnack">Breakfast Snack</option>
-        <option value = "lunch">Lunch Time</option>
-        <option value = "lunchSnack">Lunch Time Snack</option>
-        <option value = "dinner">Dinner</option>
-        <option value = "dinnerSnack">Dinner Time Snack</option>
-        <option value = "other">Other</option>
-    </select>
-    </form>
+  
     
     <h2 class="title"></h2>
     <div id="food-list">
         
-        <form id ="add-carbs">
-            <input type="text" placeholder="Add Total Carbs..." />
-            <button>Submit</button>
-            </form>
     </div>
   
 <p></p>
@@ -168,22 +152,37 @@
 
     <h1>
        
-            <form id ="add-food">
+        <form id ="add-food">
             <input type="text" placeholder="Add a Food Item..." />
             <button>Add</button>
 
             <input type="checkbox" id="hide" />
-        <label for="hide">Hide The Food</label>
-
-        
+            <label for="hide">Hide The Food</label>
         </form>
-        <form id="carbCorrectionCalc" action="">
-
-        <h2 class="title">Food Items Eaten</h2>
+        
+        <form name='totalCarbsInput'>
+            <label id= 'timeOfDay'>Choose Meal Time </label>
+            <p></p>
+            <select id="number" onchange="timeOfDay">
+                <option id="breakfast" value = "50">Breakfast 50</option>
+                <option id = "breakfastSnack" value="70">Breakfast Snack 70</option>
+                <option id = "lunch" value = "60">Lunch Time 60</option>
+                <option id = "lunchSnack" value="60">Lunch Time Snack 60</option>
+                <option id = "dinner" value="65">Dinner 65</option>
+                <option id = "dinnerSnack" value="65">Dinner Time Snack 65</option>
+                <option id = "other" value="60">Other</option>
+               
+            </select>
+            
+<input id='totalCarbsInput' type="text" placeholder="Add Total Carbs..." />
+<button id='totalCarbsInput' onclick="carbCover()">Click me to Cover</button>   
+<button id='totalBGInput' onclick="carbCover()">Click me To Correct</button>           
+<!-- <button>Submit</button> -->
+            </form>
+      
+            <h2 class="title">Food Items Eaten</h2>
         <div id="food-list">
-            <form id ="add-food">
-                <input type="text" placeholder="Add a Food Item..." />
-                <button>Add</button>
+           
     
             <ul>
            
@@ -194,27 +193,6 @@
      
      
         </h1>
-    
-
-
-
-   
-    
-    <!-- <div id='add-foodItem'>
-        <ul>
-          <li> 
-              <span class='name'> Name of Book</span>
-              <span class="delete">delete</span>
-          </li>
-        </ul>
-    </div> -->
-
-    <!-- <h1><div id='addCurrentBGTextInput'>
-        <button onclick = 'handlers.addCurrentBG()'>Add Foods Eaten</button>
-        <input type ='text' id = 'addCurrentBGTextInput' placeholder='Enter Food Eaten'>
-    </div></h1> -->
-
-
     <script src='aron1.js'></script>
 </body>
 </html>
