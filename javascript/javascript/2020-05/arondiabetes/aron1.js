@@ -126,23 +126,35 @@ let diabetesDisplay ={
 function carbCover(){
     let currentBG = document.getElementById('number');
     let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
-    let totalCarbs = document.getElementById("totalCarbsInput").value
+    let totalCarbs = document.getElementById("totalCarbsInputs").value
 
     carbCovering = (totalCarbs / carbValue )
+   
     
-    console.log(carbCovering)
-
-
-carbCover();
-
+   return alert(carbCovering)
 }
+
+
+
+
 
 function carbCorrection (){
     let currentBG = document.getElementById('number');
+   // let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
+    let totalBG = document.getElementById("totalCarbsInputs").value
+      let carbCorrecting=  ((totalBG- 110) /300) 
+     return alert(carbCorrecting)
+
+}
+
+
+  function totalCoverCorrect (carbCovering,carbCorrecting){
+
+    let currentBG = document.getElementById('number');
     let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
     let totalCarbs = document.getElementById("totalCarbsInput").value
-      let carbCorrecting=  ((totalBG - 130) /320) 
-      console.log(carbCorrecting)
-}
-  
+
+    let totalCoverCorrecting = (carbCorrecting + carbCovering)
+    return alert(totalCoverCorrecting)
+  }
 

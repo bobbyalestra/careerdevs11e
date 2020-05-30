@@ -66,6 +66,26 @@
             text-size-adjust: 12px;
         }
 
+        #totalCarbsInputs {
+            background-color:  cyan;
+            border: darkkhaki;
+            font-size: 16px;
+
+        }
+
+        #totalCoverCorrectInput {
+            border: darkkhaki;
+            background-color: darkblue;
+            font-size: 16px;
+            color: snow;
+        }
+        #totalCarbsInput{
+            border: blue;
+            background-color: lightseagreen;
+            font-size: 16px;
+            color: snow; 
+        }
+
         #add-food{
     width: 400px;
     margin: 0 auto;
@@ -170,13 +190,14 @@
                 <option id = "lunchSnack" value="60">Lunch Time Snack 60</option>
                 <option id = "dinner" value="65">Dinner 65</option>
                 <option id = "dinnerSnack" value="65">Dinner Time Snack 65</option>
-                <option id = "other" value="60">Other</option>
+                <option id = "other" value="0">Other</option>
                
             </select>
             
-<input id='totalCarbsInput' type="text" placeholder="Add Total Carbs..." />
+<input id='totalCarbsInputs' type="text" placeholder="Add Total Carbs..." />
 <button id='totalCarbsInput' onclick="carbCover()">Click me to Cover</button>   
-<button id='totalBGInput' onclick="carbCover()">Click me To Correct</button>           
+<button id='totalCarbsInputs' onclick="carbCorrection()">Click me To Correct</button>
+<button id='totalCoverCorrectInput' onclick="carbCover()">Click me To Cover Correct</button>           
 <!-- <button>Submit</button> -->
             </form>
       
