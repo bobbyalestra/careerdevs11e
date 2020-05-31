@@ -1,0 +1,52 @@
+
+body{
+    background-color: teal;
+}
+
+
+span{
+    display :block;
+}
+
+.outline {
+    width: 110px;
+    text-align: center;
+    padding :10px;
+    margin : 10px;
+    background-color: white;
+    color: red;
+}
+
+.top{
+    text-align: left;
+}
+.bottom{
+    text-align: right;
+}
+
+.shadow {
+    box-shadow: 1px 1px 3px #000000;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shawdow: 1px 1px 3px #000;
+}
+
+.rounded{
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius: 10px;
+}
+
+.diam{
+    color: red;
+}
+
+.hearts{
+    color: red;
+}
+.cluba{
+    color: black;
+}
+
+.spades{
+    color: black;
+}

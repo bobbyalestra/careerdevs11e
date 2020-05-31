@@ -84,11 +84,7 @@ let cardMethods = {
         document.getElementById('player1Cards').innerHTML = html
         this.player1CardsTotal;
     }
-
 }
-
-
-
 
 
 cardMethods.initialDealPlayer1()
@@ -98,3 +94,23 @@ cardMethods.initialDealPlayer1()
 document.getElementById('title').innerText = ' The You Lose Casino';
 cardMethods.initialDealDealer();
 //  document.getElementById('player1Name').innerText = prompt("What is your name")
+
+let spades =   <div class =' spades shadow rounded'>
+<h1>&spades;</h1>
+</div>
+
+let hearts =  <div class ='hearts shadow rounded '>
+<div class ='top'><span>A</span><span>&hearts;</span></div>
+<h1>&hearts;</h1>
+<div class='botton'><span>&hearts;</span><span>A</span></div>
+</div>
+
+let clubs =
+<div class= 'clubs shadow rounded'> 
+    <h1>&clubs;</h1>
+</div>
+
+let diam = 
+<div class ='diam shadow rounded'>
+    <h1>&diam;</h1>
+</div>
