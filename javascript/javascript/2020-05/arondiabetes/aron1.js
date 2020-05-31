@@ -158,3 +158,11 @@ function carbCorrection (){
     return alert(totalCoverCorrecting)
   }
 
+
+//          trying to add another list to log the corretion and cover
+
+    const value = addForm.querySelector('input[type="text"]').value;
+        const li = document.createElement('li')
+        const displayNumber = document.createElement('span')
+        displayNumber.textContent = value;
+        li.appendChild(displayNumber);
