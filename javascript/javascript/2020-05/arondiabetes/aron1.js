@@ -86,7 +86,7 @@ let diabetesDisplay ={
         foodName.textContent = value;
         const deleteBtn = document.createElement('span');
         deleteBtn.textContent = 'delete';
-
+        
         foodName.classList.add('name');
         deleteBtn.classList.add('delete');
 
@@ -95,6 +95,50 @@ let diabetesDisplay ={
         diabetesFoodList.appendChild(li);
 
      })
+
+     const addForms = document.forms['totalCarbsInput']
+
+     addForms.addEventListener('submit', function(e){
+       e.preventDefault();
+        const value = addForms.querySelector('input[type="text"]').value;
+        const li = document.createElement('li');
+        const carbNumb = document.createElement('span');
+        carbNumb.textContent = [] ;
+        const coverAmount = document.createElement('span');
+        
+
+        const deleteBtn = document.createElement('span');
+        deleteBtn.textContent = 'delete';
+
+        carbNumb.classList.add('name');
+        deleteBtn.classList.add('delete');
+
+
+
+        /////// added code
+       
+       
+        currentBG = document.getElementById('number');
+        let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
+        let totalCarbs = document.getElementById("totalCarbsInputs").value
+    
+        carbCovering = (totalCarbs / carbValue );
+        coverAmount.textContent = carbCovering.value;
+       
+       
+        ///////////////// end of added code
+
+        li.appendChild(carbNumb);
+        li.appendChild(deleteBtn);
+        diabetesFoodList.appendChild(li);
+
+     })
+
+
+
+
+
+
 
      const hideBox = document.querySelector('#hide');
     
@@ -130,6 +174,7 @@ function carbCover(){
 
     carbCovering = (totalCarbs / carbValue )
    
+        carbNumb.push('carbCovering')
     
    return alert(carbCovering)
 }
