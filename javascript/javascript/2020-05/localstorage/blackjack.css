@@ -23,7 +23,15 @@ span{
 .bottom{
     text-align: right;
 }
-
+ /* .card {
+            flex: 0 1 32%;
+            margin: 10px 10px 0px 10px; 
+            border-radius: 3px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        
+            height: 100px;
+            background: rgb(240, 240, 240);
+ } */
 .shadow {
     box-shadow: 1px 1px 3px #000000;
     -moz-box-shadow: 1px 1px 3px #000;
@@ -50,3 +58,5 @@ span{
 .spades{
     color: black;
 }
+
+

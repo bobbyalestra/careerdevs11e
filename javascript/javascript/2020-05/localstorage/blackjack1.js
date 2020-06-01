@@ -2,13 +2,40 @@
 let cards = {
     deck: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10],
     player1Cards: [],
+    suits:['Hearts', 'Clubs', 'Spades', 'Diamonds']
     player1CardsTotal: 0,
     dealerCards: [],
     dealerCardsTotal: 0,
     busted: 0,
     blackjack: 21,
+    deckNew = new Array ()
   }
-  
+
+
+
+
+
+
+  function createDeck()
+  {
+      deck = new Array();
+      for (var i = 0 ; i < deck.length; i++)
+      {
+          for(var x = 0; x < suits.length; x++)
+          {
+              var weight = parseInt(deck[i]);
+              if (deck[i] == "J" || deck[i] == "Q" || deck[i] == "K")
+                  weight = 10;
+              if (deck[i] == "A")
+                  weight = 11;
+              var card = { Value: deck, Suit: suits[x], Weight: weight };
+              deck.push(card);
+          }
+      }
+
+
+
+  /////////////////
   let cardMethod = {
       initialDeal: function () {
         for (let i = 0; i < 2; i++) {
@@ -41,6 +68,10 @@ let cards = {
         this.totalPlayer1Cards();
         
       },
+
+
+
+
      
 
 
