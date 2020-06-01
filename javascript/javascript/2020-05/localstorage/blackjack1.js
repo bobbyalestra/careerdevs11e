@@ -8,30 +8,9 @@ let cards = {
     dealerCardsTotal: 0,
     busted: 0,
     blackjack: 21,
-    deckNew = new Array ()
+  
   }
 
-
-
-
-
-
-  function createDeck()
-  {
-      deck = new Array();
-      for (var i = 0 ; i < deck.length; i++)
-      {
-          for(var x = 0; x < suits.length; x++)
-          {
-              var weight = parseInt(deck[i]);
-              if (deck[i] == "J" || deck[i] == "Q" || deck[i] == "K")
-                  weight = 10;
-              if (deck[i] == "A")
-                  weight = 11;
-              var card = { Value: deck, Suit: suits[x], Weight: weight };
-              deck.push(card);
-          }
-      }
 
 
 
@@ -95,23 +74,7 @@ let cards = {
           
       },
       
-      totalDealerCards: function() {
-          
-        for (let i = 0; i < cards.dealerCards.length; i++) {
-          cards.dealerCardsTotal += cards.dealerCards[i];
-        } 
-        
-        document.getElementById('dealerCardsTotal').innerText = cards.dealerCardsTotal;
-        if (cards.dealerCardsTotal > 21) {
-            cards.busted = 2
-            setTimeout(function() {alert('BUSTED! Give us your money!!')} , 100)
-            
-            cards.dealerCards= [];
-        }else if (cards.dealerCardsTotal = 21){
-            
-        }
-        cards.dealerCardsTotal= 0;
-      },
+   
 
 
       newGame: function (){
@@ -129,6 +92,26 @@ let cards = {
         },
   
       //dealer gets their cards
+
+
+   totalDealerCards: function() {
+          
+        for (let i = 0; i < cards.dealerCards.length; i++) {
+          cards.dealerCardsTotal += cards.dealerCards[i];
+        } 
+        
+        document.getElementById('dealerCardsTotal').innerText = cards.dealerCardsTotal;
+        if (cards.dealerCardsTotal > 21) {
+            cards.busted = 1
+            setTimeout(function() {alert('BUSTED! Give us your money!!')} , 500)
+            
+            cards.dealerCards= [];
+        }else if (cards.dealerCardsTotal = 21){
+            
+        }
+        cards.dealerCardsTotal= 0;
+      },
+
   
       dealerPlayLogic: function (){
         setTimeout(100)
@@ -140,19 +123,11 @@ let cards = {
             
             }
       
+            this.dealerHit()
         this.updateDealerCards()
        // this.dealerHitMethod()
             
     },
-
-
-    //   initialDealerCards: function() {
-    //     for (let i = 0; i < 1; i++){  
-    //       cards.dealerCards.push(cards.deck.splice(Math.floor(Math.random() * cards.deck.length), 1).pop());
-    //     }
-    //     // player 1 cards updated 
-    //     this.updateDealerCards();
-    // },
 
 
     initialDealDealer: function (){
@@ -171,10 +146,10 @@ let cards = {
   cards.dealerCardsTotal;
     
   this.updateDealerCards()
+  
+  
+  
   },
-  
-    // setTimeout(function() {alert('BUSTED! Give us your money!!')} , 100)
-  
       
       
     updateDealerCards: function (){
@@ -189,14 +164,26 @@ let cards = {
           
       },
 
-      dealerHitMethod : function ()  {
-      for(let i = 0; i <1; i++ ){
-        if (cards.dealerCardsTotal <= 20)
-        cards.dealerCards.push(cards.deck.splice(Math.floor(Math.random() * cards.deck.length), 1).pop() )
+
+      dealerHit: function() {
+        if( cards.dealerCards.length === 0){
+
+        }else{
+          cards.dealerCards.push(cards.deck.splice(Math.floor(Math.random() * cards.deck.length), 1).pop())
+        }
+        this.updateDealerCards();
+
+      /////
+
+
+    //   dealerHitMethod : function ()  {
+    //   for(let i = 0; i <1; i++ ){
+    //     if (cards.dealerCardsTotal <= 20)
+    //     cards.dealerCards.push(cards.deck.splice(Math.floor(Math.random() * cards.deck.length), 1).pop() )
          
-     }
+    //  }
 }
-  } 
+  }
+  
 cardMethod.initialDeal()
 
-}
