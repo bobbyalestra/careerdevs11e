@@ -34,6 +34,10 @@
     color: #444;
 }
 
+.carbCorrection {
+    color: blue;
+    background-color : yellow;
+}
 
 #book-list, #add-food, #tabbed-content{
     margin: 30px;
@@ -76,7 +80,7 @@
     }
 
         #totalCarbsInputs {
-            background-color:  cyan;
+            background-color:  red;
             border: darkkhaki;
             font-size: 16px;
 
@@ -207,7 +211,7 @@
             
 <input id='totalCarbsInputs' type="text" placeholder="Add Total Carbs..." />
 <button id='totalCarbsInput' onclick="carbCover()">Click me to Cover</button>   
-<button id='totalCarbsInputs' onclick="carbCorrection()">Click me To Correct</button>
+<button class='carbCorrection' id ='totalCarbsInputs' onclick="carbCorrection()">Click me To Correct</button>
 <button id='totalCoverCorrectInput' onclick="carbCover()">Click me To Cover Correct</button>           
 <!-- <button>Submit</button> -->
             </form>

@@ -2,7 +2,7 @@
 let cards = {
     deck: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10],
     player1Cards: [],
-    suits:['Hearts', 'Clubs', 'Spades', 'Diamonds']
+    suits:['Hearts', 'Clubs', 'Spades', 'Diamonds'],
     player1CardsTotal: 0,
     dealerCards: [],
     dealerCardsTotal: 0,
@@ -199,4 +199,4 @@ let cards = {
   } 
 cardMethod.initialDeal()
 
-      
+}
