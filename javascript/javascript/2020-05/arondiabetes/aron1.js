@@ -103,7 +103,7 @@ let diabetesDisplay ={
         const value = addForms.querySelector('input[type="text"]').value;
         const li = document.createElement('li');
         const carbNumb = document.createElement('span');
-        carbNumb.textContent = [] ;
+        carbNumb.textContent = value ;
         const coverAmount = document.createElement('span');
         
 
@@ -174,7 +174,7 @@ function carbCover(){
 
     carbCovering = (totalCarbs / carbValue )
    
-        carbNumb.push('carbCovering')
+
     
    return alert(carbCovering)
 }
