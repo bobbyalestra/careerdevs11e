@@ -174,21 +174,15 @@ function carbCover(){
 
     carbCovering = (totalCarbs / carbValue )
    
-
-    
-   return alert(carbCovering)
+    return alert(carbCovering)
 }
 
 
-
-
-
-function carbCorrection (){
-    let currentBG = document.getElementById('number');
-   // let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
-    let totalBG = document.getElementById("totalCarbsInputs").value
-      let carbCorrecting=  ((totalBG- 110) /300) 
-     return alert(carbCorrecting)
+ function carbCorrection (){
+   
+   let totalCarbs = document.getElementById("totalCarbsInputs").value
+       let carbCorrecting=  ((totalCarbs- 110) /300) 
+      return alert(carbCorrecting)
 
 }
 

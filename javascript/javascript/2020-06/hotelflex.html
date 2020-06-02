@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexin On Em Hotel</title>
+
+    <style>
+        .flexbox{
+            display: flex;
+            flex-wrap: nowrap;
+            height: 50px;
+            /* background-color: lightgreen; */
+            justify-content: space-between;
+            /* align-items: flex-end; */
+            align-items: stretch;
+            margin-bottom: 1px;
+        }
+
+        .card {
+            flex: 0 1 32%;
+            margin: 10px 10px 0px 10px; 
+            border-radius: 3px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            text-align: center;
+            height: 100px;
+            background: rgb(240, 240, 240);
+        
+        }
+        .cards {
+            display: flex;
+            margin: 0px 5px 0px 5px;
+            justify-content: space-between;
+        }
+        h1, h2 {
+            text-align: center;
+            align-content: center;
+        }
+         
+         .header {
+             text-align: center;
+         }
+
+
+    </style>
+</head>
+<body>
+    <div class='dropDowns'></div>
+    <div class='header'>
+        <h1 class='hotelName'>Hotel Name</h1>
+        <h2 class='hotelSlogan'>Slogan</h2>
+        <h3></h3>
+    </div>
+<div class='flexbox'>
+    <section class='cards'>
+<article class='card'>
+    <p>King</p>
+<img src='https://i.picsum.photos/id/1050/200/200.jpg'>
+</article>
+
+<article class='card'>
+    <p>Queen</p>
+    <img src='https://i.picsum.photos/id/1065/200/200.jpg'>
+</article>
+
+<article class='card'>
+    <p>Twin</p>
+<img src='https://i.picsum.photos/id/188/200/200.jpg'>
+</article>
+</section>
+</div>
+
+</body>
+
+<script src='hotelflex.js'> </script>
+</html>
