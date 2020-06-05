@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function (){
         // A SYNC An optional Boolean parameter, defaulting to true, indicating whether or not to perform the operation asynchronously. If this value is false, the send() method does not return until the response is received. If true, notification of a completed transaction is provided using event listeners. This must be true if the multipart attribute is true, or an exception will be thrown.
 
 
-
+        
 
         xhr.open('GET', 'fakeurldata.txt')
 
