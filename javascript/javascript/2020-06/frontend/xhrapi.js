@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', function (){
 
 
         // troubleshooting
+        console.log('1. xhr = new')
         console.log(xhr.readyState) // should == 4
         console.log(xhr.status) // should be in 200-299 for successful transfer
-
+        console.log('------------')
 
         // step number 2
         // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
@@ -34,26 +35,39 @@ document.addEventListener('DOMContentLoaded', function (){
 
 
         xhr.open('GET', 'fakeurldata.txt', true); // if steps 3 and 4 are successful
-
+        console.log('2. xhr.open')
         console.log(xhr.readyState) // should == 4
         console.log(xhr.status) // should be in 200-299 for successful transfer
-
+        console.log('------------')
 
 
         // step 3
 
 
         xhr.onload = function (){
-            if (this.readyState === 4 && this.status === 200)
+            if (this.readyState === 4 && this.status === 200){
             
+                console.log('3. xhr.onload')
+            console.log(xhr.readyState) // should == 4
+        console.log(xhr.status) // should be in 200-299 for successful tran
+            console.log('------------')
 
             document.getElementById("dataOutput").innerHTML = this.responseText;
-                }
-        
-        xhr.open("GET", "fakeurldata.txt", true)
-        xhr.send();
+                } else if (this.status === 404){
+                document.getElementById('dataOutput').innerText = "404 Error File not Found"
             }
         
+        }
+        xhr.send();
 
+
+
+        console.log('4')
+        console.log(xhr.readyState) // should == 4
+        console.log(xhr.status) // should be in 200-299 for successful tran
+        console.log(xhr.responseText)
+        console.log('------------')
+
+    }
 
 });
