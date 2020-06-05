@@ -31,14 +31,27 @@ document.addEventListener('DOMContentLoaded', function (){
         // A SYNC An optional Boolean parameter, defaulting to true, indicating whether or not to perform the operation asynchronously. If this value is false, the send() method does not return until the response is received. If true, notification of a completed transaction is provided using event listeners. This must be true if the multipart attribute is true, or an exception will be thrown.
 
 
+
+
+        xhr.open('GET', 'fakeurldata.txt', true); // if steps 3 and 4 are successful
+
+        console.log(xhr.readyState) // should == 4
+        console.log(xhr.status) // should be in 200-299 for successful transfer
+
+
+
+        // step 3
+
+
+        xhr.onload = function (){
+            if (this.readyState === 4 && this.status === 200)
+            document.getElementById("dataOutput").innerHTML = this.responseText;
+                }
         
-
-        xhr.open('GET', 'fakeurldata.txt')
-
-
-
-
-    }
+        xhr.open("GET", "fakeurldata.txt", true)
+        xhr.send();
+            }
+        
 
 
 });
