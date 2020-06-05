@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function (){
     
     function loadText(){
         // alert(' i am a genie in a bottle why dont you Click me the right way')
-        console.log("made it")
+    
         
         // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
         // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function (){
         const xhr = new XMLHttpRequest();
 
 
-        console.log(xhr)
+        console.log(xhr.readyState) // should == 4
+        console.log(xhr.status) // should be in 200 for successful transfer
     }
 
 
