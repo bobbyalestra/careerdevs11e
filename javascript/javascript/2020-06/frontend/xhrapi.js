@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function (){
 
 
 
-        xhr.open('GET', 'fakeurldata.txt', true); // if steps 3 and 4 are successful
+        xhr.open('GET', 'https://api.github.com/users', true); // if steps 3 and 4 are successful
         console.log('2. xhr.open')
         console.log(xhr.readyState) // should == 4
         console.log(xhr.status) // should be in 200-299 for successful transfer
@@ -46,13 +46,21 @@ document.addEventListener('DOMContentLoaded', function (){
 
         xhr.onload = function (){
             if (this.readyState === 4 && this.status === 200){
+                const responseJSON = JSON.parse(this.responseText)
             
                 console.log('3. xhr.onload')
             console.log(xhr.readyState) // should == 4
         console.log(xhr.status) // should be in 200-299 for successful tran
             console.log('------------')
+                console.log(responseJSON)
 
-            document.getElementById("dataOutput").innerHTML = this.responseText;
+                html = `<ul><li>${responseJSON[0].login} </li></ul>`
+                // wil display the first index of and the user name
+            document.getElementById("dataOutput").innerHTML = html;
+
+                
+
+
                 } else if (this.status === 404){
                 document.getElementById('dataOutput').innerText = "404 Error File not Found"
             }
@@ -62,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function (){
 
 
 
-        console.log('4')
+        console.log('4. ')
         console.log(xhr.readyState) // should == 4
         console.log(xhr.status) // should be in 200-299 for successful tran
         console.log(xhr.responseText)
