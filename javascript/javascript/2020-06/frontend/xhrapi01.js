@@ -37,10 +37,15 @@ function loadContent(){
   
 
     xhr.onload = function(){
-        if (this.readyState === 4 && this.status === 200){
-            const responseJSON =JSON.parse(this.responseText)
 
-            html = `<ul><li>${responseJSON[0].login}</li></ul>`
+        const responseJSON =JSON.parse(this.responseText)
+
+        
+
+        if (this.readyState === 4 && this.status === 200){
+            
+
+            html = `<ul><li>${responseJSON[0-30].login}</li></ul>`
 
             document.getElementById('outputData').innerHTML = html;
             
@@ -51,7 +56,8 @@ function loadContent(){
             (this.status === 400){
                 document.getElementById(outputData).innerText = " 404 Error Page Not Found"
             }
-        }
+        
+    }
         xhr.send();
 
 
