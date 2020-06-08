@@ -20,36 +20,69 @@ document.getElementById('dataButton').addEventListener('click', loadedContent)
 
 function loadedContent(){
 
-    const xhr = new XMLHttpRequest()
+//     const xhr = new XMLHttpRequest()
 
 
-    xhr.open('GET', 'https://api.github.com/users', true)
+//     xhr.open('GET', 'https://api.github.com/users', true)
 
 
 
-    xhr.onload= function(){
-        const responseJSON =JSON.parse(this.responseText)
+//     xhr.onload= function(){
+//         const responseJSON =JSON.parse(this.responseText)
 
-        if (this.readyState === 4 && this.status ===200){
+//         if (this.readyState === 4 && this.status ===200){
 
-            html = `<ul><li>${responseJSON[i].login} ${responseJSON[1].login}   </li></ul>`
+//             html = `<ul><li>${responseJSON[0].login} ${responseJSON[1].login}   </li></ul>`
 
-            document.getElementById('outputData').innerHTML = html;
+//             document.getElementById('outputData').innerHTML = html;
             
-            console.log(responseJSON)
+//             console.log(responseJSON)
 
-        }else if (this.status ===400){
-            document.getElementById('outputData').innerText = " 404 Error Page Not Found"
+//         }else if (this.status ===400){
+//             document.getElementById('outputData').innerText = " 404 Error Page Not Found"
 
-        }
+//         }
     
 
-    }
-    xhr.send()
+//     }
+//     xhr.send()
 
 
     
+// }
+
+
+
+const xhr = new XMLHttpRequest()
+
+xhr.open('GET', 'https://api.github.com/users', true)
+
+
+
+
+
+
+
+xhr.onload= function (){
+
+const responseJSON = JSON.parse(this.responseText)
+if(this.readyState === 4 && this.status === 200){
+
+    html = `<ul><li>${responseJSON[0].login} ${responseJSON[1].login}   </li></ul>`
+    document.getElementById('outputData').innerHTML = html;
+                
+                console.log(responseJSON)
+
+
+
+}else if(thjis.status === 400){
+    document.getElementById('outputData').innerText = ' 404 ERROR'
+
+}
 }
 
+xhr.send()
+
+}
 
 })
