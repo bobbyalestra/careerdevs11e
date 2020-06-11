@@ -3,11 +3,7 @@
  
  
  document.addEventListener('DOMContentLoaded', function(){
-
-
-
     document.getElementById('button').addEventListener('click', getWeather);
-
 
 
     
@@ -48,29 +44,64 @@
            console.log(locationUpdate)
            
            //////////////////////////////
-            var x = document.getElementById("currentWeather");
-                function getLocation() {
-                if (navigator.geolocation) {
-                    console.log('true')
-                    navigator.geolocation.getCurrentPosition(locationUpdate);
-                } else {
-                    x.innerHTML = "Geolocation is not supported by this browser.";
-                }
-                }
 
-                function showPosition(position) {
-                    document.getElementById('currentWeather').innerHTML = "Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude;
-                }
+           function geoFindMe() {
 
-        console.log(locationUpdate)
-/////////////////////////////////////////
-            console.log(fTemp);
-            const tempOutput = `The Tempurature ${cityName} is ${fTemp} F`
-                document.getElementById('currentWeather').innerText = tempOutput;
+            const status = document.querySelector('#status');
+            const mapLink = document.querySelector('#map-link');
+          
+            mapLink.href = '';
+            mapLink.textContent = '';
+          
+            function success(position) {
+              const latitude  = position.coords.latitude;
+              const longitude = position.coords.longitude;
+          
+              status.textContent = '';
+              mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+              mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+              console.log(status)
+            }
+          
+            function error() {
+              status.textContent = 'Unable to retrieve your location';
+            }
+          
+            if(!navigator.geolocation) {
+              status.textContent = 'Geolocation is not supported by your browser';
+            } else {
+              status.textContent = 'Locating…';
+              navigator.geolocation.getCurrentPosition(success, error);
+            }
+          
+          }
+          
+          document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
-            const locationOutput = `This is your location ${locationUpdate}`
-                document.getElementById('currentWeather').innerText = locationOutput;
+
+
+
+
+
+
+          //  var x = document.getElementById("currentWeather");
+           //function getLocation() {
+          //    if (navigator.geolocation) {
+          //      navigator.geolocation.watchPosition(showPosition);
+          //    } else {
+          //      x.innerHTML = "Geolocation is not supported by this browser.";
+          //    }
+          //  }
+          //  function showPosition(position) {
+          //    x.innerHTML = "Latitude: " + position.coords.latitude +
+          //    "<br>Longitude: " + position.coords.longitude;
+          //  }
+          //   console.log(fTemp);
+          //   const tempOutput = `The Tempurature ${cityName} is ${fTemp} F`
+          //       document.getElementById('currentWeather').innerText = tempOutput;
+
+          //   const locationOutput = `This is your location ${locationUpdate}`
+          //       document.getElementById('currentWeather').innerText = locationOutput;
     
 
             } else if ( this.status === 404) {

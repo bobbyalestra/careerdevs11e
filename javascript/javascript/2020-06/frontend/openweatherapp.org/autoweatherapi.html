@@ -6,6 +6,25 @@
     <title>Document</title>
 </head>
 <body>
+<style>
+
+    .currentWeather{
+        flex: display;
+        flex-wrap: nowrap;
+        color: lawngreen;
+        background-color: slategrey;
+        font-size: 24 px;
+
+    }
+
+
+
+</style>
+
+<button id = "find-me">Show my location</button><br/>
+<p id = "status"></p>
+<a id = "map-link" target="_blank"></a>
+
     <script src = 'autoweatherapi.js'></script>
     <input type="text" id="zipCode" placeholder="Enter ZipCode"> 
     <button id="button">Clck for weather</button>
