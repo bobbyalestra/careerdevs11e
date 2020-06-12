@@ -5,26 +5,17 @@ document.addEventListener('DOMContentLoaded', function(){
     //page.innerText = 'This is the Page Div';
     document.body.appendChild(page);
     
+    navigator.geolocation.getCurrentPosition(onGeolocateSuccess, onGeolocateError);    
     
-    
-    
-    // making a button
-    let localWeatherButton = document.createElement('button');
-    localWeatherButton.id = 'geolocation';
-    localWeatherButton.innerText = 'Click Here To See Local Weather';
-    page.appendChild(localWeatherButton);
 
-    
-    document.getElementById('geolocation').addEventListener('click', geolocate);
-
-    function geolocate() {
-        if (window.navigator && window.navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(onGeolocateSuccess);
-        }
-    
 
 
     function onGeolocateSuccess (coordinates){
+
+         
+               
+            
+
             const {latitude, longitude} = coordinates.coords;
             console.log(`Found coordinates: ${latitude}, ${longitude}`)
             const url = "http://api.openweathermap.org/data/2.5/weather?";
@@ -50,20 +41,21 @@ document.addEventListener('DOMContentLoaded', function(){
                 }else if (this.status === 404) {
                     console.log('404 ERROR')
                 }
-
+                function onGeolocateError(error) {
+                    console.warn(error.code, error.message);
+                    
+                    if (error.code === 1 ){
+                        // no available location
+                    } else if (error.code === 2){
+                     
+                    } else if (error.code === 3 );
+                
+                }
                 
             }
             xhr.send();
         }
-        }
-
-        function onGeolocateError(error) {
-            console.warn(error.code, error.message);
-            
-            if (error.code === 1 ){
-                // no available location
-            } else if (error.code === 2){
-             
-            } else if (error.code === 3 );
         
-        }})
+
+      
+    })
