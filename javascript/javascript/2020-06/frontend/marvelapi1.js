@@ -20,15 +20,22 @@ document.addEventListener('DOMContentLoaded', function(){
     
     function loadedContent(){
     
+
+       //const url = 'http://gateway.marvel.com/v1/public/comics?ts=1&apikey=1234&hash=ffd275c5130566a2916217b101f26150'
         
 
        // https://api.spoonacular.com/recipes/716429/information?apiKey&includeNutrition=true.
         // https://gateway.marvel.com:443/v1/public/characters?apikey=7e1ebe86b83061394378a628c10e2480
 
-
+        
     const xhr = new XMLHttpRequest()
-    // const  apiKey = 'cea8507920fce6b68059955ac54c51f2c63b08ab';
-    xhr.open('GET', 'http://gateway.marvel.com/v1/public/comics?ts=1&apikey=apikey=cea8507920fce6b68059955ac54c51f2c63b08ab', true)
+    const url = 'https://gateway.marvel.com:443/v1/public/characters?'
+    var tsstring = new Date();
+    var md5hash = CryptoJS.MD5(tsstring).toString();
+    let pubKey = '7e1ebe86b83061394378a628c10e2480';
+    let privKey = 'cea8507920fce6b68059955ac54c51f2c63b08ab';
+    var md5hash = CryptoJS.MD5(tsstring+pubKey+privKey).toString();
+    xhr.open('GET',`${url}${tsstring}&apikey=${pubKey}&hash=${md5hash}`, true)
     
     
     
