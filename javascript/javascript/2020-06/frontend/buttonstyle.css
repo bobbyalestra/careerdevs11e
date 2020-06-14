@@ -1,0 +1,12 @@
+
+
+.button {
+    flex: display;
+    flex-wrap: nowrap;
+    background-color: blue;
+    color: snow;
+    width: 25px;
+    height: 10px;
+    box-shadow: black;
+
+}

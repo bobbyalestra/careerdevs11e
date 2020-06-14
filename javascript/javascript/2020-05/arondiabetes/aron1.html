@@ -6,6 +6,17 @@
     <title>Arons Diabetes Calculator</title>
        <style>
 
+.button {
+    flex: display;
+    flex-wrap: nowrap;
+    background-color: blue;
+    color: snow;
+    width: 250px;
+    height: 25px;
+    box-shadow: black;
+
+}
+
         
 #page-banner{
     background: #eee ;
@@ -54,7 +65,7 @@
 }
 
 #food-list li:hover{
-    border-color: #9361bf;
+    border-color: slategrey;
 }
 
         .delete {
@@ -73,24 +84,25 @@
             background-color: silver;
         }
     #timeOfDay {
-        color: lime;
-        background-color: silver;
+        color:silver;
+        background-color: black;
 
     }
 
-        /* #totalCarbsInputs {
+       
+    /* #totalCarbsInputs {
             background-color:  red;
             border: darkkhaki;
             font-size: 16px;
-        } */
+        }  */
         /* to do both functions  */
-        #totalCoverCorrectInput {
+        /* #totalCoverCorrectInput {
             border: rgb(27, 8, 199);
             background-color: darkblue;
             font-size: 16px;
             color: snow;
             border-radius: 10px;
-        }
+        } */
 
 
         /* to cover the carbs button */
@@ -143,7 +155,7 @@
 }
 #add-food #hide{
   width: 30px;
-  background-color: #9361bf;
+  background-color: black ;
   color: red;
 
 }
@@ -188,8 +200,8 @@
 <p></p>
 </h1>
 
-    <h1>
-       
+    
+       <h1>
         <form id ="add-food">
             <input type="text" placeholder="Add a Food Item..." />
             <button>Add</button>
@@ -209,10 +221,10 @@
                 <option id = "dinner" value="60">Dinner 60</option>
                
             </select>
-            
+        </h1> 
 <input id='totalCarbsInputs' type="text" placeholder="Add Total Carbs..." />
-<button id='totalCarbsInput' onclick="carbCover()">Click me to Cover</button>   
-<button class='carbCorrection' id ='totalCarbsInputs' onclick="carbCorrection()">Click me To Correct</button>
+<button class='button' id='totalCarbsInput' onclick="carbCover()">Click me to Cover</button>   
+<button class='button' id ='totalCarbsInput' onclick="carbCorrection()">Click me To Correct</button>
 <button id='totalCoverCorrectInput' onclick="carbCover()">Click me To Cover Correct</button>           
 <!-- <button>Submit</button> -->
             </form>
