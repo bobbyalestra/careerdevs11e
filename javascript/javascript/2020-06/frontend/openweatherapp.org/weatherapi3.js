@@ -5,17 +5,12 @@ document.addEventListener('DOMContentLoaded', function(){
     //page.innerText = 'This is the Page Div';
     document.body.appendChild(page);
     
-    navigator.geolocation.getCurrentPosition(onGeolocateSuccess, onGeolocateError);    
-    
+   
+    navigator.geolocation.getCurrentPosition(onGeolocateSuccess,onGeolocateError);
 
 
-
-    function onGeolocateSuccess (coordinates){
-
-         
-               
-            
-
+        function onGeolocateSuccess (coordinates){
+              
             const {latitude, longitude} = coordinates.coords;
             console.log(`Found coordinates: ${latitude}, ${longitude}`)
             const url = "http://api.openweathermap.org/data/2.5/weather?";
@@ -40,22 +35,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 }else if (this.status === 404) {
                     console.log('404 ERROR')
-                }
-                function onGeolocateError(error) {
-                    console.warn(error.code, error.message);
-                    
-                    if (error.code === 1 ){
-                        // no available location
-                    } else if (error.code === 2){
-                     
-                    } else if (error.code === 3 );
-                
-                }
+                };
+        
                 
             }
             xhr.send();
         }
         
-
+        function onGeolocateError (error) {
+            console.warn(error.code, error.message);
+            
+            if (error.code === 1 ){
+                // no available location
+            } else if (error.code === 2){
+                
+            } else if (error.code === 3 );
+        
+        }
       
     })
