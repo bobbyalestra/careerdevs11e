@@ -19,20 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
             //const city = '4930956'   
         
             const combinedUrl = url+zeq+zipCode+countryCode+appId+apiKey; 
-        const xhr = new XMLHttpRequest();
-    
-    
-    
-        xhr.open('GET', combinedUrl , true);
         
-    
-        xhr.onload = function() {
-            if (zipCode.length === 5){
-            if (this.readyState === 4 && this.status === 200) {
-                const parsedResponseText = JSON.parse(this.responseText)
-            console.log(parsedResponseText);
-            
-            console.log(parsedResponseText.name);
             const cityName = parsedResponseText.name
 
             const OK = parsedResponseText.main.temp;
