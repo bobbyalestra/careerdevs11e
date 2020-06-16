@@ -1,6 +1,6 @@
 function convertToLBS(kg){
     let pounds= (kg * 2.205)
-    
+    pounds= (kg * 2.205)
  console.log(pounds)
 
 }
