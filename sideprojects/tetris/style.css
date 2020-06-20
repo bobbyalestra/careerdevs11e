@@ -1,4 +1,7 @@
-
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .grid {
     width: 200px;
@@ -22,5 +25,15 @@
 }
 
 .miniGrid {
+    margin-left: 50px;
     width: 80px;
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:lime;
+}
+
+.miniGrid div {
+    width: 20px;
+    height: 20px;
 }
