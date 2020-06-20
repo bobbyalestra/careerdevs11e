@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     ]
     
-    const theTetreminos = [lTetremino, zTetremino, tTetremino, oTetremino, iTetremino]
+    const theTetreminos = [lTetremino, zTetremino, tTetremino, oTetremino, iTetremino];
 
     let currentPosition = 4;
     let currentRotation = 0;
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         })
     }
-    
+    draw()
 
 
     // undraw the tetremino
@@ -76,11 +76,51 @@ document.addEventListener('DOMContentLoaded', function(){
             squares[currentPosition + index].classList.remove('tetremino')
 
     })
-}
+};
 
+    // make tetreminos move down by 1 second
+    
+    timerId = setInterval(moveDown, 1000);
 
+    // move down function
 
+    function moveDown(){
+        undraw();
+        currentPosition += width;
+        draw();
+        freeze();
 
+    }
+
+    // freeze function
+    function freeze() {
+        if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
+            
+            current.forEach(index => squares[currentPosition + index].classList.add('taken'));
+            // starting a new tetremino falling
+            random = Math.floor(Math.random() * theTetreminos.length);
+            current =theTetreminos[random][currentRotation];
+            currentPosition = 4;
+            draw();
+        }
+    }
+
+    // mopve tetremino left unless there is blockageor an edge
+
+    function moveLeft() {
+        // remove the currently drawn tetremino
+        undraw();
+        // define what is the left edge
+        const isAtLeftedge = current.some(index => (currentPosition + index)% width === 0)
+
+        if(!isAtLeftedge) currentPosition -= 1
+
+        if(current.some(index => sqaure[currentPosition + index].classList.contains('taken'))) {
+            currentPosition +=1
+        }
+
+        draw()
+    }
 
 
 
