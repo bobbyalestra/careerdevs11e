@@ -12,10 +12,15 @@
 .grid div {
     height:20px;
     width: 20px;
+    border: black;
    
 
 }
 
 .tetremino {
-    background-color: darkgreen;
+    background-color: rgb(11, 226, 11);
+}
+
+.miniGrid {
+    width: 80px;
 }
