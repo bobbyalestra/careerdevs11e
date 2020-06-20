@@ -181,7 +181,7 @@ function carbCover(){
  function carbCorrection (){
    
    let totalCarbs = document.getElementById("totalCarbsInputs").value
-       let carbCorrecting=  ((totalCarbs- 110) /240) 
+       let carbCorrecting=  ((totalCarbs- 110) /300) 
       return alert(carbCorrecting)
 
 }
