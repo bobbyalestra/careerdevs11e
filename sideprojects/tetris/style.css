@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    flex-wrap: wrap;
+    
 }
 
 .grid {
@@ -30,7 +30,7 @@
     height: 80px;
     display: flex;
     flex-wrap: wrap;
-    background-color:lime;
+    background-color:deepskyblue;
 }
 
 .miniGrid div {
