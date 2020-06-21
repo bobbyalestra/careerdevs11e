@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
      //showing the next tetremino in in the mini grid
 
-     const displaySquares = document.querySelectorAll('.miniGrid div');
+     const displaySquares = document.querySelectorAll('.mini div');
      const displayWidth = 4;
      let displayIndex = 0; 
      
@@ -204,7 +204,6 @@ document.addEventListener('DOMContentLoaded', function(){
         if(timerId) {
             clearInterval(timerId)
             timerId = null
-
         }else{
             draw();
             timerId = setInterval(moveDown, 1000)
