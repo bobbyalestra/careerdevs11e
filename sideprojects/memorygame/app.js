@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+
+  ////// console.log('dsfsdf')
    const cardsArray = [
    {
       name: 'deoxy' ,
@@ -44,7 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 ]
+//console.log('dsfsdf')
 
+cardsArray.sort(() => 0.5 - Math.random)
 
 const grid = document.querySelector('.grid');
 const resultDisplay = document.querySelector('#result')
@@ -59,12 +63,12 @@ let cardsWon = []
        let card = document.createElement('img');
         card.setAttribute('src', '/images/pokemoncardback.jpeg');
         card.setAttribute('data-id', i);
-        card.addEventListener('click', flipcard);
+        card.addEventListener('click', flipCard);
         grid.appendChild(card)
 
     }
  }
-
+ //console.log('dsfsdf')
 // check for matches 
 
 function checkForMatch (){
@@ -79,6 +83,10 @@ function checkForMatch (){
    }else {
       cards[optionOneId].setAttribute('src' , '/Users/bobby2/Documents/CareerDevs11e/sideprojects/memorygame/images/background.png')
       cards[optionTwoId].setAttribute('src' , '/Users/bobby2/Documents/CareerDevs11e/sideprojects/memorygame/images/background.png')
+     
+      cards[optionOneId].removeEventListener('click', flipCard)
+      cards[optionTwoId].removeEventListener('click', flipCard)
+      
       cardsWon.push(cardsChosen)
       alert('Try Again')
    }
@@ -88,6 +96,7 @@ function checkForMatch (){
       if (cardsWon.length === cardsArray.length/2) {
          resultDisplay.textContent = 'Congradulations! You Win'
       }
+   
    
 }
 
@@ -99,18 +108,17 @@ function flipCard(){
    this.setAttribute('src', cardsArray[cardId].img);
 
    if (cardsChosen.length === 2) {
-       setTimeout(heckForMatch, 500) ;
+       setTimeout(checkForMatch, 500) ;
 
    }
 }
 
 //
+// console.log('dsfsdf')
 
 
 
-
-
-
+createBoard();
 
 
 
