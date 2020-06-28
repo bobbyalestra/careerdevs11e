@@ -1,4 +1,3 @@
-// around line 130 is where im having a problem i think
 
 
 let diabetesDisplay ={
