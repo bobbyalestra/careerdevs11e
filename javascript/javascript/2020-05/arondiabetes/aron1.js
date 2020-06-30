@@ -99,7 +99,7 @@ let diabetesDisplay ={
 
      addForms.addEventListener('submit', function(e){
        e.preventDefault();
-        const value = addForms.querySelector('input[type="text"]').value;
+        const value = addForms.querySelector('input[type="text"]');
         const li = document.createElement('li');
         const carbNumb = document.createElement('span');
         carbNumb.textContent = value ;
@@ -173,11 +173,19 @@ function carbCover(){
 
     carbCovering = (totalCarbs / carbValue )
    
-    return alert(carbCovering)
+  
+
+let coverFunc = carbCovering.value;
+let coverSpan = document.createElement('span');
+coverSpan.id ='coverFuncId';
+document.getElementsByClassName('name').append(coverFunc)
+
 }
 
 
  function carbCorrection (){
+
+
    
    let totalCarbs = document.getElementById("totalCarbsInputs").value
        let carbCorrecting=  ((totalCarbs- 110) /300) 
