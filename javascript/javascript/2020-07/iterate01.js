@@ -13,9 +13,12 @@ function largestOfFour(arr) {
           largestNumber = arr[i][j];
         }
       }
-  
+      console.log(largestNumber)
       results[i] = largestNumber;
+      console.log(results)
     }
   
+    console.log(results)
     return results;
   }
+ 
