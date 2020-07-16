@@ -1,5 +1,5 @@
 function repeatStringNumTimes(str, num) {
-    var accumulatedStr = "";
+    let accumulatedStr = "";
   
     while (num > 0) {
       accumulatedStr += str;
