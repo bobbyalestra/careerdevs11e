@@ -80,5 +80,5 @@ scanId("25941", "Watermelon", "out", 1,3);
 scanId("84342", "Grapes", "out", 1,2);
 
 // 
-total();
+
 //s
