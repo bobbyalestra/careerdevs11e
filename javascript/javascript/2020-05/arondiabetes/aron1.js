@@ -109,6 +109,7 @@ let diabetesDisplay ={
         const deleteBtn = document.createElement('span');
         deleteBtn.textContent = 'delete';
 
+        coverAmount.classList.add('name')
         carbNumb.classList.add('name');
         deleteBtn.classList.add('delete');
 
@@ -129,6 +130,7 @@ let diabetesDisplay ={
 
         li.appendChild(carbNumb);
         li.appendChild(deleteBtn);
+        li.appendChild(carbCovering)
         diabetesFoodList.appendChild(li);
 
      })
@@ -172,27 +174,14 @@ function carbCover(){
     let totalCarbs = document.getElementById("totalCarbsInputs").value
 
     carbCovering = (totalCarbs / carbValue )
-   
-  
-
-let coverFunc = carbCovering.value;
-let coverSpan = document.createElement('span');
-coverSpan.id ='coverFuncId';
-document.getElementsByClassName('name').append(coverFunc)
-
+    return alert(carbCovering)
 }
-
-
  function carbCorrection (){
-
-
-   
+ 
    let totalCarbs = document.getElementById("totalCarbsInputs").value
        let carbCorrecting=  ((totalCarbs- 110) /300) 
       return alert(carbCorrecting)
-
 }
-
 
   function totalCoverCorrect (carbCovering,carbCorrecting){
 
@@ -207,8 +196,8 @@ document.getElementsByClassName('name').append(coverFunc)
 
 //          trying to add another list to log the corretion and cover
 
-    const value = addForm.querySelector('input[type="text"]').value;
-        const li = document.createElement('li')
-        const displayNumber = document.createElement('span')
-        displayNumber.textContent = value;
-        li.appendChild(displayNumber);
+    // const value = addForm.querySelector('input[type="text"]').value;
+    //     const li = document.createElement('li')
+    //     const displayNumber = document.createElement('span')
+    //     displayNumber.textContent = value;
+    //     li.appendChild(displayNumber);
