@@ -128,6 +128,8 @@ let diabetesDisplay ={
        
         ///////////////// end of added code
 
+        carb= carb
+
         li.appendChild(carbNumb);
         li.appendChild(deleteBtn);
         li.appendChild(carbCovering)
