@@ -125,8 +125,7 @@ let diabetesDisplay ={
         carbCovering = (totalCarbs / carbValue );
         coverAmount.textContent = carbCovering.value;
        
-       
-        ///////////////// end of added code
+
 
         carb= carb
 
