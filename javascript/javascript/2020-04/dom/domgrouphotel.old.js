@@ -5,6 +5,9 @@ let hotel = {
     bookedRooms: [],
     roomTypes: ['Single', 'Double', 'King', 'Queen'],
     roomRates: [300, 350, 450, 550],
+    
+    
+    
     completeBookedRoomsArrays: function () {
         for (let i = 0; i < this.availableRooms.length; i++) {
             this.bookedRooms.push( [] ); 
