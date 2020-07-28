@@ -12,8 +12,11 @@ for ( let i = 0; i < roomNumber.length; i++){
 
     }
 }
-// pushes the second index of roomNumber
-       console.log(newRooms[0]) 
+// logs the second index of roomNumber
+       console.log(newRooms[0]) ;
+       // logs the index of each sub array
+       console.log(newRoom[i][j]);
+  
    
     
 
