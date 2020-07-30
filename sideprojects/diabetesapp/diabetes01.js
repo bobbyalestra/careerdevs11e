@@ -12,9 +12,18 @@ document.addEventListener('DOMContentLoaded',()  => {
     dropDown1.id = 'firstDropDown';
     div1.appendChild(dropDown1);
 
+    let inputBar1 = document.createElement('input');
+    inputBar1.id = 'firstInputBar';
+    inputBar1.placeholder = 'Enter Food Item';
+    div1.appendChild(inputBar1)
+
     let foodUlElement = document.createElement('ul');
     foodUlElement.id = 'ul1';
     div1.appendChild(foodUlElement);
+
+    let foodListInputUl = document.createElement('ul');
+    foodListInputUl.id = 'foodInputUl';
+    div1.appendChild(foodListInputUl)
 
 
 
@@ -66,10 +75,7 @@ document.addEventListener('DOMContentLoaded',()  => {
                 addCurrentBgTextInput,value = '';
 
                 view.displayInfo();
-
         }
-        
-
     }
 
         let view = {
@@ -92,6 +98,24 @@ document.addEventListener('DOMContentLoaded',()  => {
             },
 
         }
+
+        const diabetesFoodList = document.getElementById('foodInputUl');
+
+        diabetesFoodList.addEventListener('click', function(e){
+           if (e.target.className == 'delete') {
+               const li = e.target.parentElement;
+               diabetesFoodList.removeChild(li);
+           }
+        })
+
+
+        const addForm = document.forms['add-food']
+
+        addForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const value = addForm.querySelector('input[type="text"]')
+        })
+
 
 
 
