@@ -11,4 +11,4 @@ let number2 = numberString.substring(0, numberString.length / 2 + 1)
 
 let result = parseInt(number1) + parseInt(number2)
 
-console.log(` ${number1} + ${number2} = ${result}` )
+console.log(` ${number1} + ${number2} = ${result}` );

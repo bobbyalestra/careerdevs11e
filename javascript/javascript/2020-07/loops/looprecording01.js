@@ -1,7 +1,7 @@
 
 
 
-// in this loop i am going to dop my multiplication tables , now it's 1 - 10
+// in this loop i am going to dop my multiplication tables , now it's 1 - 10 
 
 
 for (let i = 0; i < 11; i++){
