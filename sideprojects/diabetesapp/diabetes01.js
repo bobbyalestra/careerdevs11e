@@ -3,6 +3,11 @@
 
 document.addEventListener('DOMContentLoaded',()  => {
 
+   let form1 = document.createElement('FORM');
+   form1.id = 'firstForm';
+   document.body.appendChild(form1);
+
+
     let div1 =document.createElement('div');
     div1.id = 'firstDiv';
     div1.innerText = 'test'
@@ -101,7 +106,7 @@ document.addEventListener('DOMContentLoaded',()  => {
 
         const diabetesFoodList = document.getElementById('foodInputUl');
 
-        diabetesFoodList.addEventListener('click', function(e){
+        diabetesFoodList.addEventListener('submit', function(e){
            if (e.target.className == 'delete') {
                const li = e.target.parentElement;
                diabetesFoodList.removeChild(li);
@@ -109,11 +114,23 @@ document.addEventListener('DOMContentLoaded',()  => {
         })
 
 
-        const addForm = document.forms['add-food']
+        const addForm = document.forms('firstForm')
 
         addForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const value = addForm.querySelector('input[type="text"]')
+            const value = addForm.getElementById('firstInputBar')
+            const li = document.createElement('li');
+            const foodName = document.createElement('span');
+            foodName.textContent = value;
+            const deleteBtn = document.createElement('span');
+            deleteBtn.textContent = 'delete';
+
+            foodName.classList.add('name');
+            deleteBtn.classList.add('delete');
+
+            li.appendChild(foodName);
+            li.appendChild(deleteBtn)
+            foodUlElement.appendChild(li)
         })
 
 
