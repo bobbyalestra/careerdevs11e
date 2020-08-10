@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded',()  => {
 
-   let form1 = document.createElement('FORM');
+   let form1 = document.createElement('form');
    form1.id = 'firstForm';
    document.body.appendChild(form1);
 
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded',()  => {
         })
 
 
-        const addForm = document.forms('firstForm')
+        const addForm = document.forms['firstForm']
 
         addForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -133,7 +133,25 @@ document.addEventListener('DOMContentLoaded',()  => {
             foodUlElement.appendChild(li)
         })
 
+        const addForms = document.forms['totalCarbsInput']
 
+        addForms.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const value = addForms.getElementById('firstForm');
+            const li = document.createElement('li')
+            const carbNumber = document.createElement('span');
+            carbNumber.textContent = value ;
+            const coverAmount = document.createElement('span');
+
+            const deleteBtn = document.createElement('span');
+            deleteBtn.textContent - 'delete'
+
+
+            carbNumber.classList.add('name');
+            deleteBtn.classLust.add('delete');
+            
+
+        })
 
 
 
