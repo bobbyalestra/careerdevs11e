@@ -153,6 +153,12 @@ document.addEventListener('DOMContentLoaded',()  => {
 
         })
 
+        const hideBox = document.querySelector('#hide');
+
+        hideBox.addEventListener('change', function(e) {
+            if()
+        }
+
 
 
 
