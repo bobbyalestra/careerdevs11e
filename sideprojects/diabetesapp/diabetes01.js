@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded',()  => {
     ////////////////////////////
 
 
-    // input bar
+    // input bar for food items
     let inputBar1 = document.createElement('input');
     inputBar1.id = 'firstInputBar';
     inputBar1.placeholder = 'Enter Food Item';
@@ -56,17 +56,31 @@ document.addEventListener('DOMContentLoaded',()  => {
     foodListInputUl.id = 'foodInputUl';
     div1.appendChild(foodListInputUl)
 
+
+    // submit button
     let button1 = document.createElement('button');
     button1.id = "firstButton";
     button1.innerText = "Click To Submit";
     div1.appendChild(button1);
 
 
-// lrft here
+    // input bar for covering and correcting functions
+
+    let inputBar2 = document.createElement('input');
+    inputBar1.id = 'secondInputBar';
+    inputBar2.placeholder = 'Enter Number for Cover or Correct';
+    div1.appendChild(inputBar2)
 
 
 
 
+//   trying to add the onclick so it will subit the value from the input bar
+
+    function buttonSubmit (){
+
+    }
+
+//////
     let diabetesDisplay = {
         foodDisplay: [],
 
@@ -144,7 +158,7 @@ document.addEventListener('DOMContentLoaded',()  => {
            }
         })
 
-
+        // trying to add the input value to a UL then to a span
         const addForm = document.forms['firstForm']
 
         addForm.addEventListener('submit', function(e) {
@@ -167,7 +181,7 @@ document.addEventListener('DOMContentLoaded',()  => {
         const addForms = document.forms['firstForm']
 
 
-        ///// add trying to make it so when you click button it suubmits input
+        ///// add trying to make it so when you click button it submits input
 
      
 
