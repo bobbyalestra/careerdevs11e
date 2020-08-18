@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded',()  => {
     //////////
     div3.appendChild(button1);
 
-//   trying to add the onclick so it will subit the value from the input bar
+//   trying to add the onclick so it will submit the value from the input bar
 
 
 //////
