@@ -3,24 +3,69 @@
 
 document.addEventListener('DOMContentLoaded',()  => {
 
+    ////////////// style section///////////
+
+    //document.getElementById("title").style.color = "red";
+    //document.getElementById("firstButton").style.color = "red";
+
+
+
+
+    ///////////
+
+   
     let h1 = document.createElement('h1');
+    h1.id = ' title'
     h1.className = 'title';
     h1.innerHTML = 'D.I.C';
     document.body.appendChild(h1);
 
+    let inputBar3 = document.createElement('input');
+    inputBar3.id = 'foodSearch';
+    inputBar3.placeholder = 'Enter Item You Are Looking For';
+    document.body.appendChild(inputBar3)
+
+
     let div1 =document.createElement('div');
     div1.id = 'firstDiv';
     document.body.appendChild(div1);
+
+    let div4 = document.createElement('div');
+    div4.id = 'fourthDiv';
+    // div4.innerHTML = ' fourth div';
+    document.body.appendChild(div4);
+
+     let div2 = document.createElement('div');
+    div2.id = 'secondDiv';
+    //div2.innerHTML = 'second div';
+    document.body.appendChild(div2);
+
+    
+    let div3 = document.createElement('div');
+    div3.id = 'thirdDiv';
+    //div3.innerHTML = ' third div';
+    document.body.appendChild(div3);
+
+    
 
     let p1 = document.createElement('p1');
     p1.id = 'firstP1Tag';
     p1.innerText = 'Diabetic Insulin Calculator';
     div1.appendChild(p1);
 
+    let p2 = document.createElement('p1');
+    p2.id = 'secondP1Tag';
+    div2.appendChild(p2);
+
+    let p3 = document.createElement('p1');
+    p3.id = 'thirdP1Tag';
+    div4.appendChild(p3);
+
+
     // drop down and the option values
     let dropDown1 = document.createElement('select');
     dropDown1.id = 'firstDropDown';
-    p1.appendChild(dropDown1);
+    div4.appendChild(dropDown1);
 
     let optionDropDown1 = document.createElement('option');
     optionDropDown1.id = 'firstOption';
@@ -33,15 +78,17 @@ document.addEventListener('DOMContentLoaded',()  => {
     optionDropDown3.innerHTML = 'Lunch 120';
     dropDown1.appendChild(optionDropDown3);
 
+    let optionDropDown2 = document.createElement('option');
+    optionDropDown2.id = 'secondOption';
+    optionDropDown2.innerHTML = 'Snack 120';
+    dropDown1.appendChild(optionDropDown2);
+
     let optionDropDown4 = document.createElement('option');
     optionDropDown4.id = 'fourthOption';
     optionDropDown4.innerHTML = 'Dinner 50';
     dropDown1.appendChild(optionDropDown4);
 
-    let optionDropDown2 = document.createElement('option');
-    optionDropDown2.id = 'secondOption';
-    optionDropDown2.innerHTML = 'Morning Snack 120';
-    dropDown1.appendChild(optionDropDown2);
+   
     ////////////////////////////
 
 
@@ -49,33 +96,32 @@ document.addEventListener('DOMContentLoaded',()  => {
     let inputBar1 = document.createElement('input');
     inputBar1.id = 'firstInputBar';
     inputBar1.placeholder = 'Enter Food Item';
-    div1.appendChild(inputBar1)
+    div2.appendChild(inputBar1)
 
     let foodUlElement = document.createElement('ul');
     foodUlElement.id = 'ul1';
-    div1.appendChild(foodUlElement);
+    div2.appendChild(foodUlElement);
+
+    foodListLi = document.createElement('li');
+    foodListLi.id = 'foodLi';
+    foodUlElement.appendChild(foodListLi);
 
     let foodListInputUl = document.createElement('ul');
     foodListInputUl.id = 'foodInputUl';
-    div1.appendChild(foodListInputUl)
+    div2.appendChild(foodListInputUl);
 
+      // input bar for covering and correcting functions
+
+    let inputBar2 = document.createElement('input');
+    inputBar2.id = 'secondInputBar';
+    inputBar2.placeholder = 'Enter Number for Cover or Correct';
+    div2.appendChild(inputBar2);
 
     // submit button
     let button1 = document.createElement('button');
     button1.id = "firstButton";
     button1.innerText = "Click To Submit";
-    div1.appendChild(button1);
-
-
-    // input bar for covering and correcting functions
-
-    let inputBar2 = document.createElement('input');
-    inputBar1.id = 'secondInputBar';
-    inputBar2.placeholder = 'Enter Number for Cover or Correct';
-    div1.appendChild(inputBar2)
-
-
-
+    div3.appendChild(button1);
 
 //   trying to add the onclick so it will subit the value from the input bar
 
@@ -123,13 +169,17 @@ document.addEventListener('DOMContentLoaded',()  => {
          let handlers = {
 
             addCurrentBg: function() {
-                let currentBgText = document.getElementById
+                let currentBgText = document.getElementById('secondInputBar')
 
                 addCurrentBgTextInput,value = '';
-
                 view.displayInfo();
+            },
+
+            deleteInfo: function (position) {
+                diabetesDisplay.deleteInfo(position);
+                view.displayInfo();
+            }
         }
-    }
 
         let view = {
 
@@ -147,9 +197,7 @@ document.addEventListener('DOMContentLoaded',()  => {
                     foodLi.textContent = food.displayText;
                     foodUl.appendChild(foodLi)
                 }
-
             },
-
         }
 
         const diabetesFoodList = document.getElementById('foodInputUl');
@@ -181,18 +229,9 @@ document.addEventListener('DOMContentLoaded',()  => {
             foodUlElement.appendChild(li)
         })
 
-       
+  
 
-
-        ///// add trying to make it so when you click button it submits input
-
-     
-
-        ////// end of new code
-
-
-
-        // trying to log the cover and correct amout to the list
+        // trying to log the cover and correct value to the list
         const addForms = document.forms['firstForm']
         addForms.addEventListener ('submit', function (e) {
             e.preventDefault();
@@ -208,13 +247,9 @@ document.addEventListener('DOMContentLoaded',()  => {
 
             carbNumber.classList.add('name');
             deleteBtn.classLust.add('delete');
-            foodInputUl.appendChild(li)
+            foodUlElement.appendChild(li)
 
         })
-//
-
-
-
 
         // const hideBox = document.querySelector('#hide');
 
@@ -222,3 +257,29 @@ document.addEventListener('DOMContentLoaded',()  => {
        
         // })
 })
+
+// const searchBar = document.getElementById('foodSearch');
+// searchBar.addEventListener('change', (e) => {
+
+//    const term = e.target.value.toLowerCase();
+//     const foods = foodUlElement.getElementsByTagName('ul1');
+//     Array.from(foods).forEach((food) => {
+//         const title = food.firstElementChild.textContent;
+//         if (title.toLowerCase().indexOf(e.target.value) != -1){
+//             food.style.display = 'block';
+//         } else {
+//             food.style.display = 'none';
+//         }
+//     });
+// });
+
+function carbCover() {
+    let currentBG = document.getElementById('firstDropDown');
+    let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
+    let totalCarbs = document.getElementById('secondInputBar').value;
+
+    carbCovering = (totalCarbs / carbValue);
+
+    return alert(carbCovering);
+}
+
