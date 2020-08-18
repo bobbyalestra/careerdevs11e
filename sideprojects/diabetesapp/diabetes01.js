@@ -3,21 +3,24 @@
 
 document.addEventListener('DOMContentLoaded',()  => {
 
-//    let form1 = document.createElement('form');
-//    form1.id = 'firstForm';
-//    document.body.appendChild(form1);
-
+    let h1 = document.createElement('h1');
+    h1.className = 'title';
+    h1.innerHTML = 'D.I.C';
+    document.body.appendChild(h1);
 
     let div1 =document.createElement('div');
     div1.id = 'firstDiv';
-    //div1.innerText = 'test'
     document.body.appendChild(div1);
 
+    let p1 = document.createElement('p1');
+    p1.id = 'firstP1Tag';
+    p1.innerText = 'Diabetic Insulin Calculator';
+    div1.appendChild(p1);
 
     // drop down and the option values
     let dropDown1 = document.createElement('select');
     dropDown1.id = 'firstDropDown';
-    div1.appendChild(dropDown1);
+    p1.appendChild(dropDown1);
 
     let optionDropDown1 = document.createElement('option');
     optionDropDown1.id = 'firstOption';
@@ -158,7 +161,7 @@ document.addEventListener('DOMContentLoaded',()  => {
            }
         })
 
-        // trying to add the input value to a UL then to a span
+        // trying to add the input value to a UL then to a span from the foodsName
         const addForm = document.forms['firstForm']
 
         addForm.addEventListener('submit', function(e) {
@@ -178,7 +181,7 @@ document.addEventListener('DOMContentLoaded',()  => {
             foodUlElement.appendChild(li)
         })
 
-        const addForms = document.forms['firstForm']
+       
 
 
         ///// add trying to make it so when you click button it submits input
@@ -186,6 +189,11 @@ document.addEventListener('DOMContentLoaded',()  => {
      
 
         ////// end of new code
+
+
+
+        // trying to log the cover and correct amout to the list
+        const addForms = document.forms['firstForm']
         addForms.addEventListener ('submit', function (e) {
             e.preventDefault();
             const value = addForms.getElementById('firstForm');
@@ -203,6 +211,10 @@ document.addEventListener('DOMContentLoaded',()  => {
             foodInputUl.appendChild(li)
 
         })
+//
+
+
+
 
         // const hideBox = document.querySelector('#hide');
 
