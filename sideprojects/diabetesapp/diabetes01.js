@@ -121,13 +121,19 @@ document.addEventListener('DOMContentLoaded',()  => {
     let button1 = document.createElement('button');
     button1.id = "firstButton";
     button1.innerText = "Click To Submit";
+    // for button function 
+    button1.addEventListener('click', function (){
+        let totalCarbs = document.getElementById('secondInputBar');
+        let carbCorrecting = ((totalCarbs - 120) / 300);
+    
+    return alert (carbCorrecting);
+    
+    }) 
+    //////////
     div3.appendChild(button1);
 
 //   trying to add the onclick so it will subit the value from the input bar
 
-    function buttonSubmit (){
-
-    }
 
 //////
     let diabetesDisplay = {
@@ -282,4 +288,15 @@ function carbCover() {
 
     return alert(carbCovering);
 }
+
+
+
+let foodButton1 = document.querySelector('#firstButtonHTML')
+
+        
+   
+    
+ 
+console.log(document.getElementById('firstButtonHTML'))
+console.log(document.getElementById('secondInputBar'))
 
