@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded',()  => {
     inputBar2.placeholder = 'Enter Number for Cover or Correct';
     div2.appendChild(inputBar2);
 
-    // submit button
+    // submit button //   trying to add the onclick so it will submit the value from the input bar
     let button1 = document.createElement('button');
     button1.id = "firstButton";
     button1.innerText = "Click To Submit";
@@ -132,7 +132,8 @@ document.addEventListener('DOMContentLoaded',()  => {
     //////////
     div3.appendChild(button1);
 
-//   trying to add the onclick so it will submit the value from the input bar
+    
+
 
 
 //////
@@ -262,6 +263,24 @@ document.addEventListener('DOMContentLoaded',()  => {
         // hideBox.addEventListener('change', function(e) {
        
         // })
+
+
+        function carbCover() {
+            let buttonForCover = document.getElementById('firstButtonHTML')
+            buttonForCover.addEventListener('click', () =>{
+
+                let currentBG = document.getElementById('firstDropDown');
+                let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
+                let totalCarbs = document.getElementById('secondInputBar').value;
+            
+                carbCovering = (totalCarbs / carbValue);
+            
+                return alert(carbCovering);
+            
+    
+            })
+        }
+
 })
 
 // const searchBar = document.getElementById('foodSearch');
@@ -279,15 +298,7 @@ document.addEventListener('DOMContentLoaded',()  => {
 //     });
 // });
 
-function carbCover() {
-    let currentBG = document.getElementById('firstDropDown');
-    let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
-    let totalCarbs = document.getElementById('secondInputBar').value;
 
-    carbCovering = (totalCarbs / carbValue);
-
-    return alert(carbCovering);
-}
 
 
 
@@ -297,6 +308,3 @@ let foodButton1 = document.querySelector('#firstButtonHTML')
    
     
  
-console.log(document.getElementById('firstButtonHTML'))
-console.log(document.getElementById('secondInputBar'))
-
