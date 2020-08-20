@@ -11,19 +11,18 @@ document.addEventListener('DOMContentLoaded',()  => {
 
 
 
-    ///////////
-
-   
+    /////////// to add styling
+ 
     let h1 = document.createElement('h1');
     h1.id = ' title'
     h1.className = 'title';
     h1.innerHTML = 'D.I.C';
     document.body.appendChild(h1);
 
-    let inputBar3 = document.createElement('input');
-    inputBar3.id = 'foodSearch';
-    inputBar3.placeholder = 'Enter Item You Are Looking For';
-    document.body.appendChild(inputBar3)
+    // let inputBar3 = document.createElement('input');
+    // inputBar3.id = 'foodSearch';
+    // inputBar3.placeholder = 'Enter Item You Are Looking For';
+    // document.body.appendChild(inputBar3)
 
 
     let div1 =document.createElement('div');
@@ -92,6 +91,14 @@ document.addEventListener('DOMContentLoaded',()  => {
     ////////////////////////////
 
 
+  
+
+      // input bar for covering and correcting functions
+      let inputBar2 = document.createElement('input');
+    inputBar2.id = 'secondInputBar';
+    inputBar2.placeholder = 'Enter Number for Cover or Correct';
+    div2.appendChild(inputBar2);
+
     // input bar for food items
     let inputBar1 = document.createElement('input');
     inputBar1.id = 'firstInputBar';
@@ -108,20 +115,14 @@ document.addEventListener('DOMContentLoaded',()  => {
 
     let foodListInputUl = document.createElement('ul');
     foodListInputUl.id = 'foodInputUl';
-    div2.appendChild(foodListInputUl);
-
-      // input bar for covering and correcting functions
-
-    let inputBar2 = document.createElement('input');
-    inputBar2.id = 'secondInputBar';
-    inputBar2.placeholder = 'Enter Number for Cover or Correct';
-    div2.appendChild(inputBar2);
+    div2.appendChild(foodListInputUl);  
 
     // submit button //   trying to add the onclick so it will submit the value from the input bar
     let button1 = document.createElement('button');
     button1.id = "firstButton";
     button1.innerText = "Click To Submit";
     // for button function 
+    div3.appendChild(button1);
     button1.addEventListener('click', function (){
         let totalCarbs = document.getElementById('secondInputBar');
         let carbCorrecting = ((totalCarbs - 120) / 300);
@@ -130,7 +131,7 @@ document.addEventListener('DOMContentLoaded',()  => {
     
     }) 
     //////////
-    div3.appendChild(button1);
+    
 
     
 
@@ -236,6 +237,7 @@ document.addEventListener('DOMContentLoaded',()  => {
             foodUlElement.appendChild(li)
         })
 
+        
   
 
         // trying to log the cover and correct value to the list
@@ -266,7 +268,7 @@ document.addEventListener('DOMContentLoaded',()  => {
 
 
         function carbCover() {
-            let buttonForCover = document.getElementById('firstButtonHTML')
+            let buttonForCover = document.getElementById('firstButton')
             buttonForCover.addEventListener('click', () =>{
 
                 let currentBG = document.getElementById('firstDropDown');
