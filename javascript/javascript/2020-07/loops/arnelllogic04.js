@@ -17,6 +17,8 @@
 
 // use and if statement to set a condition so that if number 1 is > number two it will select the larger sum
 // i need to set a variable += highest total
+// i need to make highest total an array and cylcle through that
+// then highesttotal[i] < highesttotal[i + 1] 
 
 
 

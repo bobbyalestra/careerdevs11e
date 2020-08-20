@@ -69,22 +69,26 @@ document.addEventListener('DOMContentLoaded',()  => {
     let optionDropDown1 = document.createElement('option');
     optionDropDown1.id = 'firstOption';
     optionDropDown1.innerHTML = 'Breakfast 50';
+    optionDropDown1.value = 50
     dropDown1.appendChild(optionDropDown1);
   
 
     let optionDropDown3 = document.createElement('option');
     optionDropDown3.id = 'thirdOption';
     optionDropDown3.innerHTML = 'Lunch 120';
+    optionDropDown3.value = 120
     dropDown1.appendChild(optionDropDown3);
 
     let optionDropDown2 = document.createElement('option');
     optionDropDown2.id = 'secondOption';
     optionDropDown2.innerHTML = 'Snack 120';
+    optionDropDown2.value = 120
     dropDown1.appendChild(optionDropDown2);
 
     let optionDropDown4 = document.createElement('option');
     optionDropDown4.id = 'fourthOption';
     optionDropDown4.innerHTML = 'Dinner 50';
+    optionDropDown4.value = 50;
     dropDown1.appendChild(optionDropDown4);
 
    
@@ -124,12 +128,15 @@ document.addEventListener('DOMContentLoaded',()  => {
     // for button function 
     div3.appendChild(button1);
     button1.addEventListener('click', function (){
-        let totalCarbs = document.getElementById('secondInputBar');
-        let carbCorrecting = ((totalCarbs - 120) / 300);
+        let currentBG = document.getElementById('firstDropDown');
+        let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
+        let totalCarbs = document.getElementById("secondInputBar").value
     
-    return alert (carbCorrecting);
+        carbCovering = (totalCarbs / carbValue )
+       
+        return alert(carbCovering)
     
-    }) 
+    // }) 
     //////////
     
 
@@ -267,20 +274,31 @@ document.addEventListener('DOMContentLoaded',()  => {
         // })
 
 
-        function carbCover() {
-            let buttonForCover = document.getElementById('firstButton')
-            buttonForCover.addEventListener('click', () =>{
+        // function carbCover() {
+        //     let buttonForCover = document.getElementById('firstButton')
+        //     buttonForCover.addEventListener('click', () =>{
 
-                let currentBG = document.getElementById('firstDropDown');
-                let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
-                let totalCarbs = document.getElementById('secondInputBar').value;
+        //         let currentBG = document.getElementById('firstDropDown');
+        //         let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
+        //         let totalCarbs = document.getElementById('secondInputBar').value;
             
-                carbCovering = (totalCarbs / carbValue);
+        //         carbCovering = (totalCarbs / carbValue);
             
-                return alert(carbCovering);
+        //         return alert(carbCovering);
             
     
-            })
+        //     })
+        // }
+
+
+        function carbCover(){
+            let currentBG = document.getElementById('firstDropDown');
+            let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
+            let totalCarbs = document.getElementById("secondInputBar").value
+        
+            carbCovering = (totalCarbs / carbValue )
+           
+            return alert(carbCovering)
         }
 
 })
@@ -304,7 +322,7 @@ document.addEventListener('DOMContentLoaded',()  => {
 
 
 
-let foodButton1 = document.querySelector('#firstButtonHTML')
+})
 
         
    
