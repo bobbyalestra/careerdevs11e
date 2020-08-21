@@ -27,31 +27,33 @@
 
 let numbersArray = [358276442183, 355932218848, 3554259136937, 5602212994565, 353022164588, 639921161300, 56022354427689,51087587653044, 6333641549180, 560224431936850, 5020192861974, 676324012630737, 3530627464605, 63043786670877, 372301634211413 ];
 let groupNumbers = [];
-let numTotalArray = []
+let numTotalArray = [];
+
 // adding a 1 to the initializer instead of zero doeesnt log the first sub array twice
 // adding a -1 to the conditions will prevent it from log undefined and NaN at the last log
 
-for (let i = 1; i < numbersArray.length - 1; i++){
+for (let i = 1; i < numbersArray.length - 1; i++) {
     
         let number1 = numbersArray[i];
         let number2 = numbersArray[i + 1];
         let numTotal = number1 + number2;
         let highestTotal =  numTotal += numTotal + 1;
-  
+        let numTotalArray = [];
+        let numTotalString = '';
        
 
         groupNumbers.push(number1, number2, numTotal);
         numTotalArray.push(numTotal);
 
-        
-        console.log((highestTotal) , "");
+        numTotalString = numTotalArray.toString()
+       console.log((numTotalString) , "");
 
         if (highestTotal < highestTotal + 1 ){
 
             highestTotal = highestTotal + 1;
 
        
-            console.log((highestTotal) , "");
+          //  console.log((highestTotal) , "");
         }
 
             // gives me each total

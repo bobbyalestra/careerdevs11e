@@ -45,6 +45,12 @@ document.addEventListener('DOMContentLoaded',()  => {
     //div3.innerHTML = ' third div';
     document.body.appendChild(div3);
 
+    let div5 = document.createElement('div');
+    div5.id = 'fifthDiv';
+    //div5.innerHTML = ' third div';
+    document.body.appendChild(div5);
+   
+
     
 
     let p1 = document.createElement('p1');
@@ -54,12 +60,15 @@ document.addEventListener('DOMContentLoaded',()  => {
 
     let p2 = document.createElement('p1');
     p2.id = 'secondP1Tag';
+    //p2.innerText = 'test'
     div2.appendChild(p2);
+    div5.appendChild(p2);
 
     let p3 = document.createElement('p1');
     p3.id = 'thirdP1Tag';
     div4.appendChild(p3);
 
+    
 
     // drop down and the option values
     let dropDown1 = document.createElement('select');
@@ -94,20 +103,29 @@ document.addEventListener('DOMContentLoaded',()  => {
    
     ////////////////////////////
 
+    let inputBar4 = document.createElement('input');
+    inputBar4.id = 'fourthInputBar';
+    inputBar4.placeholder = 'Select or Enter Carb Ratio ';
+    div5.appendChild(inputBar4);
 
   
 
       // input bar for covering and correcting functions
       let inputBar2 = document.createElement('input');
     inputBar2.id = 'secondInputBar';
-    inputBar2.placeholder = 'Enter Number for Cover or Correct';
+    inputBar2.placeholder = 'Enter Number for Cover ';
     div2.appendChild(inputBar2);
 
+    let inputBar3 = document.createElement('input');
+    inputBar3.id = 'thirdInputBar';
+    inputBar3.placeholder = 'Enter Number To Correct ';
+    div2.appendChild(inputBar3);
+
     // input bar for food items
-    let inputBar1 = document.createElement('input');
-    inputBar1.id = 'firstInputBar';
-    inputBar1.placeholder = 'Enter Food Item';
-    div2.appendChild(inputBar1)
+    // let inputBar1 = document.createElement('input');
+    // inputBar1.id = 'firstInputBar';
+    // inputBar1.placeholder = 'Enter Food Item';
+    // div2.appendChild(inputBar1)
 
     let foodUlElement = document.createElement('ul');
     foodUlElement.id = 'ul1';
@@ -121,24 +139,72 @@ document.addEventListener('DOMContentLoaded',()  => {
     foodListInputUl.id = 'foodInputUl';
     div2.appendChild(foodListInputUl);  
 
-    // submit button //   trying to add the onclick so it will submit the value from the input bar
+    // submit button for carb cover //
     let button1 = document.createElement('button');
     button1.id = "firstButton";
-    button1.innerText = "Click To Submit";
+    button1.innerText = "Carb Cover";
     // for button function 
     div3.appendChild(button1);
-    button1.addEventListener('click', function (){
+    let foodDisplayButton =  button1.addEventListener('click', function (){
         let currentBG = document.getElementById('firstDropDown');
         let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
         let totalCarbs = document.getElementById("secondInputBar").value
     
         carbCovering = (totalCarbs / carbValue )
        
-        return alert(carbCovering)
+
+        //where the list is created in the button
+        let returnCover = "<li>" + carbCovering + "</li>"
+        document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'
+
+       // return alert(carbCovering)
+
     
-    // }) 
+    
+     }) 
     //////////
     
+
+    let button2 = document.createElement('button');
+    button2.id = "secondButton";
+    button2.innerText = "Carb Correction";
+    // for button function 
+    div3.appendChild(button2);
+    button2.addEventListener('click', () => {
+        let currentBG = document.getElementById('thirdInputBar').value;
+        let correctionValue = ((currentBG - 120) / 300);
+
+        let returnCorrect = "<li>" + correctionValue + "</li>"
+        document.getElementById('foodLi').innerHTML += returnCorrect + 'Correction Amount'
+    //    return alert (correctionValue)
+
+    });
+
+    let button3 = document.createElement('button');
+    button3.id = 'thirdButton';
+    button3.innerText = "Total Insulin";
+    div3.appendChild(button3);
+
+    button3.addEventListener('click', () => {
+
+        let currentBG = document.getElementById('thirdInputBar').value;
+        let correctionValue = ((currentBG - 120) / 300);
+
+        let currentBGTotal = document.getElementById('firstDropDown');
+        let carbValue = parseInt(currentBGTotal.options[currentBGTotal.selectedIndex].value);     
+        let totalCarbs = document.getElementById("secondInputBar").value
+
+        carbCovering = (totalCarbs / carbValue )
+
+        let totalInsulin = carbCovering + correctionValue
+        
+
+        let returnTotal = "<li>" + totalInsulin + "</li>"
+        document.getElementById('foodLi').innerHTML += returnTotal + 'Total Amount'
+    });
+
+   
+
 
     
 
@@ -225,11 +291,12 @@ document.addEventListener('DOMContentLoaded',()  => {
         })
 
         // trying to add the input value to a UL then to a span from the foodsName
-        const addForm = document.forms['firstForm']
+        const addForm = document.getElementById('ul1')
 
         addForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const value = addForm.getElementById('firstInputBar')
+
+            const value = foodDisplayButton
             const li = document.createElement('li');
             const foodName = document.createElement('span');
             foodName.textContent = value;
@@ -244,7 +311,7 @@ document.addEventListener('DOMContentLoaded',()  => {
             foodUlElement.appendChild(li)
         })
 
-        
+
   
 
         // trying to log the cover and correct value to the list
@@ -289,18 +356,6 @@ document.addEventListener('DOMContentLoaded',()  => {
     
         //     })
         // }
-
-
-        function carbCover(){
-            let currentBG = document.getElementById('firstDropDown');
-            let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
-            let totalCarbs = document.getElementById("secondInputBar").value
-        
-            carbCovering = (totalCarbs / carbValue )
-           
-            return alert(carbCovering)
-        }
-
 })
 
 // const searchBar = document.getElementById('foodSearch');
@@ -322,7 +377,6 @@ document.addEventListener('DOMContentLoaded',()  => {
 
 
 
-})
 
         
    
