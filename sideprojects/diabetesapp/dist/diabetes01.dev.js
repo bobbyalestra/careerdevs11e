@@ -77,11 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var inputBar2 = document.createElement('input');
   inputBar2.id = 'secondInputBar';
-  inputBar2.placeholder = 'Enter Number for Cover ';
+  inputBar2.placeholder = 'Enter Carb Amount ';
   div2.appendChild(inputBar2);
   var inputBar3 = document.createElement('input');
   inputBar3.id = 'thirdInputBar';
-  inputBar3.placeholder = 'Enter Number To Correct ';
+  inputBar3.placeholder = 'Enter Current BG ';
   div2.appendChild(inputBar3); // input bar for food items
   // let inputBar1 = document.createElement('input');
   // inputBar1.id = 'firstInputBar';
@@ -123,7 +123,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var correctionValue = (currentBG - 120) / 300;
     var returnCorrect = "<li>" + correctionValue + "</li>";
     document.getElementById('foodLi').innerHTML += returnCorrect + 'Correction Amount'; //    return alert (correctionValue)
-  });
+  }); /////////////for the total amount
+
   var button3 = document.createElement('button');
   button3.id = 'thirdButton';
   button3.innerText = "Total Insulin";
@@ -138,120 +139,18 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalInsulin = carbCovering + correctionValue;
     var returnTotal = "<li>" + totalInsulin + "</li>";
     document.getElementById('foodLi').innerHTML += returnTotal + 'Total Amount';
+  }); /////////// for the custom Ratio
+
+  var button4 = document.createElement('button');
+  button4.id = 'fourthButton';
+  button4.innerText = "Custom Ratio";
+  div5.appendChild(button4);
+  button4.addEventListener('click', function () {
+    var customRatio = document.getElementById('fourthInputBar').value;
+    parseInt(customRatio);
+    var carbAmount = document.getElementById('secondInputBar').value;
+    var customCover = customRatio / carbAmount;
+    var returnCustomCover = "<li>" + customCover + "</li>";
+    document.getElementById('foodLi').innerHTML += returnCustomCover + 'Total Amount';
   }); //////
-
-  var diabetesDisplay = {
-    foodDisplay: [],
-    displayFoodItem: function displayFoodItem() {
-      if (this.foodDisplay.length === 0) {
-        alert("Please Enter An Item");
-      } else {
-        console.log("Food Item : ");
-      }
-
-      for (var i = 0; i < this.foodDisplay.length; i++) {
-        console.log(this.foodDisplay[i].displayText);
-
-        if (this.display[i].completed === true) {
-          console.log(' (x) ', this.foodDisplay[i].displayText);
-        } else {
-          console.log('(  )', this.foodDisplay[i].displayText);
-        }
-      }
-    },
-    addCurrentBg: function addCurrentBg(displayText) {
-      this.foodDisplay.push(displayText);
-    },
-    deleteInfo: function deleteInfo(position) {
-      this.foodDisplay.splice(position);
-      this.displayInfo();
-    }
-  };
-  var handlers = {
-    addCurrentBg: function addCurrentBg() {
-      var currentBgText = document.getElementById('secondInputBar');
-      addCurrentBgTextInput, value = '';
-      view.displayInfo();
-    },
-    deleteInfo: function deleteInfo(position) {
-      diabetesDisplay.deleteInfo(position);
-      view.displayInfo();
-    }
-  };
-  var view = {
-    displayInfo: function displayInfo() {
-      var foodUl = document.getElementById('ul1');
-      foodUl.innerHTML = '';
-
-      for (var i = 0; i < diabetesDisplay.foodDisplay.length; i++) {
-        var foodLi = document.createElement('li');
-        var food = diabetesDisplay.foodDisplay[i];
-        foodLi.id = i;
-        foodLi.textContent = food.displayText;
-        foodUl.appendChild(foodLi);
-      }
-    }
-  };
-  var diabetesFoodList = document.getElementById('foodInputUl');
-  diabetesFoodList.addEventListener('submit', function (e) {
-    if (e.target.className == 'delete') {
-      var li = e.target.parentElement;
-      diabetesFoodList.removeChild(li);
-    }
-  }); // trying to add the input value to a UL then to a span from the foodsName
-
-  var addForm = document.getElementById('ul1');
-  addForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var value = foodDisplayButton;
-    var li = document.createElement('li');
-    var foodName = document.createElement('span');
-    foodName.textContent = value;
-    var deleteBtn = document.createElement('span');
-    deleteBtn.textContent = 'delete';
-    foodName.classList.add('name');
-    deleteBtn.classList.add('delete');
-    li.appendChild(foodName);
-    li.appendChild(deleteBtn);
-    foodUlElement.appendChild(li);
-  }); // trying to log the cover and correct value to the list
-
-  var addForms = document.forms['firstForm'];
-  addForms.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var value = addForms.getElementById('firstForm');
-    var li = document.createElement('li');
-    var carbNumber = document.createElement('span');
-    carbNumber.textContent = value;
-    var coverAmount = document.createElement('span');
-    var deleteBtn = document.createElement('span');
-    deleteBtn.textContent - 'delete';
-    carbNumber.classList.add('name');
-    deleteBtn.classLust.add('delete');
-    foodUlElement.appendChild(li);
-  }); // const hideBox = document.querySelector('#hide');
-  // hideBox.addEventListener('change', function(e) {
-  // })
-  // function carbCover() {
-  //     let buttonForCover = document.getElementById('firstButton')
-  //     buttonForCover.addEventListener('click', () =>{
-  //         let currentBG = document.getElementById('firstDropDown');
-  //         let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
-  //         let totalCarbs = document.getElementById('secondInputBar').value;
-  //         carbCovering = (totalCarbs / carbValue);
-  //         return alert(carbCovering);
-  //     })
-  // }
-}); // const searchBar = document.getElementById('foodSearch');
-// searchBar.addEventListener('change', (e) => {
-//    const term = e.target.value.toLowerCase();
-//     const foods = foodUlElement.getElementsByTagName('ul1');
-//     Array.from(foods).forEach((food) => {
-//         const title = food.firstElementChild.textContent;
-//         if (title.toLowerCase().indexOf(e.target.value) != -1){
-//             food.style.display = 'block';
-//         } else {
-//             food.style.display = 'none';
-//         }
-//     });
-// });
+});

@@ -113,12 +113,12 @@ document.addEventListener('DOMContentLoaded',()  => {
       // input bar for covering and correcting functions
       let inputBar2 = document.createElement('input');
     inputBar2.id = 'secondInputBar';
-    inputBar2.placeholder = 'Enter Number for Cover ';
+    inputBar2.placeholder = 'Enter Carb Amount ';
     div2.appendChild(inputBar2);
 
     let inputBar3 = document.createElement('input');
     inputBar3.id = 'thirdInputBar';
-    inputBar3.placeholder = 'Enter Number To Correct ';
+    inputBar3.placeholder = 'Enter Current BG ';
     div2.appendChild(inputBar3);
 
     // input bar for food items
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded',()  => {
     //    return alert (correctionValue)
 
     });
-
+/////////////for the total amount
     let button3 = document.createElement('button');
     button3.id = 'thirdButton';
     button3.innerText = "Total Insulin";
@@ -203,176 +203,28 @@ document.addEventListener('DOMContentLoaded',()  => {
         document.getElementById('foodLi').innerHTML += returnTotal + 'Total Amount'
     });
 
-   
+/////////// for the custom Ratio
+    let button4 = document.createElement('button');
+    button4.id = 'fourthButton';
+    button4.innerText = "Custom Ratio";
+    div5.appendChild(button4);
+    button4.addEventListener('click', () => {
+
+    let customRatio = document.getElementById('fourthInputBar').value;
+        parseInt(customRatio)
+    let carbAmount = document.getElementById('secondInputBar').value;
+
+    let customCover = customRatio / carbAmount;
+
+    let returnCustomCover = "<li>" + customCover + "</li>"
+    document.getElementById('foodLi').innerHTML += returnCustomCover + 'Total Amount'
 
 
-    
 
-
+});
 
 //////
-    let diabetesDisplay = {
-        foodDisplay: [],
-
-        displayFoodItem: function () {
-            if (this.foodDisplay.length === 0 ) {
-                alert("Please Enter An Item");
-
-            }else {
-                console.log("Food Item : ");
-
-            }
-
-            for (let i = 0; i < this.foodDisplay.length; i++){
-                console.log(this.foodDisplay[i].displayText);
-                if(this.display[i].completed === true){
-                    console.log(( ' (x) ' ),this.foodDisplay[i].displayText);
-                }else{
-                    console.log( '(  )',this.foodDisplay[i].displayText );
-                }
-            }
-       },
-
-
-        addCurrentBg: function (displayText) {
-            this.foodDisplay.push(displayText)
-
-        },
-        
-        deleteInfo: function (position) {
-            this.foodDisplay.splice(position);
-         
-            this.displayInfo();
-        
-        }
-    }
-        
-         let handlers = {
-
-            addCurrentBg: function() {
-                let currentBgText = document.getElementById('secondInputBar')
-
-                addCurrentBgTextInput,value = '';
-                view.displayInfo();
-            },
-
-            deleteInfo: function (position) {
-                diabetesDisplay.deleteInfo(position);
-                view.displayInfo();
-            }
-        }
-
-        let view = {
-
-            displayInfo: function (){
-
-                let foodUl = document.getElementById('ul1');
-                foodUl.innerHTML = '';
-
-                for (let i = 0; i < diabetesDisplay.foodDisplay.length; i++){
-
-                    let foodLi = document.createElement('li');
-                    let food = diabetesDisplay.foodDisplay[i];
-
-                    foodLi.id = i ;
-                    foodLi.textContent = food.displayText;
-                    foodUl.appendChild(foodLi)
-                }
-            },
-        }
-
-        const diabetesFoodList = document.getElementById('foodInputUl');
-
-        diabetesFoodList.addEventListener('submit', function(e){
-           if (e.target.className == 'delete') {
-               const li = e.target.parentElement;
-               diabetesFoodList.removeChild(li);
-           }
-        })
-
-        // trying to add the input value to a UL then to a span from the foodsName
-        const addForm = document.getElementById('ul1')
-
-        addForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const value = foodDisplayButton
-            const li = document.createElement('li');
-            const foodName = document.createElement('span');
-            foodName.textContent = value;
-            const deleteBtn = document.createElement('span');
-            deleteBtn.textContent = 'delete';
-
-            foodName.classList.add('name');
-            deleteBtn.classList.add('delete');
-
-            li.appendChild(foodName);
-            li.appendChild(deleteBtn)
-            foodUlElement.appendChild(li)
-        })
-
-
-  
-
-        // trying to log the cover and correct value to the list
-        const addForms = document.forms['firstForm']
-        addForms.addEventListener ('submit', function (e) {
-            e.preventDefault();
-            const value = addForms.getElementById('firstForm');
-            const li = document.createElement('li')
-            const carbNumber = document.createElement('span');
-            carbNumber.textContent = value ;
-            const coverAmount = document.createElement('span');
-
-            const deleteBtn = document.createElement('span');
-            deleteBtn.textContent - 'delete'
-
-
-            carbNumber.classList.add('name');
-            deleteBtn.classLust.add('delete');
-            foodUlElement.appendChild(li)
-
-        })
-
-        // const hideBox = document.querySelector('#hide');
-
-        // hideBox.addEventListener('change', function(e) {
-       
-        // })
-
-
-        // function carbCover() {
-        //     let buttonForCover = document.getElementById('firstButton')
-        //     buttonForCover.addEventListener('click', () =>{
-
-        //         let currentBG = document.getElementById('firstDropDown');
-        //         let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
-        //         let totalCarbs = document.getElementById('secondInputBar').value;
-            
-        //         carbCovering = (totalCarbs / carbValue);
-            
-        //         return alert(carbCovering);
-            
-    
-        //     })
-        // }
-})
-
-// const searchBar = document.getElementById('foodSearch');
-// searchBar.addEventListener('change', (e) => {
-
-//    const term = e.target.value.toLowerCase();
-//     const foods = foodUlElement.getElementsByTagName('ul1');
-//     Array.from(foods).forEach((food) => {
-//         const title = food.firstElementChild.textContent;
-//         if (title.toLowerCase().indexOf(e.target.value) != -1){
-//             food.style.display = 'block';
-//         } else {
-//             food.style.display = 'none';
-//         }
-//     });
-// });
-
+});
 
 
 
