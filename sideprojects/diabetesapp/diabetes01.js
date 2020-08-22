@@ -31,25 +31,29 @@ document.addEventListener('DOMContentLoaded',()  => {
 
     let div4 = document.createElement('div');
     div4.id = 'fourthDiv';
-    // div4.innerHTML = ' fourth div';
     document.body.appendChild(div4);
 
      let div2 = document.createElement('div');
     div2.id = 'secondDiv';
-    //div2.innerHTML = 'second div';
     document.body.appendChild(div2);
 
     
     let div3 = document.createElement('div');
     div3.id = 'thirdDiv';
-    //div3.innerHTML = ' third div';
     document.body.appendChild(div3);
 
     let div5 = document.createElement('div');
     div5.id = 'fifthDiv';
-    //div5.innerHTML = ' third div';
     document.body.appendChild(div5);
+
+
+    let div6 = document.createElement('div');
+    div6.id = 'sixthDiv';
+    document.body.appendChild(div6);
    
+    let div7 = document.createElement('div');
+    div7.id = 'seventhDiv';
+    document.body.appendChild(div7);
 
     
 
@@ -57,17 +61,20 @@ document.addEventListener('DOMContentLoaded',()  => {
     p1.id = 'firstP1Tag';
     p1.innerText = 'Diabetic Insulin Calculator';
     div1.appendChild(p1);
+    
 
     let p2 = document.createElement('p1');
     p2.id = 'secondP1Tag';
     //p2.innerText = 'test'
     div2.appendChild(p2);
     div5.appendChild(p2);
+    div4.appendChild(p2);
+    div5.appendChild(p2);
 
     let p3 = document.createElement('p1');
-    p3.id = 'thirdP1Tag';
-    div4.appendChild(p3);
-
+    p3.id = 'p1Tag';
+    p3.innerText = 'You can also add a custom Target by entering it below and clicking the custom target buttom followed by the inputting the Current BG, or you can select a custom Carb Ratio by inputting the Ratio and then inoutting the Carb Amount, and Clicking the respective buttons';
+    div6.appendChild(p3);
     
 
     // drop down and the option values
@@ -100,32 +107,47 @@ document.addEventListener('DOMContentLoaded',()  => {
     optionDropDown4.value = 50;
     dropDown1.appendChild(optionDropDown4);
 
-   
-    ////////////////////////////
 
-    let inputBar4 = document.createElement('input');
-    inputBar4.id = 'fourthInputBar';
-    inputBar4.placeholder = 'Select or Enter Carb Ratio ';
-    div5.appendChild(inputBar4);
-
-  
-
-      // input bar for covering and correcting functions
+      // input bar for covering
       let inputBar2 = document.createElement('input');
     inputBar2.id = 'secondInputBar';
     inputBar2.placeholder = 'Enter Carb Amount ';
     div2.appendChild(inputBar2);
-
+// input bar for BG
     let inputBar3 = document.createElement('input');
     inputBar3.id = 'thirdInputBar';
     inputBar3.placeholder = 'Enter Current BG ';
     div2.appendChild(inputBar3);
+    //inout for custom Target
+    let inputBar4 = document.createElement('input');
+    inputBar4.id = 'fourthInputBar';
+    inputBar4.placeholder = 'Enter Carb Ratio ';
+    div7.appendChild(inputBar4);
+
+    let inputBar5 = document.createElement('input');
+    inputBar5.id = 'fifthInputBar';
+    inputBar5.placeholder = 'Enter Target';
+    div7.appendChild(inputBar5);
+
+    let inputBar6 = document.createElement('input');
+    inputBar6.id = 'sixthInputBar';
+    inputBar6.placeholder = 'Enter Correction Factor';
+    div7.appendChild(inputBar6);
+
 
     // input bar for food items
     // let inputBar1 = document.createElement('input');
     // inputBar1.id = 'firstInputBar';
     // inputBar1.placeholder = 'Enter Food Item';
     // div2.appendChild(inputBar1)
+
+    let coverCorrectList = document.createElement('ul');
+    coverCorrectList.id = 'ul2';
+    div6.appendChild(coverCorrectList);
+
+    coverCorrectLi = document.createElement('li');
+    coverCorrectLi.id = 'covercorrectLi';
+    coverCorrectList.appendChild(coverCorrectLi);
 
     let foodUlElement = document.createElement('ul');
     foodUlElement.id = 'ul1';
@@ -135,9 +157,6 @@ document.addEventListener('DOMContentLoaded',()  => {
     foodListLi.id = 'foodLi';
     foodUlElement.appendChild(foodListLi);
 
-    let foodListInputUl = document.createElement('ul');
-    foodListInputUl.id = 'foodInputUl';
-    div2.appendChild(foodListInputUl);  
 
     // submit button for carb cover //
     let button1 = document.createElement('button');
@@ -145,7 +164,7 @@ document.addEventListener('DOMContentLoaded',()  => {
     button1.innerText = "Carb Cover";
     // for button function 
     div3.appendChild(button1);
-    let foodDisplayButton =  button1.addEventListener('click', function (){
+    button1.addEventListener('click', function (){
         let currentBG = document.getElementById('firstDropDown');
         let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
         let totalCarbs = document.getElementById("secondInputBar").value
@@ -156,13 +175,7 @@ document.addEventListener('DOMContentLoaded',()  => {
         //where the list is created in the button
         let returnCover = "<li>" + carbCovering + "</li>"
         document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'
-
-       // return alert(carbCovering)
-
-    
-    
      }) 
-    //////////
     
 
     let button2 = document.createElement('button');
@@ -184,12 +197,9 @@ document.addEventListener('DOMContentLoaded',()  => {
     button3.id = 'thirdButton';
     button3.innerText = "Total Insulin";
     div3.appendChild(button3);
-
     button3.addEventListener('click', () => {
-
         let currentBG = document.getElementById('thirdInputBar').value;
         let correctionValue = ((currentBG - 120) / 300);
-
         let currentBGTotal = document.getElementById('firstDropDown');
         let carbValue = parseInt(currentBGTotal.options[currentBGTotal.selectedIndex].value);     
         let totalCarbs = document.getElementById("secondInputBar").value
@@ -207,30 +217,88 @@ document.addEventListener('DOMContentLoaded',()  => {
     let button4 = document.createElement('button');
     button4.id = 'fourthButton';
     button4.innerText = "Custom Ratio";
-    div5.appendChild(button4);
+    div6.appendChild(button4);
     button4.addEventListener('click', () => {
 
     let customRatio = document.getElementById('fourthInputBar').value;
-        parseInt(customRatio)
     let carbAmount = document.getElementById('secondInputBar').value;
+    let customCover = customRatio / carbAmount;
+    let returnCustomCover = "<li>" + customCover + "</li>"
+    document.getElementById('covercorrectLi').innerHTML += returnCustomCover + 'custom Cover Amount'
 
+});
+
+let button5 = document.createElement('button');
+button5.id = 'fifthButton';
+button5.innerText = "Custom Target";
+div6.appendChild(button5);
+button5.addEventListener('click', () => {
+
+let customTarget = document.getElementById('fifthInputBar').value;
+let currentBGCustom = document.getElementById('thirdInputBar').value;
+
+let customCorrect = ((customTarget - currentBGCustom)  / 300);
+let returnCustomCorrect = "<li>" + customCorrect + "</li>"
+document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
+})
+
+let button6 = document.createElement('button');
+button6.id = 'sixthButton';
+button6.innerText = "Custom Correction Factor";
+div6.appendChild(button6);
+button6.addEventListener('click', () => {
+
+let customTarget = document.getElementById('fifthInputBar').value;
+let customCorrectionFactor = document.getElementById('sixthInputBar').value;
+let currentBGCustom = document.getElementById('thirdInputBar').value;
+
+let customCorrect = ((customTarget - currentBGCustom)  / customCorrectionFactor);
+let addingtoPositive = customCorrect + customCorrect + customCorrect
+let returnCustomCorrect = "<li>" + addingtoPositive + "</li>"
+document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
+
+
+
+})
+
+
+let button7 = document.createElement('button');
+button7.id = 'sixthButton';
+button7.innerText = "Custom Total Insulin";
+div6.appendChild(button7);
+button6.addEventListener('click', () => {
+
+let customTarget = document.getElementById('fifthInputBar').value;
+let customCorrectionFactor = document.getElementById('sixthInputBar').value;
+let currentBGCustom = document.getElementById('thirdInputBar').value;
+let customRatio = document.getElementById('fourthInputBar').value;
+    let carbAmount = document.getElementById('secondInputBar').value;
     let customCover = customRatio / carbAmount;
 
-    let returnCustomCover = "<li>" + customCover + "</li>"
-    document.getElementById('foodLi').innerHTML += returnCustomCover + 'Total Amount'
+
+let customCorrect = ((customTarget - currentBGCustom)  / customCorrectionFactor);
+let finalCustomInulin = customCover.value + customCorrect.value;
+let returnCustomCorrect = "<li>" + finalCustomInulin + "</li>"
+document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Total Amount';
 
 
+// if ( currentBGCustom > target){
+//     button5.addEventListener('click', () => {
 
-});
-
-//////
-});
-
-
-
-
-
-        
-   
+//         let customTarget = document.getElementById('fifthInputBar').value;
+//         let currentBGCustom = document.getElementById('thirdInputBar').value;
+//         let target = 120
+//         let customCorrect = (customTarget - currentBGCustom)  / 300;
+//         let returnCustomCorrect = "<li>" + customCorrect + "</li>"
+//         document.getElementById('foodLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
     
- 
+
+// });
+// } else {
+//     let returnError = "<li>" + 'Too Low For Inuslin' + "</li>"
+//     document.getElementById('foodLi').innerHTML += returnCustomCorrect + 'custom Correction Amount'; 
+// }
+
+
+});
+});

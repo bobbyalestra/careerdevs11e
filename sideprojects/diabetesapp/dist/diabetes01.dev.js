@@ -18,21 +18,23 @@ document.addEventListener('DOMContentLoaded', function () {
   div1.id = 'firstDiv';
   document.body.appendChild(div1);
   var div4 = document.createElement('div');
-  div4.id = 'fourthDiv'; // div4.innerHTML = ' fourth div';
-
+  div4.id = 'fourthDiv';
   document.body.appendChild(div4);
   var div2 = document.createElement('div');
-  div2.id = 'secondDiv'; //div2.innerHTML = 'second div';
-
+  div2.id = 'secondDiv';
   document.body.appendChild(div2);
   var div3 = document.createElement('div');
-  div3.id = 'thirdDiv'; //div3.innerHTML = ' third div';
-
+  div3.id = 'thirdDiv';
   document.body.appendChild(div3);
   var div5 = document.createElement('div');
-  div5.id = 'fifthDiv'; //div5.innerHTML = ' third div';
-
+  div5.id = 'fifthDiv';
   document.body.appendChild(div5);
+  var div6 = document.createElement('div');
+  div6.id = 'sixthDiv';
+  document.body.appendChild(div6);
+  var div7 = document.createElement('div');
+  div7.id = 'seventhDiv';
+  document.body.appendChild(div7);
   var p1 = document.createElement('p1');
   p1.id = 'firstP1Tag';
   p1.innerText = 'Diabetic Insulin Calculator';
@@ -42,9 +44,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   div2.appendChild(p2);
   div5.appendChild(p2);
+  div4.appendChild(p2);
+  div5.appendChild(p2);
   var p3 = document.createElement('p1');
-  p3.id = 'thirdP1Tag';
-  div4.appendChild(p3); // drop down and the option values
+  p3.id = 'p1Tag';
+  p3.innerText = 'You can also add a custom Target by entering it below and clicking the custom target buttom followed by the inputting the Current BG, or you can select a custom Carb Ratio by inputting the Ratio and then inoutting the Carb Amount, and Clicking the respective buttons';
+  div6.appendChild(p3); // drop down and the option values
 
   var dropDown1 = document.createElement('select');
   dropDown1.id = 'firstDropDown';
@@ -68,51 +73,62 @@ document.addEventListener('DOMContentLoaded', function () {
   optionDropDown4.id = 'fourthOption';
   optionDropDown4.innerHTML = 'Dinner 50';
   optionDropDown4.value = 50;
-  dropDown1.appendChild(optionDropDown4); ////////////////////////////
-
-  var inputBar4 = document.createElement('input');
-  inputBar4.id = 'fourthInputBar';
-  inputBar4.placeholder = 'Select or Enter Carb Ratio ';
-  div5.appendChild(inputBar4); // input bar for covering and correcting functions
+  dropDown1.appendChild(optionDropDown4); // input bar for covering
 
   var inputBar2 = document.createElement('input');
   inputBar2.id = 'secondInputBar';
   inputBar2.placeholder = 'Enter Carb Amount ';
-  div2.appendChild(inputBar2);
+  div2.appendChild(inputBar2); // input bar for BG
+
   var inputBar3 = document.createElement('input');
   inputBar3.id = 'thirdInputBar';
   inputBar3.placeholder = 'Enter Current BG ';
-  div2.appendChild(inputBar3); // input bar for food items
+  div2.appendChild(inputBar3); //inout for custom Target
+
+  var inputBar4 = document.createElement('input');
+  inputBar4.id = 'fourthInputBar';
+  inputBar4.placeholder = 'Enter Carb Ratio ';
+  div7.appendChild(inputBar4);
+  var inputBar5 = document.createElement('input');
+  inputBar5.id = 'fifthInputBar';
+  inputBar5.placeholder = 'Enter Target';
+  div7.appendChild(inputBar5);
+  var inputBar6 = document.createElement('input');
+  inputBar6.id = 'sixthInputBar';
+  inputBar6.placeholder = 'Enter Correction Factor';
+  div7.appendChild(inputBar6); // input bar for food items
   // let inputBar1 = document.createElement('input');
   // inputBar1.id = 'firstInputBar';
   // inputBar1.placeholder = 'Enter Food Item';
   // div2.appendChild(inputBar1)
 
+  var coverCorrectList = document.createElement('ul');
+  coverCorrectList.id = 'ul2';
+  div6.appendChild(coverCorrectList);
+  coverCorrectLi = document.createElement('li');
+  coverCorrectLi.id = 'covercorrectLi';
+  coverCorrectList.appendChild(coverCorrectLi);
   var foodUlElement = document.createElement('ul');
   foodUlElement.id = 'ul1';
   div2.appendChild(foodUlElement);
   foodListLi = document.createElement('li');
   foodListLi.id = 'foodLi';
-  foodUlElement.appendChild(foodListLi);
-  var foodListInputUl = document.createElement('ul');
-  foodListInputUl.id = 'foodInputUl';
-  div2.appendChild(foodListInputUl); // submit button for carb cover //
+  foodUlElement.appendChild(foodListLi); // submit button for carb cover //
 
   var button1 = document.createElement('button');
   button1.id = "firstButton";
   button1.innerText = "Carb Cover"; // for button function 
 
   div3.appendChild(button1);
-  var foodDisplayButton = button1.addEventListener('click', function () {
+  button1.addEventListener('click', function () {
     var currentBG = document.getElementById('firstDropDown');
     var carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
     var totalCarbs = document.getElementById("secondInputBar").value;
     carbCovering = totalCarbs / carbValue; //where the list is created in the button
 
     var returnCover = "<li>" + carbCovering + "</li>";
-    document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'; // return alert(carbCovering)
-  }); //////////
-
+    document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount';
+  });
   var button2 = document.createElement('button');
   button2.id = "secondButton";
   button2.innerText = "Carb Correction"; // for button function 
@@ -144,13 +160,64 @@ document.addEventListener('DOMContentLoaded', function () {
   var button4 = document.createElement('button');
   button4.id = 'fourthButton';
   button4.innerText = "Custom Ratio";
-  div5.appendChild(button4);
+  div6.appendChild(button4);
   button4.addEventListener('click', function () {
     var customRatio = document.getElementById('fourthInputBar').value;
-    parseInt(customRatio);
     var carbAmount = document.getElementById('secondInputBar').value;
     var customCover = customRatio / carbAmount;
     var returnCustomCover = "<li>" + customCover + "</li>";
-    document.getElementById('foodLi').innerHTML += returnCustomCover + 'Total Amount';
-  }); //////
+    document.getElementById('covercorrectLi').innerHTML += returnCustomCover + 'custom Cover Amount';
+  });
+  var button5 = document.createElement('button');
+  button5.id = 'fifthButton';
+  button5.innerText = "Custom Target";
+  div6.appendChild(button5);
+  button5.addEventListener('click', function () {
+    var customTarget = document.getElementById('fifthInputBar').value;
+    var currentBGCustom = document.getElementById('thirdInputBar').value;
+    var customCorrect = (customTarget - currentBGCustom) / 300;
+    var returnCustomCorrect = "<li>" + customCorrect + "</li>";
+    document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
+  });
+  var button6 = document.createElement('button');
+  button6.id = 'sixthButton';
+  button6.innerText = "Custom Correction Factor";
+  div6.appendChild(button6);
+  button6.addEventListener('click', function () {
+    var customTarget = document.getElementById('fifthInputBar').value;
+    var customCorrectionFactor = document.getElementById('sixthInputBar').value;
+    var currentBGCustom = document.getElementById('thirdInputBar').value;
+    var customCorrect = (customTarget - currentBGCustom) / customCorrectionFactor;
+    var addingtoPositive = customCorrect + customCorrect + customCorrect;
+    var returnCustomCorrect = "<li>" + addingtoPositive + "</li>";
+    document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
+  });
+  var button7 = document.createElement('button');
+  button7.id = 'sixthButton';
+  button7.innerText = "Custom Total Insulin";
+  div6.appendChild(button7);
+  button6.addEventListener('click', function () {
+    var customTarget = document.getElementById('fifthInputBar').value;
+    var customCorrectionFactor = document.getElementById('sixthInputBar').value;
+    var currentBGCustom = document.getElementById('thirdInputBar').value;
+    var customRatio = document.getElementById('fourthInputBar').value;
+    var carbAmount = document.getElementById('secondInputBar').value;
+    var customCover = customRatio / carbAmount;
+    var customCorrect = (customTarget - currentBGCustom) / customCorrectionFactor;
+    var finalCustomInulin = customCover.value + customCorrect.value;
+    var returnCustomCorrect = "<li>" + finalCustomInulin + "</li>";
+    document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Total Amount'; // if ( currentBGCustom > target){
+    //     button5.addEventListener('click', () => {
+    //         let customTarget = document.getElementById('fifthInputBar').value;
+    //         let currentBGCustom = document.getElementById('thirdInputBar').value;
+    //         let target = 120
+    //         let customCorrect = (customTarget - currentBGCustom)  / 300;
+    //         let returnCustomCorrect = "<li>" + customCorrect + "</li>"
+    //         document.getElementById('foodLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
+    // });
+    // } else {
+    //     let returnError = "<li>" + 'Too Low For Inuslin' + "</li>"
+    //     document.getElementById('foodLi').innerHTML += returnCustomCorrect + 'custom Correction Amount'; 
+    // }
+  });
 });
