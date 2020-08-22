@@ -161,12 +161,13 @@ document.addEventListener('DOMContentLoaded',()  => {
        
 
         //where the list is created in the button
-        let returnCover = "<li>" + carbCovering+ " "  + " " + 'UNIT' + " "+new Date() +"</li>"
-        myStorage = localStorage.setItem('carbCovering', carbCovering)
+        let returnCover =  "<li>" + carbCovering+ " "  + " " + 'UNIT' + " "+new Date() +"</li>"
+        myStorage = localStorage.setItem('carbCovering', carbCovering);
+        totalInsulinLocalStorageArray.push(myStorage)
         myStorageSession = sessionStorage.setItem('carbCovering', carbCovering)
-        let returnText = document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'
-        let totalInsulinLocalStorageJSON = JSON.stringify(myStorage); 
-        totalInsulinLocalStorageArray.push(totalInsulinLocalStorageJSON)
+         document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'
+        let totalInsulinLocalStorageJSON = JSON.stringify(totalInsulinLocalStorageArray); 
+       
      }) 
     
 

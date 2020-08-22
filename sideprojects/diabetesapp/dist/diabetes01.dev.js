@@ -122,10 +122,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var returnCover = "<li>" + carbCovering + " " + " " + 'UNIT' + " " + new Date() + "</li>";
     myStorage = localStorage.setItem('carbCovering', carbCovering);
+    totalInsulinLocalStorageArray.push(myStorage);
     myStorageSession = sessionStorage.setItem('carbCovering', carbCovering);
-    var returnText = document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount';
-    var totalInsulinLocalStorageJSON = JSON.stringify(myStorage);
-    totalInsulinLocalStorageArray.push(totalInsulinLocalStorageJSON);
+    document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount';
+    var totalInsulinLocalStorageJSON = JSON.stringify(totalInsulinLocalStorageArray);
   });
   var button2 = document.createElement('button');
   button2.id = "secondButton";
