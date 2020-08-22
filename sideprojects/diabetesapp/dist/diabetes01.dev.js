@@ -1,5 +1,6 @@
 "use strict";
 
+// 166 for local storage
 document.addEventListener('DOMContentLoaded', function () {
   // top make local storage yoyu must add a JON.Stringify the object and the push it to an array that the local storage callsback
   var totalInsulinLocalStorageArray = [];
