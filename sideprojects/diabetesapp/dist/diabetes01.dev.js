@@ -1,10 +1,8 @@
 "use strict";
 
 document.addEventListener('DOMContentLoaded', function () {
-  ////////////// style section///////////
-  //document.getElementById("title").style.color = "red";
-  //document.getElementById("firstButton").style.color = "red";
-  /////////// to add styling
+  // top make local storage yoyu must add a JON.Stringify the object and the push it to an array that the local storage callsback
+  var totalInsulinLocalStorageArray = [];
   var h1 = document.createElement('h1');
   h1.id = ' title';
   h1.className = 'title';
@@ -121,8 +119,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalCarbs = document.getElementById("secondInputBar").value;
     carbCovering = totalCarbs / carbValue; //where the list is created in the button
 
-    var returnCover = "<li>" + carbCovering + "</li>";
-    document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount';
+    var returnCover = "<li>" + carbCovering + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    myStorage = localStorage.setItem('carbCovering', carbCovering);
+    myStorageSession = sessionStorage.setItem('carbCovering', carbCovering);
+    var returnText = document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount';
+    var totalInsulinLocalStorageJSON = JSON.stringify(myStorage);
+    totalInsulinLocalStorageArray.push(totalInsulinLocalStorageJSON);
   });
   var button2 = document.createElement('button');
   button2.id = "secondButton";
@@ -132,7 +134,9 @@ document.addEventListener('DOMContentLoaded', function () {
   button2.addEventListener('click', function () {
     var currentBG = document.getElementById('thirdInputBar').value;
     var correctionValue = (currentBG - 120) / 300;
-    var returnCorrect = "<li>" + correctionValue + "</li>";
+    var returnCorrect = "<li>" + correctionValue + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    myStorage1 = localStorage.setItem('carbCorrecting', correctionValue);
+    myStorageSession = sessionStorage.setItem('carbCorrecting', correctionValue);
     document.getElementById('foodLi').innerHTML += returnCorrect + 'Correction Amount'; //    return alert (correctionValue)
   }); /////////////for the total amount
 
@@ -148,7 +152,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalCarbs = document.getElementById("secondInputBar").value;
     carbCovering = totalCarbs / carbValue;
     var totalInsulin = carbCovering + correctionValue;
-    var returnTotal = "<li>" + totalInsulin + "</li>";
+    var returnTotal = "<li>" + totalInsulin + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    myStorage1 = localStorage.setItem('Total Insulin', returnTotal);
+    myStorageSession = sessionStorage.setItem('Total Insulin', returnTotal);
     document.getElementById('foodLi').innerHTML += returnTotal + 'Total Amount';
   }); /////////// for the custom Ratio
 
@@ -160,7 +166,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var customRatio = document.getElementById('fourthInputBar').value;
     var carbAmount = document.getElementById('secondInputBar').value;
     var customCover = customRatio / carbAmount;
-    var returnCustomCover = "<li>" + customCover + "</li>";
+    var returnCustomCover = "<li>" + customCover + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    myStorage1 = localStorage.setItem('Custom Cover Insulin', customCover);
+    myStorageSession = sessionStorage.setItem('Custom Cover Insulin', customCover);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCover + 'custom Cover Amount';
   });
   var button5 = document.createElement('button');
@@ -171,7 +179,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var customTarget = document.getElementById('fifthInputBar').value;
     var currentBGCustom = document.getElementById('thirdInputBar').value;
     var customCorrect = (currentBGCustom - customTarget) / 300;
-    var returnCustomCorrect = "<li>" + customCorrect + "</li>";
+    var returnCustomCorrect = "<li>" + customCorrect + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    myStorage1 = localStorage.setItem('Custom Target Correct', customCorrect);
+    myStorageSession = sessionStorage.setItem('Custom Correct', customCorrect);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
   });
   var button6 = document.createElement('button');
@@ -184,7 +194,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var currentBGCustom = document.getElementById('thirdInputBar').value;
     var customCorrect = (currentBGCustom - customTarget) / customCorrectionFactor; // let addingtoPositive = customCorrect + customCorrect + customCorrect
 
-    var returnCustomCorrect = "<li>" + customCorrect + "</li>";
+    var returnCustomCorrect = "<li>" + customCorrect + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    myStorage1 = localStorage.setItem('Custom Target Correct', customCorrect);
+    myStorageSession = sessionStorage.setItem('Custom Correct', customCorrect);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
   });
   var button7 = document.createElement('button');
@@ -200,7 +212,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var customCover = customRatio / carbAmount;
     var customCorrect = (currentBGCustom - customTarget) / customCorrectionFactor;
     var finalCustomInulin = customCover + customCorrect;
-    var returnCustomCorrect = "<li>" + finalCustomInulin + "</li>";
+    var returnCustomCorrect = "<li>" + finalCustomInulin + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    myStorage1 = localStorage.setItem('Final Custom Insulin', finalCustomInulin);
+    myStorageSession = sessionStorage.setItem('Final Custom Insulin', finalCustomInulin);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Total Amount'; // if ( currentBGCustom > target){
     //     button5.addEventListener('click', () => {
     //         let customTarget = document.getElementById('fifthInputBar').value;

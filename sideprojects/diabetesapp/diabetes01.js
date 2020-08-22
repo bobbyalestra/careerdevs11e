@@ -3,15 +3,10 @@
 
 document.addEventListener('DOMContentLoaded',()  => {
 
-    ////////////// style section///////////
 
-    //document.getElementById("title").style.color = "red";
-    //document.getElementById("firstButton").style.color = "red";
-
-
-
-
-    /////////// to add styling
+    // top make local storage yoyu must add a JON.Stringify the object and the push it to an array that the local storage callsback
+    let totalInsulinLocalStorageArray =  [];
+    
  
     let h1 = document.createElement('h1');
     h1.id = ' title'
@@ -166,8 +161,12 @@ document.addEventListener('DOMContentLoaded',()  => {
        
 
         //where the list is created in the button
-        let returnCover = "<li>" + carbCovering + "</li>"
-        document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'
+        let returnCover = "<li>" + carbCovering+ " "  + " " + 'UNIT' + " "+new Date() +"</li>"
+        myStorage = localStorage.setItem('carbCovering', carbCovering)
+        myStorageSession = sessionStorage.setItem('carbCovering', carbCovering)
+        let returnText = document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'
+        let totalInsulinLocalStorageJSON = JSON.stringify(myStorage); 
+        totalInsulinLocalStorageArray.push(totalInsulinLocalStorageJSON)
      }) 
     
 
@@ -180,7 +179,9 @@ document.addEventListener('DOMContentLoaded',()  => {
         let currentBG = document.getElementById('thirdInputBar').value;
         let correctionValue = ((currentBG - 120) / 300);
 
-        let returnCorrect = "<li>" + correctionValue + "</li>"
+        let returnCorrect = "<li>" + correctionValue +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+        myStorage1 = localStorage.setItem('carbCorrecting', correctionValue);
+        myStorageSession = sessionStorage.setItem('carbCorrecting', correctionValue)
         document.getElementById('foodLi').innerHTML += returnCorrect + 'Correction Amount';
     //    return alert (correctionValue)
 
@@ -202,8 +203,11 @@ document.addEventListener('DOMContentLoaded',()  => {
         let totalInsulin = carbCovering + correctionValue
         
 
-        let returnTotal = "<li>" + totalInsulin + "</li>"
+        let returnTotal = "<li>" + totalInsulin +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+        myStorage1 = localStorage.setItem('Total Insulin', returnTotal);
+        myStorageSession = sessionStorage.setItem('Total Insulin', returnTotal)
         document.getElementById('foodLi').innerHTML += returnTotal + 'Total Amount'
+
     });
 
 /////////// for the custom Ratio
@@ -216,7 +220,9 @@ document.addEventListener('DOMContentLoaded',()  => {
     let customRatio = document.getElementById('fourthInputBar').value;
     let carbAmount = document.getElementById('secondInputBar').value;
     let customCover = customRatio / carbAmount;
-    let returnCustomCover = "<li>" + customCover + "</li>"
+    let returnCustomCover = "<li>" + customCover +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+    myStorage1 = localStorage.setItem('Custom Cover Insulin', customCover);
+    myStorageSession = sessionStorage.setItem('Custom Cover Insulin', customCover)
     document.getElementById('covercorrectLi').innerHTML += returnCustomCover + 'custom Cover Amount'
 
 });
@@ -231,7 +237,9 @@ document.addEventListener('DOMContentLoaded',()  => {
     let currentBGCustom = document.getElementById('thirdInputBar').value;
 
     let customCorrect = ((currentBGCustom - customTarget )  / 300);
-    let returnCustomCorrect = "<li>" + customCorrect + "</li>"
+    let returnCustomCorrect = "<li>" + customCorrect +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+    myStorage1 = localStorage.setItem('Custom Target Correct', customCorrect);
+    myStorageSession = sessionStorage.setItem('Custom Correct', customCorrect);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
     })
 
@@ -247,7 +255,9 @@ document.addEventListener('DOMContentLoaded',()  => {
 
     let customCorrect = ((currentBGCustom - customTarget)  / customCorrectionFactor);
     // let addingtoPositive = customCorrect + customCorrect + customCorrect
-    let returnCustomCorrect = "<li>" + customCorrect + "</li>"
+    let returnCustomCorrect = "<li>" + customCorrect +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+    myStorage1 = localStorage.setItem('Custom Target Correct', customCorrect);
+    myStorageSession = sessionStorage.setItem('Custom Correct', customCorrect);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
 
 
@@ -271,9 +281,11 @@ document.addEventListener('DOMContentLoaded',()  => {
     let customCorrect = (( currentBGCustom - customTarget)  / customCorrectionFactor);
 
     let finalCustomInulin = customCover + customCorrect;
-    let returnCustomCorrect = "<li>" + finalCustomInulin + "</li>"
+    let returnCustomCorrect = "<li>" + finalCustomInulin +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+    myStorage1 = localStorage.setItem('Final Custom Insulin', finalCustomInulin);
+    myStorageSession = sessionStorage.setItem('Final Custom Insulin', finalCustomInulin);
+    
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Total Amount';
-
 
 // if ( currentBGCustom > target){
 //     button5.addEventListener('click', () => {
