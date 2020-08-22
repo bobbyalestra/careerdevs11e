@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
   div5.appendChild(p2);
   var p3 = document.createElement('p1');
   p3.id = 'p1Tag';
-  p3.innerText = 'You can also add a custom Target by entering it below and clicking the custom target buttom followed by the inputting the Current BG, or you can select a custom Carb Ratio by inputting the Ratio and then inoutting the Carb Amount, and Clicking the respective buttons';
+  p3.innerText = 'You can also add a custom Target by entering it below and clicking the custom target buttom followed by the inputting the Current BG, or you can select a custom Carb Ratio by inputting the Ratio and then inoutting the Carb Amount, and Clicking the respective buttons ALL FIELDS MUST BE ENTERED TO USE THE CUSTOM BUTTONS.... TO COMPARE MY SONS RATIO NEEDS TO MATCH THE DROP DOWN, THE TARGET IS 120, AND HIS CORRECTION FACTOR IS 300';
   div6.appendChild(p3); // drop down and the option values
 
   var dropDown1 = document.createElement('select');
@@ -96,12 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var inputBar6 = document.createElement('input');
   inputBar6.id = 'sixthInputBar';
   inputBar6.placeholder = 'Enter Correction Factor';
-  div7.appendChild(inputBar6); // input bar for food items
-  // let inputBar1 = document.createElement('input');
-  // inputBar1.id = 'firstInputBar';
-  // inputBar1.placeholder = 'Enter Food Item';
-  // div2.appendChild(inputBar1)
-
+  div7.appendChild(inputBar6);
   var coverCorrectList = document.createElement('ul');
   coverCorrectList.id = 'ul2';
   div6.appendChild(coverCorrectList);
@@ -175,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
   button5.addEventListener('click', function () {
     var customTarget = document.getElementById('fifthInputBar').value;
     var currentBGCustom = document.getElementById('thirdInputBar').value;
-    var customCorrect = (customTarget - currentBGCustom) / 300;
+    var customCorrect = (currentBGCustom - customTarget) / 300;
     var returnCustomCorrect = "<li>" + customCorrect + "</li>";
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
   });
@@ -187,24 +182,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var customTarget = document.getElementById('fifthInputBar').value;
     var customCorrectionFactor = document.getElementById('sixthInputBar').value;
     var currentBGCustom = document.getElementById('thirdInputBar').value;
-    var customCorrect = (customTarget - currentBGCustom) / customCorrectionFactor;
-    var addingtoPositive = customCorrect + customCorrect + customCorrect;
-    var returnCustomCorrect = "<li>" + addingtoPositive + "</li>";
+    var customCorrect = (currentBGCustom - customTarget) / customCorrectionFactor; // let addingtoPositive = customCorrect + customCorrect + customCorrect
+
+    var returnCustomCorrect = "<li>" + customCorrect + "</li>";
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
   });
   var button7 = document.createElement('button');
-  button7.id = 'sixthButton';
+  button7.id = 'seventhButton';
   button7.innerText = "Custom Total Insulin";
   div6.appendChild(button7);
-  button6.addEventListener('click', function () {
+  button7.addEventListener('click', function () {
     var customTarget = document.getElementById('fifthInputBar').value;
     var customCorrectionFactor = document.getElementById('sixthInputBar').value;
     var currentBGCustom = document.getElementById('thirdInputBar').value;
     var customRatio = document.getElementById('fourthInputBar').value;
     var carbAmount = document.getElementById('secondInputBar').value;
     var customCover = customRatio / carbAmount;
-    var customCorrect = (customTarget - currentBGCustom) / customCorrectionFactor;
-    var finalCustomInulin = customCover.value + customCorrect.value;
+    var customCorrect = (currentBGCustom - customTarget) / customCorrectionFactor;
+    var finalCustomInulin = customCover + customCorrect;
     var returnCustomCorrect = "<li>" + finalCustomInulin + "</li>";
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Total Amount'; // if ( currentBGCustom > target){
     //     button5.addEventListener('click', () => {
