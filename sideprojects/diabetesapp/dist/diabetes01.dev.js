@@ -2,8 +2,9 @@
 
 // 166 for local storage
 document.addEventListener('DOMContentLoaded', function () {
-  // top make local storage yoyu must add a JON.Stringify the object and the push it to an array that the local storage callsback
-  var totalInsulinLocalStorageArray = [];
+  var totalInsulinLocalStorageArray = []; // top make local storage yoyu must add a JON.Stringify the object and the push it to an array that the local storage callsback
+  //let oldStorageArray = JSON.parse(localStorage.getItem(myStorage));
+
   var h1 = document.createElement('h1');
   h1.id = ' title';
   h1.className = 'title';
@@ -122,10 +123,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var returnCover = "<li>" + carbCovering + " " + " " + 'UNIT' + " " + new Date() + "</li>";
     myStorage = localStorage.setItem('carbCovering', carbCovering);
-    totalInsulinLocalStorageArray.push(myStorage);
+    storageGet = localStorage.getItem(myStorage);
     myStorageSession = sessionStorage.setItem('carbCovering', carbCovering);
     document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount';
-    var totalInsulinLocalStorageJSON = JSON.stringify(totalInsulinLocalStorageArray);
+    totalInsulinLocalStorageArray.push(document.getElementById('foodLi')).value;
+    var oldStorage = JSON.parse(localStorage.getItem('carbCovering'));
+    var storageOfTotals = oldStorage.concat(totalInsulinLocalStorageArray);
+    document.getElementById('foodLi').value = "";
+    var JSONnames = JSON.stringify(storageOfTotals);
+    localStorage.setItem('String of Totals', JSONnames);
+    console.log(oldStorage);
+    console.log(JSONnames);
   });
   var button2 = document.createElement('button');
   button2.id = "secondButton";
@@ -138,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var returnCorrect = "<li>" + correctionValue + " " + " " + 'UNIT' + " " + new Date() + "</li>";
     myStorage1 = localStorage.setItem('carbCorrecting', correctionValue);
     myStorageSession = sessionStorage.setItem('carbCorrecting', correctionValue);
-    document.getElementById('foodLi').innerHTML += returnCorrect + 'Correction Amount'; //    return alert (correctionValue)
+    document.getElementById('foodLi').innerHTML += returnCorrect + 'Correction Amount';
   }); /////////////for the total amount
 
   var button3 = document.createElement('button');

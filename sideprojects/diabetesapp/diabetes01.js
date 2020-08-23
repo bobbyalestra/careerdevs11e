@@ -3,10 +3,11 @@
 
 document.addEventListener('DOMContentLoaded',()  => {
 
-
+    let totalInsulinLocalStorageArray =  []
     // top make local storage yoyu must add a JON.Stringify the object and the push it to an array that the local storage callsback
-    let totalInsulinLocalStorageArray =  [];
     
+    
+    //let oldStorageArray = JSON.parse(localStorage.getItem(myStorage));
  
     let h1 = document.createElement('h1');
     h1.id = ' title'
@@ -153,6 +154,7 @@ document.addEventListener('DOMContentLoaded',()  => {
     // for button function 
     div3.appendChild(button1);
     button1.addEventListener('click', function (){
+     
         let currentBG = document.getElementById('firstDropDown');
         let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
         let totalCarbs = document.getElementById("secondInputBar").value
@@ -163,13 +165,24 @@ document.addEventListener('DOMContentLoaded',()  => {
         //where the list is created in the button
         let returnCover =  "<li>" + carbCovering+ " "  + " " + 'UNIT' + " "+new Date() +"</li>"
         myStorage = localStorage.setItem('carbCovering', carbCovering);
-        totalInsulinLocalStorageArray.push(myStorage)
-        myStorageSession = sessionStorage.setItem('carbCovering', carbCovering)
-         document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'
-        let totalInsulinLocalStorageJSON = JSON.stringify(totalInsulinLocalStorageArray); 
-       
-     }) 
+        storageGet = localStorage.getItem(myStorage)
     
+        myStorageSession = sessionStorage.setItem('carbCovering', carbCovering)
+        document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'  
+       totalInsulinLocalStorageArray.push(document.getElementById('foodLi')).value
+       let oldStorage = JSON.parse(localStorage.getItem('carbCovering'));
+       let storageOfTotals = oldStorage.concat(totalInsulinLocalStorageArray);
+       document.getElementById('foodLi').value = "";
+       let JSONnames = JSON.stringify(storageOfTotals);
+        localStorage.setItem('String of Totals', JSONnames)
+       
+console.log(oldStorage);
+
+
+         console.log(JSONnames) 
+
+     }) 
+  
 
     let button2 = document.createElement('button');
     button2.id = "secondButton";
@@ -184,7 +197,6 @@ document.addEventListener('DOMContentLoaded',()  => {
         myStorage1 = localStorage.setItem('carbCorrecting', correctionValue);
         myStorageSession = sessionStorage.setItem('carbCorrecting', correctionValue)
         document.getElementById('foodLi').innerHTML += returnCorrect + 'Correction Amount';
-    //    return alert (correctionValue)
 
     });
 /////////////for the total amount
