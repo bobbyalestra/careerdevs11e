@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var div4 = document.createElement('div');
   div4.id = 'fourthDiv';
   document.body.appendChild(div4);
+  var h2 = document.createElement('h2');
+  h2.innerText = " Carb Ratio";
+  h2.id = 'h2Tag'; //div1.appendChild(p4)
+
+  div4.appendChild(h2);
   var div2 = document.createElement('div');
   div2.id = 'secondDiv';
   document.body.appendChild(div2);
@@ -44,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   div2.appendChild(p2);
   div5.appendChild(p2);
+  div1.appendChild(p2);
   div4.appendChild(p2);
   div5.appendChild(p2);
   var p3 = document.createElement('p1');
@@ -119,21 +125,29 @@ document.addEventListener('DOMContentLoaded', function () {
     var currentBG = document.getElementById('firstDropDown');
     var carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
     var totalCarbs = document.getElementById("secondInputBar").value;
-    carbCovering = totalCarbs / carbValue; //where the list is created in the button
+    var firstArray = [];
+    carbCovering = totalCarbs / carbValue;
+    localStorage.setItem('carbCovering', carbCovering);
+    firstArray.push('carbCovering');
+    localStorage.setItem('carbCover', JSON.stringify(firstArray)); //where the list is created in the button
 
     var returnCover = "<li>" + carbCovering + " " + " " + 'UNIT' + " " + new Date() + "</li>";
-    myStorage = localStorage.setItem('carbCovering', carbCovering);
-    storageGet = localStorage.getItem(myStorage);
+    myStorage = localStorage.setItem('carbCovering', carbCovering); //storageGet = localStorage.getItem(myStorage)
+
     myStorageSession = sessionStorage.setItem('carbCovering', carbCovering);
-    document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount';
-    totalInsulinLocalStorageArray.push(document.getElementById('foodLi')).value;
-    var oldStorage = JSON.parse(localStorage.getItem('carbCovering'));
-    var storageOfTotals = oldStorage.concat(totalInsulinLocalStorageArray);
-    document.getElementById('foodLi').value = "";
-    var JSONnames = JSON.stringify(storageOfTotals);
-    localStorage.setItem('String of Totals', JSONnames);
-    console.log(oldStorage);
-    console.log(JSONnames);
+    document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'; //    totalInsulinLocalStorageArray.push(document.getElementById('foodLi')).value
+    //    let oldStorage = JSON.parse(localStorage.getItem('carbCovering'));
+    //    let storageOfTotals = oldStorage.concat(totalInsulinLocalStorageArray);
+    //    document.getElementById('foodLi').value = "";
+    //    let JSONnames = JSON.stringify(storageOfTotals);
+    //     localStorage.setItem('String of Totals', JSONnames)
+
+    function getAllItems() {
+      for (i = 0; i <= localStorage.length - 1; i++) {
+        key = localStorage.key(i);
+        val = localStorage.getItem(key);
+      }
+    }
   });
   var button2 = document.createElement('button');
   button2.id = "secondButton";
@@ -174,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
   button4.addEventListener('click', function () {
     var customRatio = document.getElementById('fourthInputBar').value;
     var carbAmount = document.getElementById('secondInputBar').value;
-    var customCover = customRatio / carbAmount;
+    var customCover = carbAmount / customRatio;
     var returnCustomCover = "<li>" + customCover + " " + " " + 'UNIT' + " " + new Date() + "</li>";
     myStorage1 = localStorage.setItem('Custom Cover Insulin', customCover);
     myStorageSession = sessionStorage.setItem('Custom Cover Insulin', customCover);
@@ -218,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var currentBGCustom = document.getElementById('thirdInputBar').value;
     var customRatio = document.getElementById('fourthInputBar').value;
     var carbAmount = document.getElementById('secondInputBar').value;
-    var customCover = customRatio / carbAmount;
+    var customCover = carbAmount / customRatio;
     var customCorrect = (currentBGCustom - customTarget) / customCorrectionFactor;
     var finalCustomInulin = customCover + customCorrect;
     var returnCustomCorrect = "<li>" + finalCustomInulin + " " + " " + 'UNIT' + " " + new Date() + "</li>";
@@ -237,5 +251,24 @@ document.addEventListener('DOMContentLoaded', function () {
     //     let returnError = "<li>" + 'Too Low For Inuslin' + "</li>"
     //     document.getElementById('foodLi').innerHTML += returnCustomCorrect + 'custom Correction Amount'; 
     // }
-  });
+  }); // let firstArray =  [];
+  // localStorage.setItem('carbCovering', carbCovering);
+  // firstArray.push('carbCovering');
+  // localStorage.setItem('carbCover', JSON.stringify(firstArray));
+  // function getAllItems()  
+  // {    
+  //     for (i = 0; i <= localStorage.length-1; i++)    
+  //     {     
+  //         key = localStorage.key(i);    
+  //         val = localStorage.getItem(key);     
+  //     }   
+  // }  
+  // myStorageSession = sessionStorage.setItem('carbCovering', carbCovering)
+  // document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'  
+  // totalInsulinLocalStorageArray.push(document.getElementById('foodLi')).value
+  // let oldStorage = JSON.parse(localStorage.getItem('carbCovering'));
+  // let storageOfTotals = oldStorage.concat(totalInsulinLocalStorageArray);
+  // document.getElementById('foodLi').value = "";
+  // let JSONnames = JSON.stringify(storageOfTotals);
+  // localStorage.setItem('String of Totals', JSONnames)
 });

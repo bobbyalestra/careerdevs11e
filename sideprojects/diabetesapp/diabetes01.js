@@ -19,15 +19,23 @@ document.addEventListener('DOMContentLoaded',()  => {
     // inputBar3.id = 'foodSearch';
     // inputBar3.placeholder = 'Enter Item You Are Looking For';
     // document.body.appendChild(inputBar3)
-
+    
 
     let div1 =document.createElement('div');
     div1.id = 'firstDiv';
     document.body.appendChild(div1);
+    
 
     let div4 = document.createElement('div');
     div4.id = 'fourthDiv';
     document.body.appendChild(div4);
+
+    let h2 = document.createElement('h2');
+    h2.innerText = " Carb Ratio"
+    h2.id = 'h2Tag';
+    //div1.appendChild(p4)
+    div4.appendChild(h2)
+ 
 
      let div2 = document.createElement('div');
     div2.id = 'secondDiv';
@@ -58,12 +66,14 @@ document.addEventListener('DOMContentLoaded',()  => {
     p1.innerText = 'Diabetic Insulin Calculator';
     div1.appendChild(p1);
     
+    
 
     let p2 = document.createElement('p1');
     p2.id = 'secondP1Tag';
     //p2.innerText = 'test'
     div2.appendChild(p2);
     div5.appendChild(p2);
+    div1.appendChild(p2)
     div4.appendChild(p2);
     div5.appendChild(p2);
 
@@ -71,7 +81,6 @@ document.addEventListener('DOMContentLoaded',()  => {
     p3.id = 'p1Tag';
     p3.innerText = 'You can also add a custom Target by entering it below and clicking the custom target buttom followed by the inputting the Current BG, or you can select a custom Carb Ratio by inputting the Ratio and then inoutting the Carb Amount, and Clicking the respective buttons ALL FIELDS MUST BE ENTERED TO USE THE CUSTOM BUTTONS.... TO COMPARE MY SONS RATIO NEEDS TO MATCH THE DROP DOWN, THE TARGET IS 120, AND HIS CORRECTION FACTOR IS 300';
     div6.appendChild(p3);
-    
 
     // drop down and the option values
     let dropDown1 = document.createElement('select');
@@ -108,6 +117,7 @@ document.addEventListener('DOMContentLoaded',()  => {
       let inputBar2 = document.createElement('input');
     inputBar2.id = 'secondInputBar';
     inputBar2.placeholder = 'Enter Carb Amount ';
+   
     div2.appendChild(inputBar2);
 // input bar for BG
     let inputBar3 = document.createElement('input');
@@ -158,29 +168,48 @@ document.addEventListener('DOMContentLoaded',()  => {
         let currentBG = document.getElementById('firstDropDown');
         let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
         let totalCarbs = document.getElementById("secondInputBar").value
-    
+        let firstArray =  [];
         carbCovering = (totalCarbs / carbValue )
        
+         localStorage.setItem('carbCovering', carbCovering);
+         firstArray.push('carbCovering');
+localStorage.setItem('carbCover', JSON.stringify(firstArray));
 
         //where the list is created in the button
         let returnCover =  "<li>" + carbCovering+ " "  + " " + 'UNIT' + " "+new Date() +"</li>"
         myStorage = localStorage.setItem('carbCovering', carbCovering);
-        storageGet = localStorage.getItem(myStorage)
+        //storageGet = localStorage.getItem(myStorage)
     
         myStorageSession = sessionStorage.setItem('carbCovering', carbCovering)
         document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'  
-       totalInsulinLocalStorageArray.push(document.getElementById('foodLi')).value
-       let oldStorage = JSON.parse(localStorage.getItem('carbCovering'));
-       let storageOfTotals = oldStorage.concat(totalInsulinLocalStorageArray);
-       document.getElementById('foodLi').value = "";
-       let JSONnames = JSON.stringify(storageOfTotals);
-        localStorage.setItem('String of Totals', JSONnames)
+    //    totalInsulinLocalStorageArray.push(document.getElementById('foodLi')).value
+    //    let oldStorage = JSON.parse(localStorage.getItem('carbCovering'));
+    //    let storageOfTotals = oldStorage.concat(totalInsulinLocalStorageArray);
+    //    document.getElementById('foodLi').value = "";
+    //    let JSONnames = JSON.stringify(storageOfTotals);
+    //     localStorage.setItem('String of Totals', JSONnames)
        
-console.log(oldStorage);
 
 
-         console.log(JSONnames) 
 
+
+
+function getAllItems()  
+{    
+    for (i = 0; i <= localStorage.length-1; i++)    
+    {     
+        key = localStorage.key(i);    
+        val = localStorage.getItem(key);     
+    }   
+}  
+
+
+
+
+
+
+
+        
      }) 
   
 
@@ -232,7 +261,7 @@ console.log(oldStorage);
 
     let customRatio = document.getElementById('fourthInputBar').value;
     let carbAmount = document.getElementById('secondInputBar').value;
-    let customCover = customRatio / carbAmount;
+    let customCover = carbAmount /customRatio ;
     let returnCustomCover = "<li>" + customCover +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
     myStorage1 = localStorage.setItem('Custom Cover Insulin', customCover);
     myStorageSession = sessionStorage.setItem('Custom Cover Insulin', customCover)
@@ -290,7 +319,7 @@ console.log(oldStorage);
     let customRatio = document.getElementById('fourthInputBar').value;
     let carbAmount = document.getElementById('secondInputBar').value;
 
-    let customCover = customRatio / carbAmount;
+    let customCover = carbAmount / customRatio ;
     let customCorrect = (( currentBGCustom - customTarget)  / customCorrectionFactor);
 
     let finalCustomInulin = customCover + customCorrect;
@@ -319,5 +348,35 @@ console.log(oldStorage);
 
 
 });
+
+// let firstArray =  [];
+
+// localStorage.setItem('carbCovering', carbCovering);
+// firstArray.push('carbCovering');
+// localStorage.setItem('carbCover', JSON.stringify(firstArray));
+
+// function getAllItems()  
+// {    
+//     for (i = 0; i <= localStorage.length-1; i++)    
+//     {     
+//         key = localStorage.key(i);    
+//         val = localStorage.getItem(key);     
+//     }   
+// }  
+
+
+
+
+
+
+
+// myStorageSession = sessionStorage.setItem('carbCovering', carbCovering)
+// document.getElementById('foodLi').innerHTML += returnCover + ' Cover Amount'  
+// totalInsulinLocalStorageArray.push(document.getElementById('foodLi')).value
+// let oldStorage = JSON.parse(localStorage.getItem('carbCovering'));
+// let storageOfTotals = oldStorage.concat(totalInsulinLocalStorageArray);
+// document.getElementById('foodLi').value = "";
+// let JSONnames = JSON.stringify(storageOfTotals);
+// localStorage.setItem('String of Totals', JSONnames)
 
 });
