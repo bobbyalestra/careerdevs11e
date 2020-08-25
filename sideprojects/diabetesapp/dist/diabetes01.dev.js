@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var dropDown1 = document.createElement('select');
   dropDown1.id = 'firstDropDown';
-  dropDown1.style.bColor = 'blue';
+  dropDown1.style.color = 'blue';
   div4.appendChild(dropDown1);
   var optionDropDown1 = document.createElement('option');
   optionDropDown1.id = 'firstOption';
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var inputBar2 = document.createElement('input');
   inputBar2.id = 'secondInputBar';
-  inputBar2.style.color = 'blue';
+  inputBar2.style.bColor = 'blue';
   inputBar2.placeholder = 'Enter Carb Amount ';
   div2.appendChild(inputBar2); // input bar for BG
 
@@ -127,10 +127,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var button1 = document.createElement('button');
   button1.id = "firstButton";
   button1.innerText = "Carb Cover";
-  button1.style.color = 'red'; // for button function 
+  button1.style.color = 'blue'; // for button function 
 
   div3.appendChild(button1);
   button1.addEventListener('click', function () {
+    button1.style.color = 'red';
     var currentBG = document.getElementById('firstDropDown');
     var carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
     var totalCarbs = document.getElementById("secondInputBar").value;
@@ -141,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
     firstArray.push('carbCovering');
     localStorage.setItem('carbCover', JSON.stringify(firstArray)); //where the list is created in the button
 
-    var returnCover = "<li>" + carbCovering + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    var returnCover = "<li>" + carbCovering + " " + 'UNIT' + "</li>";
     myStorage = localStorage.setItem('carbCovering', carbCovering); //storageGet = localStorage.getItem(myStorage)
 
     myStorageSession = sessionStorage.setItem('carbCovering', carbCovering);
@@ -159,9 +160,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   div3.appendChild(button2);
   button2.addEventListener('click', function () {
+    button2.style.color = 'red';
     var currentBG = document.getElementById('thirdInputBar').value;
     var correctionValue = (currentBG - 120) / 300;
-    var returnCorrect = "<li>" + correctionValue + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    var returnCorrect = "<li>" + correctionValue + " " + " " + 'UNIT' + " " + "</li>";
     myStorage1 = localStorage.setItem('carbCorrecting', correctionValue);
     myStorageSession = sessionStorage.setItem('carbCorrecting', correctionValue);
     document.getElementById('foodLi').innerHTML += returnCorrect + 'Correction Amount';
@@ -170,9 +172,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var button3 = document.createElement('button');
   button3.id = 'thirdButton';
   button3.innerText = "Total Insulin";
-  button3.style.color = 'red';
+  button3.style.color = 'blue';
   div3.appendChild(button3);
   button3.addEventListener('click', function () {
+    button3.style.color = 'red';
     var currentBG = document.getElementById('thirdInputBar').value;
     var correctionValue = (currentBG - 120) / 300;
     var currentBGTotal = document.getElementById('firstDropDown');
@@ -180,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalCarbs = document.getElementById("secondInputBar").value;
     carbCovering = totalCarbs / carbValue;
     var totalInsulin = carbCovering + correctionValue;
-    var returnTotal = "<li>" + totalInsulin + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    var returnTotal = "<li>" + totalInsulin + " " + 'UNIT' + " " + "</li>";
     myStorage1 = localStorage.setItem('Total Insulin', returnTotal);
     myStorageSession = sessionStorage.setItem('Total Insulin', returnTotal);
     document.getElementById('foodLi').innerHTML += returnTotal + 'Total Amount';
@@ -188,18 +191,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var button4 = document.createElement('button');
   button4.id = 'fourthButton';
-  button4.style.color = 'blue';
+  button4.style.color = 'red';
   button4.innerText = "Custom Ratio";
   div6.appendChild(button4);
   button4.addEventListener('click', function () {
     var customRatio = document.getElementById('fourthInputBar').value;
     var carbAmount = document.getElementById('secondInputBar').value;
-    var customCover = (carbAmount / customRatio).style = "blue";
-    var returnCustomCover = "<li>" + customCover + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    var customCover = carbAmount / customRatio;
+    var returnCustomCover = "<li>" + customCover + " " + " " + 'UNIT' + " " + "</li>";
     myStorage1 = localStorage.setItem('Custom Cover Insulin', customCover);
     myStorageSession = sessionStorage.setItem('Custom Cover Insulin', customCover);
     foodUlElement.style.color = 'red';
     document.getElementById('covercorrectLi').innerHTML += returnCustomCover + 'custom Cover Amount';
+    button4.style.color = 'blue';
   });
   var button5 = document.createElement('button');
   button5.id = 'fifthButton';
@@ -207,28 +211,30 @@ document.addEventListener('DOMContentLoaded', function () {
   button5.innerText = "Custom Target";
   div6.appendChild(button5);
   button5.addEventListener('click', function () {
-    document.getElementById('fifthButton').style.color = 'blue';
+    button5.style.color = 'blue';
+    document.getElementById('fifthButton');
     var customTarget = document.getElementById('fifthInputBar').value;
     var currentBGCustom = document.getElementById('thirdInputBar').value;
     var customCorrect = (currentBGCustom - customTarget) / 300;
-    var returnCustomCorrect = "<li>" + customCorrect + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    var returnCustomCorrect = "<li>" + customCorrect + " " + " " + 'UNIT' + " " + "</li>";
     myStorage1 = localStorage.setItem('Custom Target Correct', customCorrect);
     myStorageSession = sessionStorage.setItem('Custom Correct', customCorrect);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
   });
   var button6 = document.createElement('button');
   button6.id = 'sixthButton';
-  document.getElementById('ul2').style = 'blue';
-  button6.style.color = 'blue';
+  document.getElementById('ul2').style = 'red';
+  button6.style.color = 'red';
   button6.innerText = "Custom Correction Factor";
   div6.appendChild(button6);
   button6.addEventListener('click', function () {
+    button6.style.color = 'blue';
     var customTarget = document.getElementById('fifthInputBar').value;
     var customCorrectionFactor = document.getElementById('sixthInputBar').value;
     var currentBGCustom = document.getElementById('thirdInputBar').value;
     var customCorrect = (currentBGCustom - customTarget) / customCorrectionFactor; // let addingtoPositive = customCorrect + customCorrect + customCorrect
 
-    var returnCustomCorrect = "<li>" + customCorrect + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    var returnCustomCorrect = "<li>" + customCorrect + " " + " " + 'UNIT' + " " + "</li>";
     myStorage1 = localStorage.setItem('Custom Target Correct', customCorrect);
     myStorageSession = sessionStorage.setItem('Custom Correct', customCorrect);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
@@ -240,6 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
   div6.appendChild(button7);
   button7style = document.getElementById(seventhButton);
   button7.addEventListener('click', function () {
+    button7.style.color = 'blue';
     var customTarget = document.getElementById('fifthInputBar').value;
     var customCorrectionFactor = document.getElementById('sixthInputBar').value;
     var currentBGCustom = document.getElementById('thirdInputBar').value;
@@ -249,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var customCorrect = (currentBGCustom - customTarget) / customCorrectionFactor;
     var finalCustomInulin = customCover + customCorrect;
     document.getElementById('coverCorrectList');
-    var returnFinalCustomCorrect = "<li>" + finalCustomInulin + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    var returnFinalCustomCorrect = "<li>" + finalCustomInulin + " " + " " + 'UNIT' + " " + "</li>";
     myStorage1 = localStorage.setItem('Final Custom Insulin', finalCustomInulin);
     myStorageSession = sessionStorage.setItem('Final Custom Insulin', finalCustomInulin);
     document.getElementById('covercorrectLi').innerHTML += returnFinalCustomCorrect + 'custom Total Amount'; // if ( currentBGCustom > target){

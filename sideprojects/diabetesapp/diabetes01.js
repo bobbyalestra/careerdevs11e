@@ -79,7 +79,7 @@ let bColor = "background-color"
     // drop down and the option values
     let dropDown1 = document.createElement('select');
     dropDown1.id = 'firstDropDown';
-    dropDown1.style.bColor = 'blue'
+    dropDown1.style.color = 'blue'
     div4.appendChild(dropDown1);
 
     let optionDropDown1 = document.createElement('option');
@@ -116,7 +116,7 @@ let bColor = "background-color"
       // input bar for covering
       let inputBar2 = document.createElement('input');
     inputBar2.id = 'secondInputBar';
-    inputBar2.style.color = 'blue'
+    inputBar2.style.bColor = 'blue'
     inputBar2.placeholder = 'Enter Carb Amount ';
    
     div2.appendChild(inputBar2);
@@ -166,10 +166,11 @@ let bColor = "background-color"
     let button1 = document.createElement('button');
     button1.id = "firstButton";
     button1.innerText = "Carb Cover";
-    button1.style.color = 'red'
+    button1.style.color = 'blue'
     // for button function 
     div3.appendChild(button1);
     button1.addEventListener('click', function (){
+        button1.style.color = 'red'
         let currentBG = document.getElementById('firstDropDown');
         let carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);     
         let totalCarbs = document.getElementById("secondInputBar").value
@@ -182,7 +183,7 @@ let bColor = "background-color"
             localStorage.setItem('carbCover', JSON.stringify(firstArray));
 
         //where the list is created in the button
-        let returnCover =  "<li>" + carbCovering+ " "  + " " + 'UNIT' + " "+new Date() +"</li>"
+        let returnCover =  "<li>" + carbCovering+ " "  +  'UNIT'   +"</li>"
         myStorage = localStorage.setItem('carbCovering', carbCovering);
         //storageGet = localStorage.getItem(myStorage)
     
@@ -205,10 +206,11 @@ let bColor = "background-color"
     // for button function 
     div3.appendChild(button2);
     button2.addEventListener('click', () => {
+        button2.style.color = 'red'
         let currentBG = document.getElementById('thirdInputBar').value;
         let correctionValue = ((currentBG - 120) / 300);
 
-        let returnCorrect = "<li>" + correctionValue +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+        let returnCorrect = "<li>" + correctionValue +  " "  + " " + 'UNIT' + " " +"</li>"
         myStorage1 = localStorage.setItem('carbCorrecting', correctionValue);
         myStorageSession = sessionStorage.setItem('carbCorrecting', correctionValue)
         document.getElementById('foodLi').innerHTML += returnCorrect + 'Correction Amount';
@@ -218,9 +220,10 @@ let bColor = "background-color"
     let button3 = document.createElement('button');
     button3.id = 'thirdButton';
     button3.innerText = "Total Insulin";
-    button3.style.color = 'red';
+    button3.style.color = 'blue';
     div3.appendChild(button3);
     button3.addEventListener('click', () => {
+        button3.style.color = 'red'
         let currentBG = document.getElementById('thirdInputBar').value;
         let correctionValue = ((currentBG - 120) / 300);
         let currentBGTotal = document.getElementById('firstDropDown');
@@ -231,8 +234,7 @@ let bColor = "background-color"
 
         let totalInsulin = carbCovering + correctionValue
         
-
-        let returnTotal = "<li>" + totalInsulin +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+        let returnTotal = "<li>" + totalInsulin +  " " + 'UNIT' + " " +"</li>"
         myStorage1 = localStorage.setItem('Total Insulin', returnTotal);
         myStorageSession = sessionStorage.setItem('Total Insulin', returnTotal)
         document.getElementById('foodLi').innerHTML += returnTotal + 'Total Amount'
@@ -242,7 +244,7 @@ let bColor = "background-color"
 /////////// for the custom Ratio
     let button4 = document.createElement('button');
     button4.id = 'fourthButton';
-   button4.style.color = 'blue'
+   button4.style.color = 'red'
     
     button4.innerText = "Custom Ratio";
     div6.appendChild(button4);
@@ -250,13 +252,13 @@ let bColor = "background-color"
 
     let customRatio = document.getElementById('fourthInputBar').value;
     let carbAmount = document.getElementById('secondInputBar').value;
-    let customCover = (carbAmount /customRatio).style = "blue"
-    let returnCustomCover = "<li>" + customCover +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+    let customCover = (carbAmount /customRatio)
+    let returnCustomCover = "<li>" + customCover +  " "  + " " + 'UNIT' + " "  +"</li>"
     myStorage1 = localStorage.setItem('Custom Cover Insulin', customCover);
     myStorageSession = sessionStorage.setItem('Custom Cover Insulin', customCover)
     foodUlElement.style.color = 'red'
     document.getElementById('covercorrectLi').innerHTML += returnCustomCover + 'custom Cover Amount'
-
+        button4.style.color = 'blue'
 });
 
     let button5 = document.createElement('button');
@@ -265,14 +267,14 @@ let bColor = "background-color"
     button5.innerText = "Custom Target";
     div6.appendChild(button5);
     button5.addEventListener('click', () => {
+    button5.style.color = 'blue';
 
-
-        document.getElementById('fifthButton').style.color = 'blue'
+        document.getElementById('fifthButton')
     let customTarget = document.getElementById('fifthInputBar').value;
     let currentBGCustom = document.getElementById('thirdInputBar').value;
 
     let customCorrect = ((currentBGCustom - customTarget )  / 300);
-    let returnCustomCorrect = "<li>" + customCorrect +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+    let returnCustomCorrect = "<li>" + customCorrect +  " "  + " " + 'UNIT' + " "+"</li>"
     myStorage1 = localStorage.setItem('Custom Target Correct', customCorrect);
     myStorageSession = sessionStorage.setItem('Custom Correct', customCorrect);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
@@ -280,19 +282,20 @@ let bColor = "background-color"
 
     let button6 = document.createElement('button');
     button6.id = 'sixthButton';
-    document.getElementById('ul2').style = 'blue'
-    button6.style.color = 'blue'   
+    document.getElementById('ul2').style = 'red'
+    button6.style.color = 'red'   
     button6.innerText = "Custom Correction Factor";
     div6.appendChild(button6);
     button6.addEventListener('click', () => {
-
+        button6.style.color = 'blue'
     let customTarget = document.getElementById('fifthInputBar').value;
     let customCorrectionFactor = document.getElementById('sixthInputBar').value;
     let currentBGCustom = document.getElementById('thirdInputBar').value;
 
     let customCorrect = ((currentBGCustom - customTarget)  / customCorrectionFactor);
+    
     // let addingtoPositive = customCorrect + customCorrect + customCorrect
-    let returnCustomCorrect = "<li>" + customCorrect +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+    let returnCustomCorrect = "<li>" + customCorrect +  " "  + " " + 'UNIT' + " "  +"</li>"
     myStorage1 = localStorage.setItem('Custom Target Correct', customCorrect);
     myStorageSession = sessionStorage.setItem('Custom Correct', customCorrect);
     document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Correction Amount';
@@ -309,7 +312,7 @@ let bColor = "background-color"
     div6.appendChild(button7);
     button7style = document.getElementById(seventhButton)
     button7.addEventListener('click', () => {
-
+        button7.style.color = 'blue'
     let customTarget = document.getElementById('fifthInputBar').value;
     let customCorrectionFactor = document.getElementById('sixthInputBar').value;
     let currentBGCustom = document.getElementById('thirdInputBar').value;
@@ -321,7 +324,7 @@ let bColor = "background-color"
 
     let finalCustomInulin = customCover + customCorrect;
     document.getElementById('coverCorrectList')
-    let returnFinalCustomCorrect = "<li>" + finalCustomInulin +  " "  + " " + 'UNIT' + " " +new Date() +"</li>"
+    let returnFinalCustomCorrect = "<li>" + finalCustomInulin +  " "  + " " + 'UNIT' + " "  +"</li>"
     myStorage1 = localStorage.setItem('Final Custom Insulin', finalCustomInulin);
     myStorageSession = sessionStorage.setItem('Final Custom Insulin', finalCustomInulin);
     document.getElementById('covercorrectLi').innerHTML += returnFinalCustomCorrect  + 'custom Total Amount';
