@@ -11,10 +11,6 @@
 // or return the second variable to = second variable.join(' ') so it will join the array at the element of a space
 //call the function with the arguements to finalize
 
-
-
-
-
 function titleCase(str) {
     let convertToArray = str.toLowerCase().split(" ");
     let result = convertToArray.map(function(val) {

@@ -4,13 +4,14 @@
 // vaarible.style.hyphen.colpr = blue
 // 166 for local storage
 document.addEventListener('DOMContentLoaded', function () {
+  var bColor = "background-color";
   var totalInsulinLocalStorageArray = []; // top make local storage yoyu must add a JON.Stringify the object and the push it to an array that the local storage callsback
   //let oldStorageArray = JSON.parse(localStorage.getItem(myStorage));
 
   var h1 = document.createElement('h1');
   h1.id = ' title';
   h1.className = 'title';
-  h1.innerHTML = 'D.I.C';
+  h1.innerHTML = 'Diabetic Insulin Calculator';
   document.body.appendChild(h1); // let inputBar3 = document.createElement('input');
   // inputBar3.id = 'foodSearch';
   // inputBar3.placeholder = 'Enter Item You Are Looking For';
@@ -42,10 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var div7 = document.createElement('div');
   div7.id = 'seventhDiv';
   document.body.appendChild(div7);
-  var p1 = document.createElement('p1');
-  p1.id = 'firstP1Tag';
-  p1.innerText = 'Diabetic Insulin Calculator';
-  div1.appendChild(p1);
   var p2 = document.createElement('p1');
   p2.id = 'secondP1Tag'; //p2.innerText = 'test'
 
@@ -56,24 +53,28 @@ document.addEventListener('DOMContentLoaded', function () {
   div5.appendChild(p2);
   var p3 = document.createElement('p1');
   p3.id = 'p1Tag';
-  p3.innerText = 'You can also add a custom Target by entering it below and clicking the custom target buttom followed by the inputting the Current BG, or you can select a custom Carb Ratio by inputting the Ratio and then inoutting the Carb Amount, and Clicking the respective buttons ALL FIELDS MUST BE ENTERED TO USE THE CUSTOM BUTTONS.... TO COMPARE MY SONS RATIO NEEDS TO MATCH THE DROP DOWN, THE TARGET IS 120, AND HIS CORRECTION FACTOR IS 300';
+  p3.innerText = 'You can also add a custom Target by entering it below and clicking the custom target buttom followed by the inputting the Current BG, or you can select a custom Carb Ratio by inputting the Ratio and then inputting the Carb Amount, and Clicking the respective buttons ALL FIELDS MUST BE ENTERED TO USE THE CUSTOM BUTTONS INCLUDING TOP INPUT BARS.... TO COMPARE MY SONS RATIO NEEDS TO MATCH THE DROP DOWN, THE TARGET IS 120, AND HIS CORRECTION FACTOR IS 300';
   div6.appendChild(p3); // drop down and the option values
 
   var dropDown1 = document.createElement('select');
   dropDown1.id = 'firstDropDown';
+  dropDown1.style.bColor = 'blue';
   div4.appendChild(dropDown1);
   var optionDropDown1 = document.createElement('option');
   optionDropDown1.id = 'firstOption';
+  optionDropDown1.style.color = 'red';
   optionDropDown1.innerHTML = 'Breakfast 50';
   optionDropDown1.value = 50;
   dropDown1.appendChild(optionDropDown1);
   var optionDropDown3 = document.createElement('option');
   optionDropDown3.id = 'thirdOption';
+  optionDropDown3.style.color = 'blue';
   optionDropDown3.innerHTML = 'Lunch 120';
   optionDropDown3.value = 120;
   dropDown1.appendChild(optionDropDown3);
   var optionDropDown2 = document.createElement('option');
   optionDropDown2.id = 'secondOption';
+  optionDropDown2.style.color = 'red';
   optionDropDown2.innerHTML = 'Snack 120';
   optionDropDown2.value = 120;
   dropDown1.appendChild(optionDropDown2);
@@ -81,10 +82,12 @@ document.addEventListener('DOMContentLoaded', function () {
   optionDropDown4.id = 'fourthOption';
   optionDropDown4.innerHTML = 'Dinner 50';
   optionDropDown4.value = 50;
+  optionDropDown4.style.color = 'blue';
   dropDown1.appendChild(optionDropDown4); // input bar for covering
 
   var inputBar2 = document.createElement('input');
   inputBar2.id = 'secondInputBar';
+  inputBar2.style.color = 'blue';
   inputBar2.placeholder = 'Enter Carb Amount ';
   div2.appendChild(inputBar2); // input bar for BG
 
@@ -110,17 +113,21 @@ document.addEventListener('DOMContentLoaded', function () {
   div6.appendChild(coverCorrectList);
   coverCorrectLi = document.createElement('li');
   coverCorrectLi.id = 'covercorrectLi';
+  coverCorrectLi.style.color = 'blue';
   coverCorrectList.appendChild(coverCorrectLi);
   var foodUlElement = document.createElement('ul');
-  foodUlElement.id = 'ul1';
+  foodUlElement.id = 'ul1'; // will add the css olor style of red
+
   div2.appendChild(foodUlElement);
   foodListLi = document.createElement('li');
   foodListLi.id = 'foodLi';
+  foodUlElement.style.color = 'red';
   foodUlElement.appendChild(foodListLi); // submit button for carb cover //
 
   var button1 = document.createElement('button');
   button1.id = "firstButton";
-  button1.innerText = "Carb Cover"; // for button function 
+  button1.innerText = "Carb Cover";
+  button1.style.color = 'red'; // for button function 
 
   div3.appendChild(button1);
   button1.addEventListener('click', function () {
@@ -128,7 +135,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var carbValue = parseInt(currentBG.options[currentBG.selectedIndex].value);
     var totalCarbs = document.getElementById("secondInputBar").value;
     var firstArray = [];
-    carbCovering = totalCarbs / carbValue;
+    carbCovering = totalCarbs / carbValue; // adding style to the unordered list
+
     localStorage.setItem('carbCovering', carbCovering);
     firstArray.push('carbCovering');
     localStorage.setItem('carbCover', JSON.stringify(firstArray)); //where the list is created in the button
@@ -143,17 +151,11 @@ document.addEventListener('DOMContentLoaded', function () {
     //    document.getElementById('foodLi').value = "";
     //    let JSONnames = JSON.stringify(storageOfTotals);
     //     localStorage.setItem('String of Totals', JSONnames)
-
-    function getAllItems() {
-      for (i = 0; i <= localStorage.length - 1; i++) {
-        key = localStorage.key(i);
-        val = localStorage.getItem(key);
-      }
-    }
   });
   var button2 = document.createElement('button');
   button2.id = "secondButton";
-  button2.innerText = "Carb Correction"; // for button function 
+  button2.innerText = "Carb Correction";
+  button2.style.color = 'blue'; // for button function 
 
   div3.appendChild(button2);
   button2.addEventListener('click', function () {
@@ -168,6 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var button3 = document.createElement('button');
   button3.id = 'thirdButton';
   button3.innerText = "Total Insulin";
+  button3.style.color = 'red';
   div3.appendChild(button3);
   button3.addEventListener('click', function () {
     var currentBG = document.getElementById('thirdInputBar').value;
@@ -185,22 +188,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var button4 = document.createElement('button');
   button4.id = 'fourthButton';
+  button4.style.color = 'blue';
   button4.innerText = "Custom Ratio";
   div6.appendChild(button4);
   button4.addEventListener('click', function () {
     var customRatio = document.getElementById('fourthInputBar').value;
     var carbAmount = document.getElementById('secondInputBar').value;
-    var customCover = carbAmount / customRatio;
+    var customCover = (carbAmount / customRatio).style = "blue";
     var returnCustomCover = "<li>" + customCover + " " + " " + 'UNIT' + " " + new Date() + "</li>";
     myStorage1 = localStorage.setItem('Custom Cover Insulin', customCover);
     myStorageSession = sessionStorage.setItem('Custom Cover Insulin', customCover);
+    foodUlElement.style.color = 'red';
     document.getElementById('covercorrectLi').innerHTML += returnCustomCover + 'custom Cover Amount';
   });
   var button5 = document.createElement('button');
   button5.id = 'fifthButton';
+  button5.style.color = 'red';
   button5.innerText = "Custom Target";
   div6.appendChild(button5);
   button5.addEventListener('click', function () {
+    document.getElementById('fifthButton').style.color = 'blue';
     var customTarget = document.getElementById('fifthInputBar').value;
     var currentBGCustom = document.getElementById('thirdInputBar').value;
     var customCorrect = (currentBGCustom - customTarget) / 300;
@@ -211,6 +218,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   var button6 = document.createElement('button');
   button6.id = 'sixthButton';
+  document.getElementById('ul2').style = 'blue';
+  button6.style.color = 'blue';
   button6.innerText = "Custom Correction Factor";
   div6.appendChild(button6);
   button6.addEventListener('click', function () {
@@ -226,8 +235,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   var button7 = document.createElement('button');
   button7.id = 'seventhButton';
+  button7.style.color = 'red';
   button7.innerText = "Custom Total Insulin";
   div6.appendChild(button7);
+  button7style = document.getElementById(seventhButton);
   button7.addEventListener('click', function () {
     var customTarget = document.getElementById('fifthInputBar').value;
     var customCorrectionFactor = document.getElementById('sixthInputBar').value;
@@ -237,10 +248,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var customCover = carbAmount / customRatio;
     var customCorrect = (currentBGCustom - customTarget) / customCorrectionFactor;
     var finalCustomInulin = customCover + customCorrect;
-    var returnCustomCorrect = "<li>" + finalCustomInulin + " " + " " + 'UNIT' + " " + new Date() + "</li>";
+    document.getElementById('coverCorrectList');
+    var returnFinalCustomCorrect = "<li>" + finalCustomInulin + " " + " " + 'UNIT' + " " + new Date() + "</li>";
     myStorage1 = localStorage.setItem('Final Custom Insulin', finalCustomInulin);
     myStorageSession = sessionStorage.setItem('Final Custom Insulin', finalCustomInulin);
-    document.getElementById('covercorrectLi').innerHTML += returnCustomCorrect + 'custom Total Amount'; // if ( currentBGCustom > target){
+    document.getElementById('covercorrectLi').innerHTML += returnFinalCustomCorrect + 'custom Total Amount'; // if ( currentBGCustom > target){
     //     button5.addEventListener('click', () => {
     //         let customTarget = document.getElementById('fifthInputBar').value;
     //         let currentBGCustom = document.getElementById('thirdInputBar').value;
