@@ -18,3 +18,4 @@ function reverseString(string) {
 }
 
 reverseString('hello');
+reverseString('Arneezy');

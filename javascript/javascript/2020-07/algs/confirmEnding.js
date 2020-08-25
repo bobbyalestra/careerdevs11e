@@ -5,10 +5,6 @@
 // loggin displays a boolean value of true
 // must use triple equals to make sure it is exactaly the same STRICT
 
-
-
-
-
 function confirmEnding(string, check) {
     let confirmedEnd =  string.slice(-check.length) === check
 

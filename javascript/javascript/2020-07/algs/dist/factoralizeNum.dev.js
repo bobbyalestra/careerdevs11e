@@ -6,7 +6,7 @@
 // the post expression should decrement the number call back by 1 so it can meet the condition
 // well the condition is met i want to take the product to stay at 1 so the number callback will mulitply itself times itself until the count is down to zero
 // log the outcome
-// and call the function
+// and call the function with the call back of the number you want factoralized
 function factorialize(number) {
   for (var product = 1; number > 0; number--) {
     product *= number;

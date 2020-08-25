@@ -1,6 +1,5 @@
 
 
-
 // create a function with a callback
 // create a loop so it will continue to cycle through the string 
 // set the initializer to the length of the string - 1 to get the last index
@@ -17,6 +16,7 @@ function reverseString(string) {
     for (var reverseString = "", i = string.length - 1 ; i > - 1;  i--) {
       reverseString += string[i];  
   }
-  console.log(reverseString)
+  console.log(reverseString);
 }
-reverseString('hello')
+reverseString('hello');
+reverseString('Arneezy');

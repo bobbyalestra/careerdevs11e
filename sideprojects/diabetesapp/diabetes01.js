@@ -1,4 +1,5 @@
-
+// hyphen = "-"
+// vaarible.style.hyphen.colpr = blue
 // 166 for local storage
 
 document.addEventListener('DOMContentLoaded',()  => {

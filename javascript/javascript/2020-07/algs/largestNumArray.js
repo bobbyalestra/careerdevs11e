@@ -21,11 +21,9 @@ function largestOfFour(array) {
           largestNumber = array[i][j];
         }
       
-  
       results[i]= largestNumber;
     }
     }
-  
     console.log(results)
   }
 
