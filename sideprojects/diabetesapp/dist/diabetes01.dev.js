@@ -1,8 +1,5 @@
 "use strict";
 
-// hyphen = "-"
-// vaarible.style.hyphen.colpr = blue
-// 166 for local storage
 document.addEventListener('DOMContentLoaded', function () {
   var bColor = "background-color";
   var totalInsulinLocalStorageArray = []; // top make local storage yoyu must add a JON.Stringify the object and the push it to an array that the local storage callsback

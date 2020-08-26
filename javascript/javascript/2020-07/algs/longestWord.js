@@ -10,7 +10,7 @@
 // call the function and set the callback to a word you want to find the largest length of
 
 function findLongestWordLength(string) {
-    let words = str.split(' ');
+    let words = string.split(' ');
     let maxWordLength = 0;
   
     for (let i = 0; i < words.length; i++) {

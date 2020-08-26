@@ -463,7 +463,29 @@ function carbCover(){
 
         </h1>
 
-  
+  <div id = 'customCover'>
+    <script>
+         let button4 = document.createElement('button');
+    button4.id = 'fourthButton';
+   button4.style.color = 'red'
+    
+    button4.innerText = "Custom Ratio";
+    div6.appendChild(button4);
+    button4.addEventListener('click', () => {
+
+    let customRatio = document.getElementById('fourthInputBar').value;
+    let carbAmount = document.getElementById('secondInputBar').value;
+    let customCover = (carbAmount /customRatio)
+    let returnCustomCover = "<li>" + customCover +  " "  + " " + 'UNIT' + " "  +"</li>"
+    myStorage1 = localStorage.setItem('Custom Cover Insulin', customCover);
+    myStorageSession = sessionStorage.setItem('Custom Cover Insulin', customCover)
+    foodUlElement.style.color = 'red'
+    document.getElementById('covercorrectLi').innerHTML += returnCustomCover + 'custom Cover Amount'
+        button4.style.color = 'blue'
+});
+    </script>
+
+  </div>
 
 
 

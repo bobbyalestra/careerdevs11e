@@ -10,7 +10,7 @@
 // log the maxWordlenfth variable
 // call the function and set the callback to a word you want to find the largest length of
 function findLongestWordLength(string) {
-  var words = str.split(' ');
+  var words = string.split(' ');
   var maxWordLength = 0;
 
   for (var i = 0; i < words.length; i++) {
