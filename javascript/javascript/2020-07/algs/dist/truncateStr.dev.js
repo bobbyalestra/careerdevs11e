@@ -19,4 +19,14 @@ function truncateString(str, num) {
   }
 }
 
-truncateString('Arneeeeeeeezy', 5);
+truncateString('Arneeeeeeeezy', 3);
+
+function truncateStrings(string, number) {
+  if (string.length > number) {
+    console.log(string.slice(0, number) + "...");
+  } else {
+    console.log(string);
+  }
+}
+
+truncateStrings(' Cameron', 2);

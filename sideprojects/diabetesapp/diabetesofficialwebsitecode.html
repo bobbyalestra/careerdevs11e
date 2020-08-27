@@ -108,6 +108,13 @@ let bColor = "background-color"
  p3.innerText = 'TOP BUTTONS ARE FOR ARON.......ALL FIELDS MUST BE ENTERED TO USE THE CUSTOM BUTTONS.';
     div6.appendChild(p3);
     // drop down and the option values
+
+
+
+
+
+
+
     let dropDown1 = document.createElement('select');
     dropDown1.id = 'firstDropDown';
     dropDown1.style.color = 'blue'
@@ -144,6 +151,66 @@ let bColor = "background-color"
     dropDown1.appendChild(optionDropDown4);
 
 
+    let dropDown2 = document.createElement('select');
+    dropDown2.id = 'secondDropDown';
+    dropDown2.style.color = 'red';
+    div8.appendChild(dropDown2);
+
+
+    let option0Drop2 = document.createElement('option');
+    option0Drop2.id = 'drop2opt1';
+    option0Drop2.innerHTML = ' ';
+    dropDown2.appendChild(option0Drop2);
+
+    let option1DropQCup =  document.createElement('option');
+    option1DropQCup.id = 'drop2optQCup';
+    option1DropQCup.innerHTML = '1/4 Cup';
+    dropDown2.appendChild(option1DropQCup);
+
+    let option1DropCup =  document.createElement('option');
+    option1DropCup.id = 'drop2optHCup';
+    option1DropCup.innerHTML = '1/2 Cup';
+    dropDown2.appendChild(option1DropCup);
+
+    let option1Drop2 = document.createElement('option');
+    option1Drop2.id = 'drop2optC';
+    option1Drop2.innerHTML = 'Cup';
+    dropDown2.appendChild(option1Drop2);
+
+    
+
+    let option2Drop2 = document.createElement('option');
+    option2Drop2.id = 'drop2opt2';
+    option2Drop2.innerHTML = 'Grams';
+    dropDown2.appendChild(option2Drop2);
+
+    let option3Drop2 = document.createElement('option');
+    option3Drop2.id = 'drop2opt3';
+    option3Drop2.innerHTML = 'TableSpoon';
+    dropDown2.appendChild(option3Drop2);
+
+
+    let option4Drop2 = document.createElement('option');
+    option4Drop2.id = 'drop2opt4';
+    option4Drop2.innerHTML = 'Teaspoon';
+    dropDown2.appendChild(option4Drop2);
+
+
+    let option5Drop2 = document.createElement('option');
+    option5Drop2.id = 'drop2opt5';
+    option5Drop2.innerHTML = 'Fluid Oz';
+    dropDown2.appendChild(option5Drop2);
+
+    let option6Drop2 = document.createElement('option');
+    option6Drop2.id = 'drop2opt6';
+    option6Drop2.innerHTML = 'Oz';
+    dropDown2.appendChild(option6Drop2);
+
+    let option7Drop2 = document.createElement('option');
+    option7Drop2.id = 'drop2opt7';
+    option7Drop2.innerHTML = 'Slice';
+    dropDown2.appendChild(option7Drop2);
+
       // input bar for covering
       let inputBar2 = document.createElement('input');
     inputBar2.id = 'secondInputBar';
@@ -172,10 +239,23 @@ let bColor = "background-color"
     inputBar6.placeholder = 'Enter Correction Factor';
     div7.appendChild(inputBar6);
 
+    let foodListNumAmount = document.createElement('input');
+    foodListNumAmount.id = 'foodAmount';
+    foodListNumAmount.placeholder = 'How much of Food'
+    div9.appendChild(foodListNumAmount)
+
+
     let inputBar7 = document.createElement('input');
     inputBar7.id = 'seventhInputBar';
     inputBar7.placeholder = 'Enter Food Items'
     div9.appendChild(inputBar7);
+
+
+    let carbListAmount = document.createElement('input');
+    carbListAmount.id = 'amountOfCarbs';
+    carbListAmount.placeholder = 'Enter Carb Amount';
+    div9.appendChild(carbListAmount);
+
 
     let coverCorrectList = document.createElement('ul');
     coverCorrectList.id = 'ul2';
@@ -206,6 +286,16 @@ let bColor = "background-color"
     let foodLogLi = document.createElement('li');
     foodLogLi.id = 'foodLogList';
     foodLogUl.appendChild(foodLogLi);
+
+    let totalLogUl = document.createElement('ul');
+    totalLogUl.id = 'totalLog';
+    totalLogUl.style.color = 'indigo';
+    div10.appendChild(totalLogUl);
+
+    let totalLogLi = document.createElement('li');
+    totalLogLi.id = 'totalLogsList';
+    totalLogUl.appendChild(totalLogLi);
+
 
     // submit button for carb cover //
     let button1 = document.createElement('button');
@@ -338,8 +428,6 @@ let bColor = "background-color"
     let currentBGCustom = document.getElementById('thirdInputBar').value;
 
     let customCorrect = ((currentBGCustom - customTarget)  / customCorrectionFactor);
-    
-    // let addingtoPositive = customCorrect + customCorrect + customCorrect
     let returnCustomCorrect = "<li>" + customCorrect +  " "  + " " + 'UNIT' + " "  +"</li>"
     myStorage1 = localStorage.setItem('Custom Target Correct', customCorrect);
     myStorageSession = sessionStorage.setItem('Custom Correct', customCorrect);
@@ -382,25 +470,48 @@ let bColor = "background-color"
     button8.innerText = 'ADD FOOD'
     document.getElementById('eighthDiv').appendChild(button8);
     button8.addEventListener('click', ()=> {
+        let amountInput = document.getElementById('foodAmount').value;
         let foodinput = document.getElementById('seventhInputBar').value;
+        let carbsAmount = document.getElementById('amountOfCarbs').value;
+        let dropselect = document.getElementById('secondDropDown');
+        let addDrop = dropselect.options[dropselect.selectedIndex].value
         let foodlist = document.getElementById('foodLogUnorderList');
-        let displayFoodLog =  "<li>" + foodinput + '' + '</li>';
+        let displayFoodLog =  "<li>" + ' ' + '' + amountInput + '' +  " " + addDrop + " " + "of " +  " " + foodinput + '' + " is " + carbsAmount + " " + "" + "" + "grams"+ " " +  "of" + " " + " " + "carbs"  + '</li>';
         document.getElementById('foodLogList').innerHTML += displayFoodLog;
-
-  
-
-
-
 
 
 });
+        let button9 = document.createElement('button');
+    button9.id = 'ninethbutton';
+    button9.style.color = 'green';
+    button9.innerText = 'Cover Total'
+    div8.appendChild(button9);
+    button9.addEventListener('click', () => {
+        
+       
+        let newTotal
 
+        for (let i = 0; i < newTotal;  i++){
 
-})
+            let total = 0
+            newTotal[i].getElementById('amountOfCarbs').value = totalCarb
+            newTotal += totalCarbs
+        
+        //let carbCover = document.getElementById('amountOfCarbs').value;
+       
+        // let totalCarbs = (0 + carbCover);
+      
+        //  let newTotal = totalCarbs + carbCover
+        let finalTotal = document.getElementById('totalLog');
+        let displayTotal = "<li>" + newTotal + "</li>"
+        document.getElementById('totalLogsList').innerHTML =+ displayTotal
+        }
+        console.log(newTotal)
+        
+});
+
+});
 
     </script>
-
-
-
 </body>
 </html>
