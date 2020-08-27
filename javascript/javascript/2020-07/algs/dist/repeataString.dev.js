@@ -7,6 +7,8 @@
 // if the number of times running is less than 1 return the string
 // set the num parameter to 1 and if else statement that if else the second parameterstrictly equals 1 to return the value
 //and as a final result use else to return the string + the function that repeats the string
+var val;
+
 function repeatStringNumTimes(str, num) {
   if (num < 1) {
     return "";
@@ -18,18 +20,3 @@ function repeatStringNumTimes(str, num) {
 }
 
 repeatStringNumTimes('heyyyyy', 5); /////trying to  ake it work with a loop
-//   function repString(str, num) {
-//       for (let i = 0; i > num; num--) {
-//         if ( num < 1){
-//             let string = '';
-//             console.log(string)
-//         } else if (num === 1){
-//             newStr = str;
-//             console.log(newStr)
-//         } else {
-//        let final = str + repString(str, num - 1)
-//        console.log(final)
-//         }
-//       }
-//   }
-//   repString('heyyyyy' ,5)

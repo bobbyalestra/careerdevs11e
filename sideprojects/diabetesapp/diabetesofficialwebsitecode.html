@@ -488,26 +488,31 @@ let bColor = "background-color"
     div8.appendChild(button9);
     button9.addEventListener('click', () => {
         
+        let totalss = 0
+        let currentt = document.getElementById('amountOfCarbs').value 
+        let parsedTots =  parseInt(totalss)
+        let parseCurent = parseInt(currentt)
+        let finalCarbTotal = parsedTots + parseCurent ;
        
-        let newTotal
-
-        for (let i = 0; i < newTotal;  i++){
-
-            let total = 0
-            newTotal[i].getElementById('amountOfCarbs').value = totalCarb
-            newTotal += totalCarbs
+ 
+        let arr = [parsedTots];
         
-        //let carbCover = document.getElementById('amountOfCarbs').value;
-       
-        // let totalCarbs = (0 + carbCover);
-      
-        //  let newTotal = totalCarbs + carbCover
-        let finalTotal = document.getElementById('totalLog');
-        let displayTotal = "<li>" + newTotal + "</li>"
-        document.getElementById('totalLogsList').innerHTML =+ displayTotal
+        for (let i = 1; i < arr.length; i++ ){
+        arr.push(arr[i] + parseCurent)
         }
-        console.log(newTotal)
+        console.log(arr)
+
+        let finalTotal = document.getElementById('totalLog');
+        let displayTotal = "<li>" + arr + "</li>"
+        document.getElementById('totalLogsList').innerHTML =+ displayTotal
+        console.log(arr)
+       
         
+
+
+        
+    
+
 });
 
 });

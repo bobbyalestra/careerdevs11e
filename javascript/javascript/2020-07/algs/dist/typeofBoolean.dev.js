@@ -18,4 +18,4 @@ function titleCase(str) {
   return result.join(" ");
 }
 
-titleCase("I'm a little tea pot");
+titleCase("I'm a little tea apple");

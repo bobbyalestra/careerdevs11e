@@ -26,10 +26,10 @@ function truncateString(str, num) {
 
 function truncateStrings (string, number) {
   if (string.length > number) {
-    console.log(string.slice(0, number)+ "...")
+    console.log(string.slice(0, number) + "...")
   }
  else {
   console.log(string)
 } 
 }
-truncateStrings(' Cameron' , 2)
+truncateStrings('Cameroooooon' , 3)
