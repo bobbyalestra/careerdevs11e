@@ -13,7 +13,7 @@
 
 
 document.addEventListener('DOMContentLoaded',()  => {
-let bColor = "background-color"
+
     let totalInsulinLocalStorageArray =  []
     // top make local storage yoyu must add a JON.Stringify the object and the push it to an array that the local storage callsback
     
@@ -481,32 +481,43 @@ let bColor = "background-color"
 
 
 });
+        let totalsNew = []
+
         let button9 = document.createElement('button');
-    button9.id = 'ninethbutton';
-    button9.style.color = 'green';
-    button9.innerText = 'Cover Total'
-    div8.appendChild(button9);
-    button9.addEventListener('click', () => {
+        button9.id = 'ninethbutton';
+        button9.style.color = 'green';
+        button9.innerText = 'Cover Total'
+        div8.appendChild(button9);
+        button9.addEventListener('click', () => {
         
-       
-        let newTotal
+            let carbCover = document.getElementById('amountOfCarbs').value;
+            let totalCarbs = 0 ;
+            //let newTotal = parseInt(totalCarbs) + parseInt(carbCover);
 
-        for (let i = 0; i < newTotal;  i++){
 
-            let total = 0
-            newTotal[i].getElementById('amountOfCarbs').value = totalCarb
-            newTotal += totalCarbs
+
+            let pushTotal = totalsNew.push(carbCover);
+            
+             let arrInd = parseInt(totalsNew) + parseInt(totalCarbs)
+
+    
+            
+            //totalsNew.reduce((a,b) => newTotal + parseInt(carbCover), 0) 
+            carbCover = ' '
+            //////
+            console.log(totalCarbs);
+            //console.log(typeof(newTotal));        
+            //console.log(newTotal)
         
-        //let carbCover = document.getElementById('amountOfCarbs').value;
-       
-        // let totalCarbs = (0 + carbCover);
-      
-        //  let newTotal = totalCarbs + carbCover
-        let finalTotal = document.getElementById('totalLog');
-        let displayTotal = "<li>" + newTotal + "</li>"
-        document.getElementById('totalLogsList').innerHTML =+ displayTotal
-        }
-        console.log(newTotal)
+            console.log(pushTotal)
+            console.log(totalsNew)
+            console.log(totalCarbs)
+            console.log(arrInd)
+            let finaltotal = document.getElementById('totalLog');
+        let displayFoodLog =  "<li>" +  " "+ arrInd + " " + "carbs"  + '</li>';
+        document.getElementById('totalLogsList').innerHTML += displayFoodLog;
+
+
         
 });
 

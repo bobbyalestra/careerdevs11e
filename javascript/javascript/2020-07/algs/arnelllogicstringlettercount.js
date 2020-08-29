@@ -8,35 +8,37 @@
 
 
 
-let string = "Mary had a little lamb it’s fleece was white as snow, everywhere that Mary went her lamb was sure to go. Baby girl loved those lamb chopzzz";
+// let string = "Mary had a little lamb it’s fleece was white as snow, everywhere that Mary went her lamb was sure to go. Baby girl loved those lamb chopzzz";
 
-//string.sort()
-let lowercase = string.toLowerCase()
-// created an array to push the string into and convert the string to an array
-let stringSplit = lowercase.split(' ')
+// //string.sort()
+// let stringArray = []
+// let lowercase = string.toLowerCase()
+// // created an array to push the string into and convert the string to an array
+// let stringSplit = lowercase.split(' ')
 
-let stringSort = stringSplit.sort()
+// let stringSort = stringSplit.sort()
 
-// pushed the string into the array
-let stringArray = stringSort.push();
+// // pushed the string into the array
+// stringArray.push(stringSort);
 
-// sort throught the array and put it in alphabetical order
-console.log(stringSort)
+// // sort throught the array and put it in alphabetical order
+// //console.log(stringSort)
+// console.log(stringArray)
 
-// crating another variable so i can store the letters into
-let lettersArr = []
+// // crating another variable so i can store the letters into
+// let lettersArr = []
 
-//  making a for loop so i am able to cycle throught the string i converted into an array
-// initializing i as 0 to access the first index
-// condition will be i < the length of the string array
-// post expression will increment i each time until there arent anymore letters in the array
-// i want to sort the array alphabetically to visually see how many letter there are consecutivelly
-for (let i = 0; i < stringArray.length ; i++){
+// //  making a for loop so i am able to cycle throught the string i converted into an array
+// // initializing i as 0 to access the first index
+// // condition will be i < the length of the string array
+// // post expression will increment i each time until there arent anymore letters in the array
+// // i want to sort the array alphabetically to visually see how many letter there are consecutivelly
+// for (let i = 0; i < stringArray.length ; i++){
     
-     //stringArr[i].sort();
+//      //stringArr[i].sort();
 
-   //    console.log(stringArray[i])
-}
+//    //    console.log(stringArray[i])
+// }
 
 
 
@@ -53,7 +55,8 @@ for (let i = 0; i < splitString.length; i++){
      let subArrString = []   
      subArrString.push([splitString[i]])
 
-        console.log(subArrString)
+       // console.log(subArrString)
+        console.log(splitString)
     }
 //gives me each individual letter individually
 //    console.log(splitString[i])
