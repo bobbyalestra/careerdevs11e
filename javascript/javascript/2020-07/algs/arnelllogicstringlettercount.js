@@ -54,22 +54,21 @@ let period = ".";
 let apost = "’";
 let lettersArray = [];
 
-let count = 0;
+
 
 
 for (let i = 0; i < splitString.length; i++){
-   count++
     if ( splitString[i] !== splitString[i - 1]){
        
     if (splitString[i] !== space )  {
         if (splitString[i] !== comma){
             if ( splitString[i] !== period){
                 if (splitString[i] !== apost ){
-                    splitString[i].length = count
-
+                    
                   
-     let subArrString = []   
-     subArrString.push(splitString[i], count)
+     let subArrString = [] 
+     
+     subArrString.push(splitString[i], splitString[i].length)
 
       console.log(subArrString)
        // console.log(splitString)
@@ -87,7 +86,6 @@ for (let i = 0; i < splitString.length; i++){
 
 }
 
-numberOfLetters();
 // gives me a log of all word alphabetically
 //console.log(splitString);
 
