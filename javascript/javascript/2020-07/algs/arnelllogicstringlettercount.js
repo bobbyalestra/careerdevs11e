@@ -52,39 +52,44 @@ let space = ' ';
 let comma = ",";
 let period = ".";
 let apost = "’";
-let lettersArray = [];
 
 
 
 
-for (let i = 0; i < splitString.length; i++){
+
+for (let i = 0, counter = 0; i < splitString.length; i++ ){
+    
+    let subArrString = []
+    subArrString.push(splitString[i])
+    
+    subArrString.push(counter) 
+ console.log(splitString[i].length);
+ 
+   
     if ( splitString[i] !== splitString[i - 1]){
-       
-    if (splitString[i] !== space )  {
-        if (splitString[i] !== comma){
-            if ( splitString[i] !== period){
-                if (splitString[i] !== apost ){
-                    
-                  
-     let subArrString = [] 
-     
-     subArrString.push(splitString[i], splitString[i].length)
+        if (splitString[i] !== space )  {
+            if (splitString[i] !== comma) {
+                if ( splitString[i] !== period) {
+                    if (splitString[i] !== apost ) { 
+                        
+                        
 
+ 
       console.log(subArrString)
        // console.log(splitString)
    
     
 //gives me each individual letter individually
 //    console.log(splitString[i])
+                    
+                    }
+                }
             }
         }
     }
-    
-}
 
 }
-
-}
+          
 
 // gives me a log of all word alphabetically
 //console.log(splitString);
