@@ -496,28 +496,29 @@ document.addEventListener('DOMContentLoaded',()  => {
 
 
 
-            let pushTotal = totalsNew.push(carbCover);
+          totalsNew.push(carbCover);
             
-             let arrInd = parseInt(totalsNew) + parseInt(totalCarbs)
+             for (let i = 0; i < totalsNew.length; i++){
 
-    
+              let  finalTot = (totalCarbs + parseInt(totalsNew[i])) + parseInt(totalsNew[i + 1])
+                finalTot +=  totalsNew[i]
             
-            //totalsNew.reduce((a,b) => newTotal + parseInt(carbCover), 0) 
-            carbCover = ' '
+    
             //////
             console.log(totalCarbs);
             //console.log(typeof(newTotal));        
             //console.log(newTotal)
         
-            console.log(pushTotal)
+           // console.log(pushTotal)
+           console.log(typeof(totalCarbs))
             console.log(totalsNew)
-            console.log(totalCarbs)
-            console.log(arrInd)
+
+            console.log(finalTot)
             let finaltotal = document.getElementById('totalLog');
-        let displayFoodLog =  "<li>" +  " "+ arrInd + " " + "carbs"  + '</li>';
+        let displayFoodLog =  "<li>" +  " "+ finalTot + " " + "carbs"  + '</li>';
         document.getElementById('totalLogsList').innerHTML += displayFoodLog;
 
-
+             }
         
 });
 
@@ -526,3 +527,5 @@ document.addEventListener('DOMContentLoaded',()  => {
     </script>
 </body>
 </html>
+
+

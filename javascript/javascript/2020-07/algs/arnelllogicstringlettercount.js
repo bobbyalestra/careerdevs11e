@@ -47,22 +47,47 @@
 
 let string1 = "Mary had a little lamb it’s fleece was white as snow, everywhere that Mary went her lamb was sure to go. Baby girl loved those lamb chopzzz";
 let lowerCaseStr = string1.toLowerCase();
-let splitString = lowerCaseStr.split('').sort();
+let splitString = lowerCaseStr.split('').sort();   
+let space = ' ';
+let comma = ",";
+let period = ".";
+let apost = "’";
+let lettersArray = [];
+
+let count = 0;
+
+
 for (let i = 0; i < splitString.length; i++){
+   count++
+    if ( splitString[i] !== splitString[i - 1]){
+       
+    if (splitString[i] !== space )  {
+        if (splitString[i] !== comma){
+            if ( splitString[i] !== period){
+                if (splitString[i] !== apost ){
+                    splitString[i].length = count
 
-
-    if (  splitString.includes(splitString[i]) &&  splitString[i] == splitString[i]) {
+                  
      let subArrString = []   
-     subArrString.push([splitString[i]])
+     subArrString.push(splitString[i], count)
 
-       // console.log(subArrString)
-        console.log(splitString)
-    }
+      console.log(subArrString)
+       // console.log(splitString)
+   
+    
 //gives me each individual letter individually
 //    console.log(splitString[i])
- 
+            }
+        }
+    }
+    
 }
 
+}
+
+}
+
+numberOfLetters();
 // gives me a log of all word alphabetically
 //console.log(splitString);
 

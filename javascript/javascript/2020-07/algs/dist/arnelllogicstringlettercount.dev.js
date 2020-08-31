@@ -33,15 +33,33 @@
 var string1 = "Mary had a little lamb it’s fleece was white as snow, everywhere that Mary went her lamb was sure to go. Baby girl loved those lamb chopzzz";
 var lowerCaseStr = string1.toLowerCase();
 var splitString = lowerCaseStr.split('').sort();
+var space = ' ';
+var comma = ",";
+var period = ".";
+var apost = "’";
+var lettersArray = [];
+var count = 0;
 
 for (var i = 0; i < splitString.length; i++) {
-  if (splitString.includes(splitString[i]) && splitString[i] == splitString[i]) {
-    var subArrString = [];
-    subArrString.push([splitString[i]]); // console.log(subArrString)
+  count++;
 
-    console.log(splitString);
-  } //gives me each individual letter individually
-  //    console.log(splitString[i])
+  if (splitString[i] !== splitString[i - 1]) {
+    if (splitString[i] !== space) {
+      if (splitString[i] !== comma) {
+        if (splitString[i] !== period) {
+          if (splitString[i] !== apost) {
+            splitString[i].length = count;
+            var subArrString = [];
+            subArrString.push(splitString[i], count);
+            console.log(subArrString); // console.log(splitString)
+            //gives me each individual letter individually
+            //    console.log(splitString[i])
+          }
+        }
+      }
+    }
+  }
+}
 
-} // gives me a log of all word alphabetically
+numberOfLetters(); // gives me a log of all word alphabetically
 //console.log(splitString);
