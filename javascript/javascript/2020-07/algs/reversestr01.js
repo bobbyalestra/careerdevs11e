@@ -8,3 +8,10 @@ function reverseString (string) {
 }
 
 reverseString('hello')
+
+function reverstr (str) {
+    for (var rev = '', i = str.length - 1; i > -1; i-- ){
+        console.log(rev)
+    }
+
+} 

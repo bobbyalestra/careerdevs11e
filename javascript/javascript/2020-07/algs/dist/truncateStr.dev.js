@@ -29,4 +29,4 @@ function truncateStrings(string, number) {
   }
 }
 
-truncateStrings(' Cameron', 2);
+truncateStrings('Cameroooooon', 3);

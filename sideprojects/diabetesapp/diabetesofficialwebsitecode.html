@@ -490,6 +490,7 @@ document.addEventListener('DOMContentLoaded',()  => {
         div8.appendChild(button9);
         button9.addEventListener('click', () => {
         
+<<<<<<< HEAD
             let carbCover = document.getElementById('amountOfCarbs').value;
             let totalCarbs = 0 ;
             //let newTotal = parseInt(totalCarbs) + parseInt(carbCover);
@@ -519,7 +520,33 @@ document.addEventListener('DOMContentLoaded',()  => {
         document.getElementById('totalLogsList').innerHTML += displayFoodLog;
 
              }
+=======
+        let totalss = 0
+        let currentt = document.getElementById('amountOfCarbs').value 
+        let parsedTots =  parseInt(totalss)
+        let parseCurent = parseInt(currentt)
+        let finalCarbTotal = parsedTots + parseCurent ;
+       
+ 
+        let arr = [parsedTots];
         
+        for (let i = 1; i < arr.length; i++ ){
+        arr.push(arr[i] + parseCurent)
+        }
+        console.log(arr)
+
+        let finalTotal = document.getElementById('totalLog');
+        let displayTotal = "<li>" + arr + "</li>"
+        document.getElementById('totalLogsList').innerHTML =+ displayTotal
+        console.log(arr)
+       
+        
+
+
+>>>>>>> 61db0a2fa9c2b12a18a15c76efb2894f95c29f89
+        
+    
+
 });
 
 });
