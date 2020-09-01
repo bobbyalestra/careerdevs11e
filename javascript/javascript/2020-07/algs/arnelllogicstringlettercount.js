@@ -104,7 +104,7 @@
 
 
 
-// created only 1 if statement including all the condition
+// created only 1 if statement including all of  the condition
 let string2 = "Mary had a little lamb it’s fleece was white as snow, everywhere that Mary went her lamb was sure to go. Baby girl loved those lamb chopzzz";
 let lowerCaseStr = string2.toLowerCase();
 let splitString = lowerCaseStr.split('').sort();   
