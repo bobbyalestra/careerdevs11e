@@ -105,6 +105,57 @@
 
 
 
+// let string2 = "Mary had a little lamb it’s fleece was white as snow, everywhere that Mary went her lamb was sure to go. Baby girl loved those lamb chopzzz";
+// let lowerCaseStr = string2.toLowerCase();
+// let splitString = lowerCaseStr.split('').sort();   
+// let space = ' ';
+// let comma = ",";
+// let period = ".";
+// let apost = "’";
+
+
+
+
+
+// for (let i = 0, counter = 0; i < splitString.length; i++ ) {
+//     let subArrString = []
+//     subArrString.push(splitString[i].length)
+  
+//     if ( splitString[i] !== splitString[i - 1]){
+//         if (splitString[i] !== space )  {
+//             if (splitString[i] !== comma) {
+//                 if ( splitString[i] !== period) {
+//                     if (splitString[i] !== apost ) { 
+                         
+                        
+                        
+//     subArrString.push(splitString[i])
+//                         // console.log(splitString[i].length);
+//                        // subArrString.push(splitString[i].length)
+//      console.log(subArrString)
+//      //  console.log(splitString[i])
+
+// //gives me each individual letter individually
+// //    console.log(splitString[i])
+                    
+                    
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+// }
+          
+
+
+
+/////// trying to make only 1 if statement
+
+
+
+
+
 let string2 = "Mary had a little lamb it’s fleece was white as snow, everywhere that Mary went her lamb was sure to go. Baby girl loved those lamb chopzzz";
 let lowerCaseStr = string2.toLowerCase();
 let splitString = lowerCaseStr.split('').sort();   
@@ -114,22 +165,16 @@ let period = ".";
 let apost = "’";
 
 
-
-
-
 for (let i = 0, counter = 0; i < splitString.length; i++ ) {
     let subArrString = []
-    subArrString.push(splitString[i].length)
+   
   
-    if ( splitString[i] !== splitString[i - 1]){
-        if (splitString[i] !== space )  {
-            if (splitString[i] !== comma) {
-                if ( splitString[i] !== period) {
-                    if (splitString[i] !== apost ) { 
-                         
-                        
+    if ( splitString[i] !== splitString[i - 1] && splitString[i] !== space && splitString[i] !== comma && splitString[i] !== period && splitString[i] !== apost){
+ 
+  
                         
     subArrString.push(splitString[i])
+    subArrString.push(splitString[i].length)
                         // console.log(splitString[i].length);
                        // subArrString.push(splitString[i].length)
      console.log(subArrString)
@@ -140,10 +185,5 @@ for (let i = 0, counter = 0; i < splitString.length; i++ ) {
                     
                     
                     }
-                }
-            }
-        }
-    }
-
 }
           
