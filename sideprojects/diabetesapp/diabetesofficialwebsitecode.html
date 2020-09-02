@@ -463,6 +463,8 @@ document.addEventListener('DOMContentLoaded',()  => {
 
 
 })
+const totalsNew = [];
+
     let button8 = document.createElement('button');
     button8.id = 'eighthButton';
  
@@ -476,49 +478,54 @@ document.addEventListener('DOMContentLoaded',()  => {
         let dropselect = document.getElementById('secondDropDown');
         let addDrop = dropselect.options[dropselect.selectedIndex].value
         let foodlist = document.getElementById('foodLogUnorderList');
+        totalsNew.push(carbsAmount)
         let displayFoodLog =  "<li>" + ' ' + '' + amountInput + '' +  " " + addDrop + " " + "of " +  " " + foodinput + '' + " is " + carbsAmount + " " + "" + "" + "grams"+ " " +  "of" + " " + " " + "carbs"  + '</li>';
         document.getElementById('foodLogList').innerHTML += displayFoodLog;
 
 
 });
-        let totalsNew = []
+
 
         let button9 = document.createElement('button');
         button9.id = 'ninethbutton';
         button9.style.color = 'green';
-        button9.innerText = 'Cover Total'
+        button9.innerText = 'Find Total'
         div8.appendChild(button9);
-        button9.addEventListener('click', () => {
+        button9.addEventListener('click',  (input) => {
         
-            let carbCover = document.getElementById('amountOfCarbs').value;
-            let totalCarbs = 0 ;
+
+             input = document.getElementById('amountOfCarbs').value;
+            var totalCarbs = 0 ;
             //let newTotal = parseInt(totalCarbs) + parseInt(carbCover);
-
-
-
-          totalsNew.push(carbCover);
+            let carbsArray = [ ];
             
-             for (let i = 0; i < totalsNew.length; i++){
 
-              let  finalTot = (totalCarbs + parseInt(totalsNew[i])) + parseInt(totalsNew[i + 1])
-            
-            
+             
+                  
+                for (let i = 0; i < totalsNew.length ; i++){
+                
+          totalCarbs += parseInt((totalsNew[i])) 
+               
+
+        //   totalsNew.push(carbCover);
+
     
             //////
-            console.log(totalCarbs);
-            //console.log(typeof(newTotal));        
-            //console.log(newTotal)
-        
-           // console.log(pushTotal)
-           console.log(typeof(totalCarbs))
-            console.log(totalsNew)
+               //console.log(typeof(newTotal));        
+            //console.log(newTotal);   
+           // console.log(pushTotal);
+            console.log(totalCarbs, "total carbs");
+           console.log(typeof(totalCarbs), "type of totalcarbs");
+            console.log(totalsNew, "total new");
+           // console.log(finalTot, " Final Tot");
+            console.log(carbsArray, "Carbs Array")
+            console.log()
 
-            console.log(finalTot)
             let finaltotal = document.getElementById('totalLog');
-        let displayFoodLog =  "<li>" +  " "+ finalTot + " " + "carbs"  + '</li>';
+        let displayFoodLog =  "<li>" +  " "+ totalCarbs + " " + "total Amount of carbs"  + '</li>';
         document.getElementById('totalLogsList').innerHTML += displayFoodLog;
 
-             }
+                }   
         
 });
 
