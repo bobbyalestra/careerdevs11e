@@ -112,30 +112,26 @@ let space = ' ';
 let comma = ",";
 let period = ".";
 let apost = "’";
-let count = 0
+let count =  " "
 
 
 
 
 for (let i = 0; i < splitString.length; i++ ) {
     let subArrString = []
-   
-       // console.log(splitString[i])
-    
-    if ( splitString[i] !== splitString[i - 1] && splitString[i] !== space && splitString[i] !== comma && splitString[i] !== period && splitString[i] !== apost){
-        
-    
-     
+    // console.log(splitString[i]) 
+    if ( splitString[i] !== splitString[i - 1] && splitString[i] !== space && splitString[i] !== comma && splitString[i] !== period && splitString[i] !== apost){   
         subArrString.push(splitString[i]);
         
         subArrString.push(splitString[i].length)
-                        // console.log(splitString[i].length);
-                       // subArrString.push(splitString[i].length)
-     console.log(subArrString)
-      //console.log(splitString[i])
+        console.log(subArrString)
+    console.log(splitString[i].length);
+    // subArrString.push(splitString[i].length)
+     
+    //console.log(splitString[i])
 
 //gives me each individual letter individually
-//    console.log(splitString[i])
+    // console.log(splitString[i])
                     
                       }
 
