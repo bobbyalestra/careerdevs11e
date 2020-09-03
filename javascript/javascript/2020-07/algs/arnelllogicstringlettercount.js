@@ -112,7 +112,8 @@ let space = ' ';
 let comma = ",";
 let period = ".";
 let apost = "’";
-let count =  " "
+let count = 1
+let tally = [] 
 
 
 
@@ -120,6 +121,20 @@ let count =  " "
 for (let i = 0; i < splitString.length; i++ ) {
     let subArrString = []
     // console.log(splitString[i]) 
+
+
+
+    if (splitString[i] !== splitString[i + 1] && splitString[i] !== splitString[i -1] ) {
+        tally.push(splitString[i], count)
+    }
+
+
+    if (splitString[i] == splitString[i + 1] ){
+        //console.log(stringSplitLowerCase[i], ";", ++count)
+              if (splitString[i + 1] !== splitString[i + 2]) {
+                tally.push(splitString[i], count)
+
+              }
     if ( splitString[i] !== splitString[i - 1] && splitString[i] !== space && splitString[i] !== comma && splitString[i] !== period && splitString[i] !== apost){   
         subArrString.push(splitString[i]);
         
@@ -139,3 +154,4 @@ for (let i = 0; i < splitString.length; i++ ) {
           
 
 
+}
