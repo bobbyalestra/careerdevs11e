@@ -7,44 +7,49 @@
 
 
 
-let num = 404159389610;
-let numString = num.toString();
-let numArray = [ ];
-//let numSubString = " ";
+// let num = 404159389610;
+// let numString = num.toString();
+// let numArray = [ ];
+// //let numSubString = " ";
 
 
-for (let i = 0; i < numString.length; i++) {
-        //console.log(numString[i]);
-        if (numString[i] % 2 != 0) {
-             // numSubString.substring(numString[i])  
-                //numArray.push(numString[i])
-               // console.log(numArray);
-               console.log(numString[i]);
+// for (let i = 0; i < numString.length; i++) {
+//         //console.log(numString[i]);
+//         if (numString[i] % 2 != 0) {
+//              // numSubString.substring(numString[i])  
 
-        }
+//              // each one incrementing through all odds push [i] each time until all odds are present
+//                 numArray.push(numString[i])
+//               // console.log(numArray);
+
+
+
+//                odd = numArray.reduce(function (r, a) { return r + a % 2; }, 0);
+
+//                console.log(odd)
+//                // all of them individually as a string
+//                console.log(numString[i]);
+
+//         }
    
-}
-
-
-
-// let numbers = [337941312819039, 5602256151929824, 30225170444787, 3551910535291105, 4041593896103, 5347039149245184, 337941624752787, 67099423720619241, 6394362198407475, 3560667783239439, 4017950948196059, 6759393197130163, 6771549142615186, 201836980226124, 3556519446278575, 3566850663741161, 3528172140783618, 3537563353849766, 6331107836502898, 4508928697689785];
-// let numbString = numbers.toString();
-// let oddNumbersArray = []
-
-
-// for (let i = 0; i < numbString.length; i++) {
-  
-
-//         console.log(numbString[i])
-    
-
 // }
 
 
+
 let numbers = [337941312819039, 5602256151929824, 30225170444787, 3551910535291105, 4041593896103, 5347039149245184, 337941624752787, 67099423720619241, 6394362198407475, 3560667783239439, 4017950948196059, 6759393197130163, 6771549142615186, 201836980226124, 3556519446278575, 3566850663741161, 3528172140783618, 3537563353849766, 6331107836502898, 4508928697689785];
+let numbString = numbers.toString();
+let oddNumbersArray = []
 
 
-odd = numbers.reduce(function (r, a) { return r + a % 2; }, 0);
+for (let i = 0; i < numbString.length; i++) {
+
+        if (numbString[i] % 2 != 0) {
+  
+
+        console.log(numbString[i])
+    
+
+}
+}
 
 
-console.log(odd)
