@@ -13,3 +13,5 @@ for (let i = 0; i < numberString.length; i ++) {
 
 }
 console.log(numberArry);
+
+console.log(numberArry);
