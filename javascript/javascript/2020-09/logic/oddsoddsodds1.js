@@ -17,39 +17,41 @@ let number = [337941312819039, 5602256151929824, 30225170444787,3551910535291105
 6759393197130163, 6771549142615186, 201836980226124, 3556519446278575, 3566850663741161, 3528172140783618, 3537563353849766, 6331107836502898, 4508928697689785]
 
 
+// trying to put each number into its own seperate array so i can get the length of each number to check if its odd
+let NumberArray = [];
+
 // turn number into a string
 let numberToString = number.toString();
 
 
-
-// trying to put each number into its own seperate array so i can get the length of each number to check if its odd
-let NumberArray = [];
-
-
+let numNewStr = '';
 
 
 // changed from numToString condition
 
 for (let i = 0; i <number.length; i++) {
 
-console.log(number[i])
-    if (number[i].length % 2 != 0) {
-        // oddNumStr += numToStr[i]
+//console.log(number[i])
 
-        NumberArray.push(number[i]);
-    }
+ NumberArray.push([number[i]])
+
+
+//     if (number[i].length % 2 != 0) {
+//         // oddNumStr += numToStr[i]
+
+      
+//     }
 
  }
+
+
+console.log(NumberArray);
+//onsole.log(numNewStr)
  // logging the numbers into an array
- console.log(NumberArray);
-
- // logging the numbers with an odd amount of numbers
-console.log(numToStr.length)
+ //console.log(NumberArray);
 
 
 
-// logging all of the odds into a string
- console.log(oddNumStr)
 
 
 
@@ -77,5 +79,3 @@ console.log(numToStr.length)
 //         oddNumStr += numToStr[i];
 //     }
 // }
-
-// console.log(oddNumStr)
