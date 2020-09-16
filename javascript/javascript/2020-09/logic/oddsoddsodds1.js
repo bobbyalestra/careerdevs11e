@@ -45,10 +45,10 @@ for (let i = 0; i <number.length; i++) {
  }
 
 
-console.log(NumberArray);
-//onsole.log(numNewStr)
- // logging the numbers into an array
- //console.log(NumberArray);
+// console.log(NumberArray);
+// //onsole.log(numNewStr)
+//  // logging the numbers into an array
+//  //console.log(NumberArray);
 
 
 
